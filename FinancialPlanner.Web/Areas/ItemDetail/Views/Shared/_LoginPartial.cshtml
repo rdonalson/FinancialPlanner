@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNet.Identity
+@using (Html.BeginForm("Index", "ItemDetailHome", FormMethod.Get, new {id = "displayForm", @class = "navbar-right"}))
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @*@Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "ItemDetailHome", null)*@
+            @Html.Raw("Hello " + User.Identity.GetUserName())
+        </li>
+    </ul>
+}

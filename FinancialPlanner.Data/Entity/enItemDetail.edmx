@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ItemDetailModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Credits">
+          <Key>
+            <PropertyRef Name="PkCredit" />
+          </Key>
+          <Property Name="PkCredit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="75" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="FkPeriod" Type="int" />
+          <Property Name="BeginDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="WeeklyDOW" Type="int" />
+          <Property Name="EverOtherWeekDOW" Type="int" />
+          <Property Name="BiMonthlyDay1" Type="int" />
+          <Property Name="BiMonthlyDay2" Type="int" />
+          <Property Name="MonthlyDOM" Type="int" />
+          <Property Name="Quarterly1Month" Type="int" />
+          <Property Name="Quarterly1Day" Type="int" />
+          <Property Name="Quarterly2Month" Type="int" />
+          <Property Name="Quarterly2Day" Type="int" />
+          <Property Name="Quarterly3Month" Type="int" />
+          <Property Name="Quarterly3Day" Type="int" />
+          <Property Name="Quarterly4Month" Type="int" />
+          <Property Name="Quarterly4Day" Type="int" />
+          <Property Name="SemiAnnual1Month" Type="int" />
+          <Property Name="SemiAnnual1Day" Type="int" />
+          <Property Name="SemiAnnual2Month" Type="int" />
+          <Property Name="SemiAnnual2Day" Type="int" />
+          <Property Name="AnnualMOY" Type="int" />
+          <Property Name="AnnualDOM" Type="int" />
+          <Property Name="DateRangeReq" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Debits">
+          <Key>
+            <PropertyRef Name="PkDebit" />
+          </Key>
+          <Property Name="PkDebit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="75" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="FkPeriod" Type="int" />
+          <Property Name="BeginDate" Type="date" />
+          <Property Name="EndDate" Type="date" />
+          <Property Name="WeeklyDOW" Type="int" />
+          <Property Name="EverOtherWeekDOW" Type="int" />
+          <Property Name="BiMonthlyDay1" Type="int" />
+          <Property Name="BiMonthlyDay2" Type="int" />
+          <Property Name="MonthlyDOM" Type="int" />
+          <Property Name="Quarterly1Month" Type="int" />
+          <Property Name="Quarterly1Day" Type="int" />
+          <Property Name="Quarterly2Month" Type="int" />
+          <Property Name="Quarterly2Day" Type="int" />
+          <Property Name="Quarterly3Month" Type="int" />
+          <Property Name="Quarterly3Day" Type="int" />
+          <Property Name="Quarterly4Month" Type="int" />
+          <Property Name="Quarterly4Day" Type="int" />
+          <Property Name="SemiAnnual1Month" Type="int" />
+          <Property Name="SemiAnnual1Day" Type="int" />
+          <Property Name="SemiAnnual2Month" Type="int" />
+          <Property Name="SemiAnnual2Day" Type="int" />
+          <Property Name="AnnualMOY" Type="int" />
+          <Property Name="AnnualDOM" Type="int" />
+          <Property Name="DateRangeReq" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="InitialAmount">
+          <Key>
+            <PropertyRef Name="PkID" />
+          </Key>
+          <Property Name="PkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+          <Property Name="Amount" Type="money" />
+          <Property Name="BeginDate" Type="date" />
+        </EntityType>
+        <EntityType Name="Periods">
+          <Key>
+            <PropertyRef Name="PkPeriod" />
+          </Key>
+          <Property Name="PkPeriod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="75" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Credits_Periods">
+          <End Role="Periods" Type="Self.Periods" Multiplicity="0..1" />
+          <End Role="Credits" Type="Self.Credits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PkPeriod" />
+            </Principal>
+            <Dependent Role="Credits">
+              <PropertyRef Name="FkPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Debits_Periods">
+          <End Role="Periods" Type="Self.Periods" Multiplicity="0..1" />
+          <End Role="Debits" Type="Self.Debits" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PkPeriod" />
+            </Principal>
+            <Dependent Role="Debits">
+              <PropertyRef Name="FkPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ItemDetailModelStoreContainer">
+          <EntitySet Name="Credits" EntityType="Self.Credits" Schema="ItemDetail" store:Type="Tables" />
+          <EntitySet Name="Debits" EntityType="Self.Debits" Schema="ItemDetail" store:Type="Tables" />
+          <EntitySet Name="InitialAmount" EntityType="Self.InitialAmount" Schema="ItemDetail" store:Type="Tables" />
+          <EntitySet Name="Periods" EntityType="Self.Periods" Schema="ItemDetail" store:Type="Tables" />
+          <AssociationSet Name="FK_Credits_Periods" Association="Self.FK_Credits_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="Credits" EntitySet="Credits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Debits_Periods" Association="Self.FK_Debits_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="Debits" EntitySet="Debits" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ItemDetailModel" Alias="Self" annotation:UseStrongSpatialTypes="false"
+              xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation"
+              xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Credit">
+          <Key>
+            <PropertyRef Name="PkCredit" />
+          </Key>
+          <Property Name="PkCredit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FkPeriod" Type="Int32" />
+          <Property Name="BeginDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="WeeklyDOW" Type="Int32" />
+          <Property Name="EverOtherWeekDOW" Type="Int32" />
+          <Property Name="BiMonthlyDay1" Type="Int32" />
+          <Property Name="BiMonthlyDay2" Type="Int32" />
+          <Property Name="MonthlyDOM" Type="Int32" />
+          <Property Name="Quarterly1Month" Type="Int32" />
+          <Property Name="Quarterly1Day" Type="Int32" />
+          <Property Name="Quarterly2Month" Type="Int32" />
+          <Property Name="Quarterly2Day" Type="Int32" />
+          <Property Name="Quarterly3Month" Type="Int32" />
+          <Property Name="Quarterly3Day" Type="Int32" />
+          <Property Name="Quarterly4Month" Type="Int32" />
+          <Property Name="Quarterly4Day" Type="Int32" />
+          <Property Name="SemiAnnual1Month" Type="Int32" />
+          <Property Name="SemiAnnual1Day" Type="Int32" />
+          <Property Name="SemiAnnual2Month" Type="Int32" />
+          <Property Name="SemiAnnual2Day" Type="Int32" />
+          <Property Name="AnnualMOY" Type="Int32" />
+          <Property Name="AnnualDOM" Type="Int32" />
+          <Property Name="DateRangeReq" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Period" Relationship="Self.FK_Credits_Periods" FromRole="Credits" ToRole="Periods" />
+        </EntityType>
+        <EntityType Name="Debit">
+          <Key>
+            <PropertyRef Name="PkDebit" />
+          </Key>
+          <Property Name="PkDebit" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FkPeriod" Type="Int32" />
+          <Property Name="BeginDate" Type="DateTime" Precision="0" />
+          <Property Name="EndDate" Type="DateTime" Precision="0" />
+          <Property Name="WeeklyDOW" Type="Int32" />
+          <Property Name="EverOtherWeekDOW" Type="Int32" />
+          <Property Name="BiMonthlyDay1" Type="Int32" />
+          <Property Name="BiMonthlyDay2" Type="Int32" />
+          <Property Name="MonthlyDOM" Type="Int32" />
+          <Property Name="Quarterly1Month" Type="Int32" />
+          <Property Name="Quarterly1Day" Type="Int32" />
+          <Property Name="Quarterly2Month" Type="Int32" />
+          <Property Name="Quarterly2Day" Type="Int32" />
+          <Property Name="Quarterly3Month" Type="Int32" />
+          <Property Name="Quarterly3Day" Type="Int32" />
+          <Property Name="Quarterly4Month" Type="Int32" />
+          <Property Name="Quarterly4Day" Type="Int32" />
+          <Property Name="SemiAnnual1Month" Type="Int32" />
+          <Property Name="SemiAnnual1Day" Type="Int32" />
+          <Property Name="SemiAnnual2Month" Type="Int32" />
+          <Property Name="SemiAnnual2Day" Type="Int32" />
+          <Property Name="AnnualMOY" Type="Int32" />
+          <Property Name="AnnualDOM" Type="Int32" />
+          <Property Name="DateRangeReq" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Period" Relationship="Self.FK_Debits_Periods" FromRole="Debits" ToRole="Periods" />
+        </EntityType>
+        <EntityType Name="InitialAmount">
+          <Key>
+            <PropertyRef Name="PkID" />
+          </Key>
+          <Property Name="PkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="BeginDate" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Period">
+          <Key>
+            <PropertyRef Name="PkPeriod" />
+          </Key>
+          <Property Name="PkPeriod" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="75" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Credits" Relationship="Self.FK_Credits_Periods" FromRole="Periods" ToRole="Credits" />
+          <NavigationProperty Name="Debits" Relationship="Self.FK_Debits_Periods" FromRole="Periods" ToRole="Debits" />
+        </EntityType>
+        <Association Name="FK_Credits_Periods">
+          <End Role="Periods" Type="Self.Period" Multiplicity="0..1" />
+          <End Role="Credits" Type="Self.Credit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PkPeriod" />
+            </Principal>
+            <Dependent Role="Credits">
+              <PropertyRef Name="FkPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Debits_Periods">
+          <End Role="Periods" Type="Self.Period" Multiplicity="0..1" />
+          <End Role="Debits" Type="Self.Debit" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Periods">
+              <PropertyRef Name="PkPeriod" />
+            </Principal>
+            <Dependent Role="Debits">
+              <PropertyRef Name="FkPeriod" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ItemDetailEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Credits" EntityType="Self.Credit" />
+          <EntitySet Name="Debits" EntityType="Self.Debit" />
+          <EntitySet Name="InitialAmounts" EntityType="Self.InitialAmount" />
+          <EntitySet Name="Periods" EntityType="Self.Period" />
+          <AssociationSet Name="FK_Credits_Periods" Association="Self.FK_Credits_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="Credits" EntitySet="Credits" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Debits_Periods" Association="Self.FK_Debits_Periods">
+            <End Role="Periods" EntitySet="Periods" />
+            <End Role="Debits" EntitySet="Debits" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ItemDetailModelStoreContainer"
+                                CdmEntityContainer="ItemDetailEntities">
+          <EntitySetMapping Name="Credits">
+            <EntityTypeMapping TypeName="ItemDetailModel.Credit">
+              <MappingFragment StoreEntitySet="Credits">
+                <ScalarProperty Name="PkCredit" ColumnName="PkCredit" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="FkPeriod" ColumnName="FkPeriod" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="WeeklyDOW" ColumnName="WeeklyDOW" />
+                <ScalarProperty Name="EverOtherWeekDOW" ColumnName="EverOtherWeekDOW" />
+                <ScalarProperty Name="BiMonthlyDay1" ColumnName="BiMonthlyDay1" />
+                <ScalarProperty Name="BiMonthlyDay2" ColumnName="BiMonthlyDay2" />
+                <ScalarProperty Name="MonthlyDOM" ColumnName="MonthlyDOM" />
+                <ScalarProperty Name="Quarterly1Month" ColumnName="Quarterly1Month" />
+                <ScalarProperty Name="Quarterly1Day" ColumnName="Quarterly1Day" />
+                <ScalarProperty Name="Quarterly2Month" ColumnName="Quarterly2Month" />
+                <ScalarProperty Name="Quarterly2Day" ColumnName="Quarterly2Day" />
+                <ScalarProperty Name="Quarterly3Month" ColumnName="Quarterly3Month" />
+                <ScalarProperty Name="Quarterly3Day" ColumnName="Quarterly3Day" />
+                <ScalarProperty Name="Quarterly4Month" ColumnName="Quarterly4Month" />
+                <ScalarProperty Name="Quarterly4Day" ColumnName="Quarterly4Day" />
+                <ScalarProperty Name="SemiAnnual1Month" ColumnName="SemiAnnual1Month" />
+                <ScalarProperty Name="SemiAnnual1Day" ColumnName="SemiAnnual1Day" />
+                <ScalarProperty Name="SemiAnnual2Month" ColumnName="SemiAnnual2Month" />
+                <ScalarProperty Name="SemiAnnual2Day" ColumnName="SemiAnnual2Day" />
+                <ScalarProperty Name="AnnualMOY" ColumnName="AnnualMOY" />
+                <ScalarProperty Name="AnnualDOM" ColumnName="AnnualDOM" />
+                <ScalarProperty Name="DateRangeReq" ColumnName="DateRangeReq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Debits">
+            <EntityTypeMapping TypeName="ItemDetailModel.Debit">
+              <MappingFragment StoreEntitySet="Debits">
+                <ScalarProperty Name="PkDebit" ColumnName="PkDebit" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="FkPeriod" ColumnName="FkPeriod" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="WeeklyDOW" ColumnName="WeeklyDOW" />
+                <ScalarProperty Name="EverOtherWeekDOW" ColumnName="EverOtherWeekDOW" />
+                <ScalarProperty Name="BiMonthlyDay1" ColumnName="BiMonthlyDay1" />
+                <ScalarProperty Name="BiMonthlyDay2" ColumnName="BiMonthlyDay2" />
+                <ScalarProperty Name="MonthlyDOM" ColumnName="MonthlyDOM" />
+                <ScalarProperty Name="Quarterly1Month" ColumnName="Quarterly1Month" />
+                <ScalarProperty Name="Quarterly1Day" ColumnName="Quarterly1Day" />
+                <ScalarProperty Name="Quarterly2Month" ColumnName="Quarterly2Month" />
+                <ScalarProperty Name="Quarterly2Day" ColumnName="Quarterly2Day" />
+                <ScalarProperty Name="Quarterly3Month" ColumnName="Quarterly3Month" />
+                <ScalarProperty Name="Quarterly3Day" ColumnName="Quarterly3Day" />
+                <ScalarProperty Name="Quarterly4Month" ColumnName="Quarterly4Month" />
+                <ScalarProperty Name="Quarterly4Day" ColumnName="Quarterly4Day" />
+                <ScalarProperty Name="SemiAnnual1Month" ColumnName="SemiAnnual1Month" />
+                <ScalarProperty Name="SemiAnnual1Day" ColumnName="SemiAnnual1Day" />
+                <ScalarProperty Name="SemiAnnual2Month" ColumnName="SemiAnnual2Month" />
+                <ScalarProperty Name="SemiAnnual2Day" ColumnName="SemiAnnual2Day" />
+                <ScalarProperty Name="AnnualMOY" ColumnName="AnnualMOY" />
+                <ScalarProperty Name="AnnualDOM" ColumnName="AnnualDOM" />
+                <ScalarProperty Name="DateRangeReq" ColumnName="DateRangeReq" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InitialAmounts">
+            <EntityTypeMapping TypeName="ItemDetailModel.InitialAmount">
+              <MappingFragment StoreEntitySet="InitialAmount">
+                <ScalarProperty Name="PkID" ColumnName="PkID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Periods">
+            <EntityTypeMapping TypeName="ItemDetailModel.Period">
+              <MappingFragment StoreEntitySet="Periods">
+                <ScalarProperty Name="PkPeriod" ColumnName="PkPeriod" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

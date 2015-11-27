@@ -1,0 +1,44 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{51B92F2D-FB72-41AA-AA3D-E564117CBBB7}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialPlanner.Web", "FinancialPlanner.Web\FinancialPlanner.Web.csproj", "{878AB18F-99BA-4B68-BAF6-10F84F69DDFB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0E364B25-FC38-4DAB-BEE8-9757F56EF350} = {0E364B25-FC38-4DAB-BEE8-9757F56EF350}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialPlanner.Data", "FinancialPlanner.Data\FinancialPlanner.Data.csproj", "{1A987BD0-8F5B-4757-95BF-45B838E4BA75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialPlanner.Infrastructure", "FinancialPlanner.Infrastructure\FinancialPlanner.Infrastructure.csproj", "{0E364B25-FC38-4DAB-BEE8-9757F56EF350}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{878AB18F-99BA-4B68-BAF6-10F84F69DDFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{878AB18F-99BA-4B68-BAF6-10F84F69DDFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{878AB18F-99BA-4B68-BAF6-10F84F69DDFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{878AB18F-99BA-4B68-BAF6-10F84F69DDFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A987BD0-8F5B-4757-95BF-45B838E4BA75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A987BD0-8F5B-4757-95BF-45B838E4BA75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A987BD0-8F5B-4757-95BF-45B838E4BA75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A987BD0-8F5B-4757-95BF-45B838E4BA75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E364B25-FC38-4DAB-BEE8-9757F56EF350}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E364B25-FC38-4DAB-BEE8-9757F56EF350}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E364B25-FC38-4DAB-BEE8-9757F56EF350}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E364B25-FC38-4DAB-BEE8-9757F56EF350}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
