@@ -1,18 +1,15 @@
 ﻿@model FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels.DetailItemView
 
 @{
-    ViewBag.Title = "Create";
-    //int pkPeriod = ViewBag.PkPeriod;
+    ViewBag.Title = "Add";
 }
-
-<h2>Create</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Credit</h4>
+        <h4>Credit - Add</h4>
         <hr />
         @Html.ValidationSummary(true, "", new {@class = "text-danger"})
         @Html.Partial("_EditForm")

@@ -1,17 +1,15 @@
 ﻿@model FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels.InitialAmountView
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Add";
 }
-
-<h2>Create</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Initial Amount</h4>
+        <h4>Initial Amount - Add</h4>
         <hr />
         @Html.ValidationSummary(true, "", new {@class = "text-danger"})
         @Html.Partial("_IAEditForm")

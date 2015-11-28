@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 
 [assembly: AssemblyTitle("Financial Planner")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple Financial Planner for determining cash flow")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Donalson Software Solutions")]
 [assembly: AssemblyProduct("Financial Planner")]
-[assembly: AssemblyCopyright("No Copyright - Open Source")]
+[assembly: AssemblyCopyright("Copyright © DSS")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

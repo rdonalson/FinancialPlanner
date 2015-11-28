@@ -1,41 +1,41 @@
-﻿@using FinancialPlanner.Data.Entity
-@model IEnumerable<InitialAmount>
+﻿@model IEnumerable<FinancialPlanner.Data.Entity.InitialAmount>
 
 @{
     ViewBag.Title = "Index";
     var exists = bool.Parse(ViewData["Exists"].ToString());
 }
 
-<!DOCTYPE html>
+<h4>Initial Amount</h4>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-<p>
-    @if (!exists)
-    {
+@if (!exists)
+{
+    <p>
         @Html.ActionLink("Create New", "Create")
-    }
-</p>
-    <table class="table">
-        <tr>
-            <th></th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.BeginDate)
-            </th>
-        </tr>
-    
-    @foreach (InitialAmount item in Model)
+    </p>
+}
+else
+{
+    <p>
+        &nbsp;
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BeginDate)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
     {
         <tr>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.PkID })
+                @Html.ActionLink("Edit", "Edit", new {id = item.PkID})
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Amount, "_Currency")
@@ -45,7 +45,5 @@
             </td>
         </tr>
     }
-    
-    </table>
-</body>
-</html>
+
+</table>
