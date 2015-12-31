@@ -831,7 +831,6 @@
     <Content Include="Areas\ItemDetail\Views\InitialAmount\Edit.cshtml" />
     <Content Include="Content\reponsive-list.less" />
     <Content Include="Content\list-group-plain.less" />
-    <None Include="Properties\PublishProfiles\rickdonalson-financialplanner.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -927,6 +926,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Scripts\ts\" />
   </ItemGroup>
   <ItemGroup>
