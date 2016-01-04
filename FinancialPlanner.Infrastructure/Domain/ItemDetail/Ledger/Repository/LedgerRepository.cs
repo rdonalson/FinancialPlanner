@@ -1,4 +1,7 @@
-﻿using FinancialPlanner.Data.Entity;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using FinancialPlanner.Data.Entity;
 
 namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Ledger.Repository
 {
@@ -31,6 +34,23 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Ledger.Repository
                 userid,
                 password));
         }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        /// Get the Ledger Readout
+        /// </summary>
+        /// <param name="timeFrameBegin"></param>
+        /// <param name="timeFrameEnd">DateTime</param>
+        /// <param name="userName">string</param>
+        /// <returns>List(spCreateLedgerReadout_Result)</returns>
+        /// ---------------------------------------------------------------------
+        public List<spCreateLedgerReadout_Result> GetLedgerReadout(DateTime timeFrameBegin, DateTime timeFrameEnd, string userName)
+        {
+            List<spCreateLedgerReadout_Result> result =
+                _db.spCreateLedgerReadout(timeFrameBegin, timeFrameEnd, userName).ToList();
+            return result;
+        }
+
 
         /// ---------------------------------------------------------------------
         /// <summary>
