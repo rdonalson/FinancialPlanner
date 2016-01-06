@@ -19,6 +19,21 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialPlanner.Data", "Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialPlanner.Infrastructure", "FinancialPlanner.Infrastructure\FinancialPlanner.Infrastructure.csproj", "{0E364B25-FC38-4DAB-BEE8-9757F56EF350}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Scripts", "Database Scripts", "{DA019D64-5F59-4133-B462-DB0750D11B3D}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create Database FinancialPlanner.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create Database FinancialPlanner.sql
+		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create Schema ItemDetail.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create Schema ItemDetail.sql
+		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Create spCreateLedgerReadout.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Create spCreateLedgerReadout.sql
+		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create User Create Tables & Relationships.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create User Create Tables & Relationships.sql
+		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create User fpadmin.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Create User fpadmin.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ER Diagrams", "ER Diagrams", "{ED5D4BC5-8877-4CF7-A4A5-187FFF1EFBD8}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\Documents\SQL Server Management Studio\Financial Planner\ER Diagram diaAuthentication.docx = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\ER Diagram diaAuthentication.docx
+		..\..\..\Documents\SQL Server Management Studio\Financial Planner\ER Diagram diaItemDetail.docx = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\ER Diagram diaItemDetail.docx
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
