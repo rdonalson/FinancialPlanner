@@ -23,15 +23,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Scripts", "Databas
 	ProjectSection(SolutionItems) = preProject
 		Database Scripts\Create Database FinancialPlanner.sql = Database Scripts\Create Database FinancialPlanner.sql
 		Database Scripts\Create Schema ItemDetail.sql = Database Scripts\Create Schema ItemDetail.sql
-		Database Scripts\Create spCreateLedgerReadout.sql = Database Scripts\Create spCreateLedgerReadout.sql
-		Database Scripts\Create User Create Tables & Relationships.sql = Database Scripts\Create User Create Tables & Relationships.sql
+		Database Scripts\Create Tables & Relationships.sql = Database Scripts\Create Tables & Relationships.sql
 		Database Scripts\Create User fpadmin.sql = Database Scripts\Create User fpadmin.sql
+		Database Scripts\Create Views.sql = Database Scripts\Create Views.sql
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ER Diagrams", "ER Diagrams", "{ED5D4BC5-8877-4CF7-A4A5-187FFF1EFBD8}"
 	ProjectSection(SolutionItems) = preProject
 		ER Diagrams\ER Diagram diaAuthentication.docx = ER Diagrams\ER Diagram diaAuthentication.docx
 		ER Diagrams\ER Diagram diaItemDetail.docx = ER Diagrams\ER Diagram diaItemDetail.docx
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ledger", "Ledger", "{4EA607D3-3CBF-4E8C-984F-B85605A62F0E}"
+	ProjectSection(SolutionItems) = preProject
+		Database Scripts\Ledger\Create spCreateLedgerReadout.sql = Database Scripts\Ledger\Create spCreateLedgerReadout.sql
+		Database Scripts\Ledger\Script spCreateLedgerReadout.sql = Database Scripts\Ledger\Script spCreateLedgerReadout.sql
+		Database Scripts\Ledger\Test Procedure spCreateLedgerReadout.sql = Database Scripts\Ledger\Test Procedure spCreateLedgerReadout.sql
 	EndProjectSection
 EndProject
 Global
@@ -55,5 +62,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4EA607D3-3CBF-4E8C-984F-B85605A62F0E} = {DA019D64-5F59-4133-B462-DB0750D11B3D}
 	EndGlobalSection
 EndGlobal

@@ -1,7 +1,7 @@
 USE [FinancialPlanner]
 GO
 
-/****** Object:  StoredProcedure [ItemDetail].[spCreateLedgerReadout]    Script Date: 1/6/2016 8:46:59 AM ******/
+/****** Object:  StoredProcedure [ItemDetail].[spCreateLedgerReadout]    Script Date: 1/6/2016 11:48:01 AM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -165,36 +165,34 @@ BEGIN
 	)
 	SELECT 
 			1,  /* Credit */
-			c.PkCredit,
-			c.Name,
-			c.Amount,
-			c.FkPeriod,
-			p.Name,
-			c.BeginDate,
-			c.EndDate,
-			c.WeeklyDOW,
-			c.EverOtherWeekDOW,
-			c.BiMonthlyDay1,
-			c.BiMonthlyDay2,
-			c.MonthlyDOM,
-			c.Quarterly1Month,
-			c.Quarterly1Day,
-			c.Quarterly2Month,
-			c.Quarterly2Day,
-			c.Quarterly3Month,
-			c.Quarterly3Day,
-			c.Quarterly4Month,
-			c.Quarterly4Day,
-			c.SemiAnnual1Month,
-			c.SemiAnnual1Day,
-			c.SemiAnnual2Month,
-			c.SemiAnnual2Day,
-			c.AnnualMOY,
-			c.AnnualDOM,
-			c.DateRangeReq
-	FROM ItemDetail.Credits AS c WITH (NOLOCK)
-	INNER JOIN ItemDetail.Periods AS p WITH (NOLOCK)
-	ON c.FkPeriod = p.PkPeriod
+			PkCredit,
+			Name,
+			Amount,
+			FkPeriod,
+			PeriodName,
+			BeginDate,
+			EndDate,
+			WeeklyDOW,
+			EverOtherWeekDOW,
+			BiMonthlyDay1,
+			BiMonthlyDay2,
+			MonthlyDOM,
+			Quarterly1Month,
+			Quarterly1Day,
+			Quarterly2Month,
+			Quarterly2Day,
+			Quarterly3Month,
+			Quarterly3Day,
+			Quarterly4Month,
+			Quarterly4Day,
+			SemiAnnual1Month,
+			SemiAnnual1Day,
+			SemiAnnual2Month,
+			SemiAnnual2Day,
+			AnnualMOY,
+			AnnualDOM,
+			DateRangeReq
+	FROM ItemDetail.vwCredits
 	WHERE UserName = @UserName;
 
 	/* Get a list of the Credits that are Every other Week */
@@ -230,40 +228,38 @@ BEGIN
 	)
 	SELECT 
 			2,	 /* Debit */
-			d.PkDebit,
-			d.Name,
+			PkDebit,
+			Name,
 			/*----------------------------------------------------------------
 			--	Debit Amounts are positive when entered in the UI, so 
 			--	make them negative here for calculation and display purposes
 			----------------------------------------------------------------*/
-			(d.Amount * -1) AS Amount,	
-			d.FkPeriod,
-			p.Name,
-			d.BeginDate,
-			d.EndDate,
-			d.WeeklyDOW,
-			d.EverOtherWeekDOW,
-			d.BiMonthlyDay1,
-			d.BiMonthlyDay2,
-			d.MonthlyDOM,
-			d.Quarterly1Month,
-			d.Quarterly1Day,
-			d.Quarterly2Month,
-			d.Quarterly2Day,
-			d.Quarterly3Month,
-			d.Quarterly3Day,
-			d.Quarterly4Month,
-			d.Quarterly4Day,
-			d.SemiAnnual1Month,
-			d.SemiAnnual1Day,
-			d.SemiAnnual2Month,
-			d.SemiAnnual2Day,
-			d.AnnualMOY,
-			d.AnnualDOM,
-			d.DateRangeReq
-	FROM ItemDetail.Debits AS d WITH (NOLOCK)
-	INNER JOIN ItemDetail.Periods AS p WITH (NOLOCK)
-	ON d.FkPeriod = p.PkPeriod
+			(Amount * -1) AS Amount,	
+			FkPeriod,
+			PeriodName,
+			BeginDate,
+			EndDate,
+			WeeklyDOW,
+			EverOtherWeekDOW,
+			BiMonthlyDay1,
+			BiMonthlyDay2,
+			MonthlyDOM,
+			Quarterly1Month,
+			Quarterly1Day,
+			Quarterly2Month,
+			Quarterly2Day,
+			Quarterly3Month,
+			Quarterly3Day,
+			Quarterly4Month,
+			Quarterly4Day,
+			SemiAnnual1Month,
+			SemiAnnual1Day,
+			SemiAnnual2Month,
+			SemiAnnual2Day,
+			AnnualMOY,
+			AnnualDOM,
+			DateRangeReq
+	FROM ItemDetail.vwDebits
 	WHERE UserName = @UserName;
 
 	/* Diagnostic */
