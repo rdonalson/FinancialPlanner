@@ -73,6 +73,8 @@ GO
 		PkLMain INT IDENTITY(1,1) PRIMARY KEY CLUSTERED NOT NULL,
 		WDate DATE NULL,
 		DailyAmount FLOAT NULL DEFAULT(0),
+		CreditSummary FLOAT NULL DEFAULT(0),
+		DebitSummary FLOAT NULL DEFAULT(0),
 		RunningTotal FLOAT NULL DEFAULT(0)
 	);
 	DECLARE @LedgerDetail TABLE (
@@ -990,22 +992,58 @@ GO
 	--	amount
 	-------------------------------------------------------------*/
 	UPDATE @LedgerMain 
-	SET DailyAmount = wd.DailyAmount
+	SET DailyAmount = wd.DailyAmount,
+		CreditSummary = ISNULL(credits.CreditSummary,0),
+		DebitSummary = ISNULL(debits.DebitSummary,0)		
 	FROM @LedgerMain AS w
 	INNER JOIN (
 			SELECT 
 				wd.FkLMain,
-				SUM(wd.Amount) AS DailyAmount
+				SUM(wd.Amount) AS DailyAmount			-- Daily Overall Summary
 			FROM @LedgerDetail AS wd
 			GROUP BY wd.FkLMain
 	) AS wd
-	ON w.PkLMain = wd.FkLMain;
+	ON w.PkLMain = wd.FkLMain
+	LEFT OUTER JOIN (
+			SELECT 
+				wd.FkLMain,
+				SUM(wd.Amount) AS CreditSummary		-- Daily Credit Summary
+			FROM @LedgerDetail AS wd
+			WHERE ItemType = 1
+			GROUP BY wd.FkLMain
+	) AS credits
+	ON w.PkLMain = credits.FkLMain
+	LEFT OUTER JOIN (
+			SELECT 
+				wd.FkLMain,
+				SUM(wd.Amount) AS DebitSummary		-- Daily Debit Summary
+			FROM @LedgerDetail AS wd
+			WHERE ItemType = 2
+			GROUP BY wd.FkLMain
+	) AS debits
+	ON w.PkLMain = debits.FkLMain;;
 
 	/* Diagnostic */
 	--SELECT 
 	--	wd.FkLMain,
 	--	SUM(wd.Amount) AS DailyAmount
 	--FROM @LedgerDetail AS wd
+	--GROUP BY wd.FkLMain
+
+	/* Diagnostic */
+	--SELECT 
+	--	wd.FkLMain,
+	--	SUM(wd.Amount) AS CreditSummary
+	--FROM @LedgerDetail AS wd
+	--WHERE ItemType = 1
+	--GROUP BY wd.FkLMain
+
+	/* Diagnostic */
+	--SELECT 
+	--	wd.FkLMain,
+	--	SUM(wd.Amount) AS DebitSummary
+	--FROM @LedgerDetail AS wd
+	--WHERE ItemType = 2
 	--GROUP BY wd.FkLMain
 
 	/*-------------------------------------------------------------
@@ -1081,6 +1119,8 @@ GO
 	SELECT 
 		w.PkLMain,
 		w.WDate,
+		w.CreditSummary,
+		w.DebitSummary,
 		w.DailyAmount,
 		w.RunningTotal,
 		wd.ItemType,
