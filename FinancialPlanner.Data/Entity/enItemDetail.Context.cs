@@ -31,6 +31,8 @@ namespace FinancialPlanner.Data.Entity
         public virtual DbSet<Debit> Debits { get; set; }
         public virtual DbSet<InitialAmount> InitialAmounts { get; set; }
         public virtual DbSet<Period> Periods { get; set; }
+        public virtual DbSet<vwCredit> vwCredits { get; set; }
+        public virtual DbSet<vwDebit> vwDebits { get; set; }
     
         public virtual ObjectResult<spCreateLedgerReadout_Result> spCreateLedgerReadout(Nullable<System.DateTime> timeFrameBegin, Nullable<System.DateTime> timeFrameEnd, string userName)
         {

@@ -15,7 +15,9 @@ namespace FinancialPlanner.Data.Entity
     {
         public int PkLMain { get; set; }
         public Nullable<System.DateTime> WDate { get; set; }
-        public Nullable<double> DailyAmount { get; set; }
+        public Nullable<double> CreditSummary { get; set; }
+        public Nullable<double> DebitSummary { get; set; }
+        public Nullable<double> NetDaily { get; set; }
         public Nullable<double> RunningTotal { get; set; }
         public Nullable<int> ItemType { get; set; }
         public Nullable<int> FkItemDetail { get; set; }

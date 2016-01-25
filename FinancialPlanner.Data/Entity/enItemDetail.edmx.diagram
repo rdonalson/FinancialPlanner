@@ -11,6 +11,8 @@
         <EntityTypeShape EntityType="ItemDetailModel.Period" Width="1.5" PointX="3.375" PointY="1" IsExpanded="true" />
         <AssociationConnector Association="ItemDetailModel.FK_Credits_Periods" ManuallyRouted="false" />
         <AssociationConnector Association="ItemDetailModel.FK_Debits_Periods" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ItemDetailModel.vwCredit" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ItemDetailModel.vwDebit" Width="1.5" PointX="2.75" PointY="8.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
