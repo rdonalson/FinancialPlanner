@@ -1,7 +1,7 @@
 USE [FinancialPlanner]
 GO
 
-/****** Object:  StoredProcedure [ItemDetail].[spCreateLedgerReadout]    Script Date: 1/6/2016 11:48:01 AM ******/
+/****** Object:  StoredProcedure [ItemDetail].[spCreateLedgerReadout]    Script Date: 1/25/2016 12:26:09 PM ******/
 SET ANSI_NULLS ON
 GO
 
@@ -54,10 +54,10 @@ GO
 --						item data to the "@LedgerDetail" table along with the primary key "PkLMain" 
 --						from the "@LedgerMain" table, which placed in the field "FkLMain".
 --		4.	Summarized the Item Amounts in the "@LedgerDetail" table for a given occurrance   
---				date and update the "DailyAmount" field in the "@LedgerMain" table for that date.
+--				date and update the "NetDaily" field in the "@LedgerMain" table for that date.
 --		5.	Get the initial checking balance.
 --		6.	Finally iterate through all the occurrance dates and updating the "RunningTotal" 
---				by adding the "DailyAmount" from the current date to the "RunningTotal" from the 
+--				by adding the "NetDaily" from the current date to the "RunningTotal" from the 
 --				sequentially earlier date and updating the "RunningTotal" in the current.
 --===========================================================================================*/
 CREATE PROCEDURE [ItemDetail].[spCreateLedgerReadout] (
@@ -77,7 +77,9 @@ BEGIN
 	DECLARE @LedgerMain TABLE (
 		PkLMain INT IDENTITY(1,1) PRIMARY KEY CLUSTERED NOT NULL,
 		WDate DATE NULL,
-		DailyAmount FLOAT NULL DEFAULT(0),
+		NetDaily FLOAT NULL DEFAULT(0),
+		CreditSummary FLOAT NULL DEFAULT(0),
+		DebitSummary FLOAT NULL DEFAULT(0),
 		RunningTotal FLOAT NULL DEFAULT(0)
 	);
 	DECLARE @LedgerDetail TABLE (
@@ -995,23 +997,60 @@ BEGIN
 	--	amount
 	-------------------------------------------------------------*/
 	UPDATE @LedgerMain 
-	SET DailyAmount = wd.DailyAmount
+	SET NetDaily = wd.NetDaily,
+		CreditSummary = ISNULL(credits.CreditSummary,0),
+		DebitSummary = ISNULL(debits.DebitSummary,0)		
 	FROM @LedgerMain AS w
 	INNER JOIN (
 			SELECT 
 				wd.FkLMain,
-				SUM(wd.Amount) AS DailyAmount
+				SUM(wd.Amount) AS NetDaily			-- Daily Overall Summary
 			FROM @LedgerDetail AS wd
 			GROUP BY wd.FkLMain
 	) AS wd
-	ON w.PkLMain = wd.FkLMain;
+	ON w.PkLMain = wd.FkLMain
+	LEFT OUTER JOIN (
+			SELECT 
+				wd.FkLMain,
+				SUM(wd.Amount) AS CreditSummary		-- Daily Credit Summary
+			FROM @LedgerDetail AS wd
+			WHERE ItemType = 1
+			GROUP BY wd.FkLMain
+	) AS credits
+	ON w.PkLMain = credits.FkLMain
+	LEFT OUTER JOIN (
+			SELECT 
+				wd.FkLMain,
+				SUM(wd.Amount) AS DebitSummary		-- Daily Debit Summary
+			FROM @LedgerDetail AS wd
+			WHERE ItemType = 2
+			GROUP BY wd.FkLMain
+	) AS debits
+	ON w.PkLMain = debits.FkLMain;;
 
 	/* Diagnostic */
 	--SELECT 
 	--	wd.FkLMain,
-	--	SUM(wd.Amount) AS DailyAmount
+	--	SUM(wd.Amount) AS NetDaily
 	--FROM @LedgerDetail AS wd
 	--GROUP BY wd.FkLMain
+
+	/* Diagnostic */
+	--SELECT 
+	--	wd.FkLMain,
+	--	SUM(wd.Amount) AS CreditSummary
+	--FROM @LedgerDetail AS wd
+	--WHERE ItemType = 1
+	--GROUP BY wd.FkLMain
+
+	/* Diagnostic */
+	--SELECT 
+	--	wd.FkLMain,
+	--	SUM(wd.Amount) AS DebitSummary
+	--FROM @LedgerDetail AS wd
+	--WHERE ItemType = 2
+	--GROUP BY wd.FkLMain
+
 
 	/*-------------------------------------------------------------
 	--	Get the initial checking balance
@@ -1028,14 +1067,14 @@ BEGIN
 	--	Update the running total in @LedgerMain
 	-------------------------------------------------------------*/
 	/* Local declarations & Initializations */
-	DECLARE @PkLMain INT, @WDate DATE, @DailyAmount MONEY, @RunningTotal MONEY;
+	DECLARE @PkLMain INT, @WDate DATE, @NetDaily MONEY, @RunningTotal MONEY;
 
 	/* Initialize running total with Initial Amount */
 	SET @RunningTotal = @InitialAmount;
 
 	/* Initialize cursor */
 	DECLARE curRunningTotal CURSOR LOCAL FOR
-	SELECT PkLMain, WDate, DailyAmount
+	SELECT PkLMain, WDate, NetDaily
 	FROM @LedgerMain ORDER BY WDate FOR UPDATE OF RunningTotal;
 
 	/* Open cursor */
@@ -1043,29 +1082,29 @@ BEGIN
 
 	/* Get first record */
 	FETCH NEXT FROM curRunningTotal 
-	INTO @PkLMain, @WDate, @DailyAmount;
+	INTO @PkLMain, @WDate, @NetDaily;
 
 	/* Begin looping */
 	WHILE (@@FETCH_STATUS = 0) BEGIN
 	
 		/* Diagnostic */
 		--PRINT '-----------' + CHAR(13) + '** Before **' + CHAR(13) 
-		--		+	'@DailyAmount: ' + ISNULL(CONVERT(VARCHAR, @DailyAmount), '-') + CHAR(9) 
+		--		+	'@NetDaily: ' + ISNULL(CONVERT(VARCHAR, @NetDaily), '-') + CHAR(9) 
 		--		+ '@RunningTotal: ' + ISNULL(CONVERT(VARCHAR, @RunningTotal), '-') 
 
 		/* Update running total */
-		SET @RunningTotal = @RunningTotal + @DailyAmount;
+		SET @RunningTotal = @RunningTotal + @NetDaily;
 		/* Update running total in @LedgerMain table */
 		UPDATE @LedgerMain SET RunningTotal = @RunningTotal WHERE CURRENT OF curRunningTotal;
 
 		/* Diagnostic */
 		--PRINT '** After **' + CHAR(13) 
-		--		+	'@DailyAmount: ' + ISNULL(CONVERT(VARCHAR, @DailyAmount), '-') + CHAR(9) 
+		--		+	'@NetDaily: ' + ISNULL(CONVERT(VARCHAR, @NetDaily), '-') + CHAR(9) 
 		--		+ '@RunningTotal: ' + ISNULL(CONVERT(VARCHAR, @RunningTotal), '-') 
 
 		/* Get next record */
 		FETCH NEXT FROM curRunningTotal 
-		INTO @PkLMain, @WDate, @DailyAmount;  
+		INTO @PkLMain, @WDate, @NetDaily;  
 	END;
 
 	/* Close cursor & Release memory */
@@ -1086,7 +1125,9 @@ BEGIN
 	SELECT 
 		w.PkLMain,
 		w.WDate,
-		w.DailyAmount,
+		w.CreditSummary,
+		w.DebitSummary,
+		w.NetDaily,
 		w.RunningTotal,
 		wd.ItemType,
 		wd.FkItemDetail,
