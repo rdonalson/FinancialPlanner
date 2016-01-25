@@ -139,7 +139,7 @@
     <value>rdonalson@pn5745kjcc</value>
   </data>
   <data name="CONN_DIRECTION" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
     <comment>Set the application connection to:
 1  - Azure (your Azure datatbase)
 2  - Server (A network or local server database)

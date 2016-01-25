@@ -67,6 +67,8 @@
     </Compile>
     <Compile Include="Domain\ItemDetail\Initial\Repository\IInitialAmountRepository.cs" />
     <Compile Include="Domain\ItemDetail\Initial\Repository\InitialAmountRepository.cs" />
+    <Compile Include="Domain\ItemDetail\Ledger\Repository\ILedgerRepository.cs" />
+    <Compile Include="Domain\ItemDetail\Ledger\Repository\LedgerRepository.cs" />
     <Compile Include="Domain\ItemDetail\Periods\MetaData\PeriodMetadata.cs" />
     <Compile Include="Domain\ItemDetail\Periods\Repository\IPeriodRepository.cs" />
     <Compile Include="Domain\ItemDetail\Periods\Repository\PeriodRepository.cs" />

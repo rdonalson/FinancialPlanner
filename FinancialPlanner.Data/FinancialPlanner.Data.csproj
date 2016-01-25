@@ -117,6 +117,9 @@
     <Compile Include="Entity\Period.cs">
       <DependentUpon>enItemDetail.tt</DependentUpon>
     </Compile>
+    <Compile Include="Entity\spCreateLedgerReadout_Result.cs">
+      <DependentUpon>enItemDetail.tt</DependentUpon>
+    </Compile>
     <Compile Include="Entity\sysdiagram.cs">
       <DependentUpon>enAdmin.tt</DependentUpon>
     </Compile>

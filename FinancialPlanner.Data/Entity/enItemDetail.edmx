@@ -110,6 +110,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="spCreateLedgerReadout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ItemDetail">
+          <Parameter Name="TimeFrameBegin" Type="date" Mode="In" />
+          <Parameter Name="TimeFrameEnd" Type="date" Mode="In" />
+          <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="ItemDetailModelStoreContainer">
           <EntitySet Name="Credits" EntityType="Self.Credits" Schema="ItemDetail" store:Type="Tables" />
           <EntitySet Name="Debits" EntityType="Self.Debits" Schema="ItemDetail" store:Type="Tables" />
@@ -252,7 +257,23 @@
             <End Role="Periods" EntitySet="Periods" />
             <End Role="Debits" EntitySet="Debits" />
           </AssociationSet>
+          <FunctionImport Name="spCreateLedgerReadout" ReturnType="Collection(ItemDetailModel.spCreateLedgerReadout_Result)">
+            <Parameter Name="TimeFrameBegin" Mode="In" Type="DateTime" />
+            <Parameter Name="TimeFrameEnd" Mode="In" Type="DateTime" />
+            <Parameter Name="UserName" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="spCreateLedgerReadout_Result">
+          <Property Type="Int32" Name="PkLMain" Nullable="false" />
+          <Property Type="DateTime" Name="WDate" Nullable="true" />
+          <Property Type="Double" Name="DailyAmount" Nullable="true" />
+          <Property Type="Double" Name="RunningTotal" Nullable="true" />
+          <Property Type="Int32" Name="ItemType" Nullable="true" />
+          <Property Type="Int32" Name="FkItemDetail" Nullable="true" />
+          <Property Type="String" Name="PeriodName" Nullable="true" MaxLength="75" />
+          <Property Type="String" Name="Name" Nullable="true" MaxLength="75" />
+          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -344,6 +365,21 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="spCreateLedgerReadout" FunctionName="ItemDetailModel.Store.spCreateLedgerReadout">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ItemDetailModel.spCreateLedgerReadout_Result">
+                <ScalarProperty Name="PkLMain" ColumnName="PkLMain" />
+                <ScalarProperty Name="WDate" ColumnName="WDate" />
+                <ScalarProperty Name="DailyAmount" ColumnName="DailyAmount" />
+                <ScalarProperty Name="RunningTotal" ColumnName="RunningTotal" />
+                <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+                <ScalarProperty Name="FkItemDetail" ColumnName="FkItemDetail" />
+                <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
