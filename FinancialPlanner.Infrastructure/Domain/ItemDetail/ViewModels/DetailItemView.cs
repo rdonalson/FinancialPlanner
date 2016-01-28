@@ -5,15 +5,21 @@ using FinancialPlanner.Infrastructure.Domain.ItemDetail.Enums;
 
 namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
 {
+    /// =====================================================================
     /// <summary>
-    ///     This model is used for Intsert and Update duties for both
+    ///     This View Model is used for Insert and Update duties for both
     ///     Credits and Debits, since they have same properties
+    ///     ** Note:  It is contained in the Infrastructure project because it
+    ///     is used exclusively in the Repositories
     /// </summary>
+    /// =====================================================================
     public class DetailItemView
     {
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     General Properties
         /// </summary>
+        /// ---------------------------------------------------------------------
         public int PkID { get; set; }
 
         public string UserName { get; set; }
@@ -23,11 +29,11 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
         public string Name { get; set; }
 
         [Display(Name = "Amount")]
-        [Required(ErrorMessage = "Please enter: The amount")]
+        [Required(ErrorMessage = "Please enter: An amount")]
         [RegularExpression(@"\$\040{0,1}(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?", ErrorMessage = "Invalid Currency Value")]
         public string StrAmount { get; set; }
 
-        [Required(ErrorMessage = "Please enter: Period")]
+        [Required(ErrorMessage = "Please enter: A period")]
         [Display(Name = "Period:")]
         public int? FkPeriod { get; set; }
 
@@ -45,24 +51,30 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
         [Display(Name = "Period")]
         public Period Period { get; set; }
 
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     Weekly
         /// </summary>
+        /// ---------------------------------------------------------------------
         [Display(Name = "Every Week:")]
         [Required(ErrorMessage = "Please select: A weekday")]
         public Weekday? WeeklyDOW { get; set; }
 
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     Every Other Week ** Also uses "BeginDate" as an Initalization Date
         /// </summary>
+        /// ---------------------------------------------------------------------
         [Display(Name = "Every Other Week:")]
         [Range(1, 7)]
         [Required(ErrorMessage = "Please select: A weekday")]
         public Weekday? EverOtherWeekDOW { get; set; }
 
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     Bi-Monthly
         /// </summary>
+        /// ---------------------------------------------------------------------
         [Display(Name = "Bi-Monthly:")]
         [Required(ErrorMessage = "Please select: The 1st day of occurrence")]
         [Range(1, 28)]
@@ -72,17 +84,21 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
         [Range(1, 28)]
         public DayOfMonth? BiMonthlyDay2 { get; set; }
 
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     Monthly
         /// </summary>
+        /// ---------------------------------------------------------------------
         [Display(Name = "Day of the Month:")]
         [Required(ErrorMessage = "Please select: The day of occurrence")]
         [Range(1, 28)]
         public DayOfMonth? MonthlyDOM { get; set; }
 
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     Quarterly
         /// </summary>
+        /// ---------------------------------------------------------------------
         [Display(Name = "1st Quarter:")]
         [Required(ErrorMessage = "Please enter: The 1st month of occurrence")]
         [Range(1, 12)]
@@ -119,9 +135,11 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
         [Range(1, 28)]
         public DayOfMonth? Quarterly4Day { get; set; }
 
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     Semi-Annual
         /// </summary>
+        /// ---------------------------------------------------------------------
         [Display(Name = "1st Semi-Annual:")]
         [Required(ErrorMessage = "Please enter: The 1st month of occurrence")]
         [Range(1, 12)]
@@ -140,9 +158,11 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
         [Range(1, 28)]
         public DayOfMonth? SemiAnnual2Day { get; set; }
 
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     Annual
         /// </summary>
+        /// ---------------------------------------------------------------------
         [Display(Name = "Annual:")]
         [Required(ErrorMessage = "Please enter: The month of occurrence")]
         [Range(1, 12)]
@@ -153,6 +173,3 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
         public DayOfMonth? AnnualDOM { get; set; }
     }
 }
-
-// Archive
-//[DisplayFormat(DataFormatString = "{0:F2}", ApplyFormatInEditMode = true)]

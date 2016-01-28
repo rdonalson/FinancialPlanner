@@ -29,12 +29,12 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Credits.Repository
             string password)
         {
             _db = new ItemDetailEntities(ConnectionStringManager.ConnectionString(
-                    conndirection,
-                    2,
-                    server,
-                    database,
-                    userid,
-                    password));
+                conndirection,
+                2,
+                server,
+                database,
+                userid,
+                password));
         }
 
         /// ---------------------------------------------------------------------
@@ -114,6 +114,58 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Credits.Repository
 
         /// ---------------------------------------------------------------------
         /// <summary>
+        ///     Add New Credit
+        /// </summary>
+        /// <param name="detailItemView">DetailItemView</param>
+        /// <returns>bool</returns>
+        /// ---------------------------------------------------------------------
+        public bool Add(DetailItemView detailItemView)
+        {
+            try
+            {
+                var credit = new Credit
+                {
+                    UserName = detailItemView.UserName,
+                    Name = detailItemView.Name,
+                    Amount = Convert.ToDecimal(detailItemView.StrAmount.Replace("$", "")),
+                    FkPeriod = detailItemView.FkPeriod,
+                    BeginDate = detailItemView.BeginDate,
+                    EndDate = detailItemView.EndDate,
+                    WeeklyDOW = (int?) detailItemView.WeeklyDOW,
+                    EverOtherWeekDOW = (int?) detailItemView.EverOtherWeekDOW,
+                    BiMonthlyDay1 = (int?) detailItemView.BiMonthlyDay1,
+                    BiMonthlyDay2 = (int?) detailItemView.BiMonthlyDay2,
+                    MonthlyDOM = (int?) detailItemView.MonthlyDOM,
+                    Quarterly1Month = (int?) detailItemView.Quarterly1Month,
+                    Quarterly1Day = (int?) detailItemView.Quarterly1Day,
+                    Quarterly2Month = (int?) detailItemView.Quarterly2Month,
+                    Quarterly2Day = (int?) detailItemView.Quarterly2Day,
+                    Quarterly3Month = (int?) detailItemView.Quarterly3Month,
+                    Quarterly3Day = (int?) detailItemView.Quarterly3Day,
+                    Quarterly4Month = (int?) detailItemView.Quarterly4Month,
+                    Quarterly4Day = (int?) detailItemView.Quarterly4Day,
+                    SemiAnnual1Month = (int?) detailItemView.SemiAnnual1Month,
+                    SemiAnnual1Day = (int?) detailItemView.SemiAnnual1Day,
+                    SemiAnnual2Month = (int?) detailItemView.SemiAnnual2Month,
+                    SemiAnnual2Day = (int?) detailItemView.SemiAnnual2Day,
+                    AnnualMOY = (int?) detailItemView.AnnualMOY,
+                    AnnualDOM = (int?) detailItemView.AnnualDOM,
+                    DateRangeReq = detailItemView.DateRangeReq,
+                    Period = detailItemView.Period
+                };
+
+                _db.Credits.Add(credit);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
         ///     Save Credit View
         /// </summary>
         /// <param name="detailItemView">DetailItemView</param>
@@ -171,58 +223,6 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Credits.Repository
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        ///     Add New Credit
-        /// </summary>
-        /// <param name="detailItemView">DetailItemView</param>
-        /// <returns>bool</returns>
-        /// ---------------------------------------------------------------------
-        public bool Add(DetailItemView detailItemView)
-        {
-            try
-            {
-                var credit = new Credit
-                {
-                    UserName = detailItemView.UserName,
-                    Name = detailItemView.Name,
-                    Amount = Convert.ToDecimal(detailItemView.StrAmount.Replace("$", "")),
-                    FkPeriod = detailItemView.FkPeriod,
-                    BeginDate = detailItemView.BeginDate,
-                    EndDate = detailItemView.EndDate,
-                    WeeklyDOW = (int?) detailItemView.WeeklyDOW,
-                    EverOtherWeekDOW = (int?) detailItemView.EverOtherWeekDOW,
-                    BiMonthlyDay1 = (int?) detailItemView.BiMonthlyDay1,
-                    BiMonthlyDay2 = (int?) detailItemView.BiMonthlyDay2,
-                    MonthlyDOM = (int?) detailItemView.MonthlyDOM,
-                    Quarterly1Month = (int?) detailItemView.Quarterly1Month,
-                    Quarterly1Day = (int?) detailItemView.Quarterly1Day,
-                    Quarterly2Month = (int?) detailItemView.Quarterly2Month,
-                    Quarterly2Day = (int?) detailItemView.Quarterly2Day,
-                    Quarterly3Month = (int?) detailItemView.Quarterly3Month,
-                    Quarterly3Day = (int?) detailItemView.Quarterly3Day,
-                    Quarterly4Month = (int?) detailItemView.Quarterly4Month,
-                    Quarterly4Day = (int?) detailItemView.Quarterly4Day,
-                    SemiAnnual1Month = (int?) detailItemView.SemiAnnual1Month,
-                    SemiAnnual1Day = (int?) detailItemView.SemiAnnual1Day,
-                    SemiAnnual2Month = (int?) detailItemView.SemiAnnual2Month,
-                    SemiAnnual2Day = (int?) detailItemView.SemiAnnual2Day,
-                    AnnualMOY = (int?) detailItemView.AnnualMOY,
-                    AnnualDOM = (int?) detailItemView.AnnualDOM,
-                    DateRangeReq = detailItemView.DateRangeReq,
-                    Period = detailItemView.Period
-                };
-
-                _db.Credits.Add(credit);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-
-        /// ---------------------------------------------------------------------
-        /// <summary>
         ///     Delete Credit
         /// </summary>
         /// <param name="id">int?</param>
@@ -246,16 +246,6 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Credits.Repository
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        ///     Remove DBContext
-        /// </summary>
-        /// ---------------------------------------------------------------------
-        public void Dispose()
-        {
-            _db.Dispose();
-        }
-
-        /// ---------------------------------------------------------------------
-        /// <summary>
         ///     Get a specific Credit
         /// </summary>
         /// <param name="id">int?</param>
@@ -272,6 +262,16 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Credits.Repository
             {
                 return null;
             }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        ///     Remove DBContext
+        /// </summary>
+        /// ---------------------------------------------------------------------
+        public void Dispose()
+        {
+            _db.Dispose();
         }
     }
 }

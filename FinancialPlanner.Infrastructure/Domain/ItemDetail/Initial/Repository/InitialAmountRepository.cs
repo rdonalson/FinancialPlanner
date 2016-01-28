@@ -172,16 +172,6 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Initial.Repository
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        ///     Remove DBContext
-        /// </summary>
-        /// ---------------------------------------------------------------------
-        public void Dispose()
-        {
-            _db.Dispose();
-        }
-
-        /// ---------------------------------------------------------------------
-        /// <summary>
         ///     Get a specific Initial Amount for the User
         /// </summary>
         /// <param name="id">int?</param>
@@ -198,6 +188,16 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Initial.Repository
             {
                 return null;
             }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        ///     Remove DBContext
+        /// </summary>
+        /// ---------------------------------------------------------------------
+        public void Dispose()
+        {
+            _db.Dispose();
         }
     }
 }

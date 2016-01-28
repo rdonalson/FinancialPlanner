@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Data.Entity.Core.Objects;
 using FinancialPlanner.Data.Entity;
 
-namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Ledger.Repository
+namespace FinancialPlanner.Infrastructure.Domain.Display.Ledger.Repository
 {
     /// =====================================================================
     /// <summary>
@@ -37,20 +36,28 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Ledger.Repository
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        /// Get the Ledger Readout
+        ///     Return ObjectResult of Timeline Items.  Scheduled Credits and Debits
+        ///     in a Ledger format
         /// </summary>
-        /// <param name="timeFrameBegin"></param>
+        /// <param name="timeFrameBegin">DateTime</param>
         /// <param name="timeFrameEnd">DateTime</param>
-        /// <param name="userName">string</param>
-        /// <returns>List(spCreateLedgerReadout_Result)</returns>
+        /// <param name="userName">userName</param>
+        /// <returns>ObjectResult(spCreateLedgerReadout_Result)</returns>
         /// ---------------------------------------------------------------------
-        public List<spCreateLedgerReadout_Result> GetLedgerReadout(DateTime timeFrameBegin, DateTime timeFrameEnd, string userName)
+        public ObjectResult<spCreateLedgerReadout_Result> GetLedger(
+            DateTime timeFrameBegin,
+            DateTime timeFrameEnd,
+            string userName)
         {
-            List<spCreateLedgerReadout_Result> result =
-                _db.spCreateLedgerReadout(timeFrameBegin, timeFrameEnd, userName).ToList();
-            return result;
+            try
+            {
+                return _db.spCreateLedgerReadout(timeFrameBegin, timeFrameEnd, userName);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
-
 
         /// ---------------------------------------------------------------------
         /// <summary>
@@ -63,3 +70,4 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Ledger.Repository
         }
     }
 }
+

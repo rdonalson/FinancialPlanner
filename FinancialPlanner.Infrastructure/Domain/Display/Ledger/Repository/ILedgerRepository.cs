@@ -2,14 +2,14 @@
 using System.Data.Entity.Core.Objects;
 using FinancialPlanner.Data.Entity;
 
-namespace FinancialPlanner.Infrastructure.Domain.Display.Timeline.Repository
+namespace FinancialPlanner.Infrastructure.Domain.Display.Ledger.Repository
 {
     /// =====================================================================
     /// <summary>
-    ///     Timeline Repository Interface
+    ///     Ledger Repository Interface
     /// </summary>
     /// =====================================================================
-    public interface ITimelineRepository : IDisposable
+    public interface ILedgerRepository : IDisposable
     {
         /// ---------------------------------------------------------------------
         /// <summary>
@@ -27,3 +27,4 @@ namespace FinancialPlanner.Infrastructure.Domain.Display.Timeline.Repository
             string userName);
     }
 }
+

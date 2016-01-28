@@ -8,7 +8,7 @@ namespace FinancialPlanner.Web.Models
     {
         public string Id { get; set; }
         [Required(AllowEmptyStrings = false)]
-        [Display(Name = "RoleName")]
+        [Display(Name = "Role Name")]
         public string Name { get; set; }
     }
 

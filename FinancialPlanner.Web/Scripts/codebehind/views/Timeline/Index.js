@@ -140,7 +140,7 @@ function GetData() {
     /* Main ajax call to get the base data */
     $.ajax({
         type: "GET",
-        url: "Timeline/GetLedgerReadout",
+        url: "/Display/Timeline/GetLedgerReadout",
         data: viewModel,
         /* Take the return data and construct the datasets */
         success: function (dataList) {

@@ -36,16 +36,6 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Periods.Repository
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        ///     Remove DBContext
-        /// </summary>
-        /// ---------------------------------------------------------------------
-        public void Dispose()
-        {
-            _db.Dispose();
-        }
-
-        /// ---------------------------------------------------------------------
-        /// <summary>
         ///     Gets a specific Period
         /// </summary>
         /// <param name="id">int?</param>
@@ -79,6 +69,16 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Periods.Repository
             {
                 return null;
             }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        ///     Remove DBContext
+        /// </summary>
+        /// ---------------------------------------------------------------------
+        public void Dispose()
+        {
+            _db.Dispose();
         }
     }
 }

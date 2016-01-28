@@ -3,11 +3,19 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
 {
+    /// =====================================================================
+    /// <summary>
+    ///     This View Model is used for Insert and Update duties for the
+    ///     Initial Amount
+    /// </summary>
+    /// =====================================================================
     public class InitialAmountView
     {
+        /// ---------------------------------------------------------------------
         /// <summary>
         ///     General Properties
         /// </summary>
+        /// ---------------------------------------------------------------------
         public int PkID { get; set; }
 
         public string UserName { get; set; }

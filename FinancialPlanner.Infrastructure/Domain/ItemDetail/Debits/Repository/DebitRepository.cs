@@ -29,12 +29,12 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Debits.Repository
             string password)
         {
             _db = new ItemDetailEntities(ConnectionStringManager.ConnectionString(
-                    conndirection,
-                    2,
-                    server,
-                    database,
-                    userid,
-                    password));
+                conndirection,
+                2,
+                server,
+                database,
+                userid,
+                password));
         }
 
         /// ---------------------------------------------------------------------
@@ -53,96 +53,6 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Debits.Repository
             catch (Exception ex)
             {
                 return null;
-            }
-        }
-
-        /// ---------------------------------------------------------------------
-        /// <summary>
-        ///     Remove DBContext
-        /// </summary>
-        /// ---------------------------------------------------------------------
-        public void Dispose()
-        {
-            _db.Dispose();
-        }
-
-        /// ---------------------------------------------------------------------
-        /// <summary>
-        ///     Save Debit View
-        /// </summary>
-        /// <param name="detailItemView">DetailItemView</param>
-        /// <returns>bool</returns>
-        /// ---------------------------------------------------------------------
-        public bool Save(DetailItemView detailItemView)
-        {
-            try
-            {
-                var debit = GetDebit(detailItemView.PkID, detailItemView.UserName);
-                if (debit != null)
-                {
-                    debit.Name = detailItemView.Name;
-                    debit.Amount = Convert.ToDecimal(detailItemView.StrAmount.Replace("$", ""));
-                    debit.FkPeriod = detailItemView.FkPeriod;
-                    debit.BeginDate = detailItemView.BeginDate;
-                    debit.EndDate = detailItemView.EndDate;
-                    debit.WeeklyDOW = (int?) detailItemView.WeeklyDOW;
-                    debit.EverOtherWeekDOW = (int?) detailItemView.EverOtherWeekDOW;
-                    debit.BiMonthlyDay1 = (int?) detailItemView.BiMonthlyDay1;
-                    debit.BiMonthlyDay2 = (int?) detailItemView.BiMonthlyDay2;
-                    debit.MonthlyDOM = (int?) detailItemView.MonthlyDOM;
-                    debit.Quarterly1Month = (int?) detailItemView.Quarterly1Month;
-                    debit.Quarterly1Day = (int?) detailItemView.Quarterly1Day;
-                    debit.Quarterly2Month = (int?) detailItemView.Quarterly2Month;
-                    debit.Quarterly2Day = (int?) detailItemView.Quarterly2Day;
-                    debit.Quarterly3Month = (int?) detailItemView.Quarterly3Month;
-                    debit.Quarterly3Day = (int?) detailItemView.Quarterly3Day;
-                    debit.Quarterly4Month = (int?) detailItemView.Quarterly4Month;
-                    debit.Quarterly4Day = (int?) detailItemView.Quarterly4Day;
-                    debit.SemiAnnual1Month = (int?) detailItemView.SemiAnnual1Month;
-                    debit.SemiAnnual1Day = (int?) detailItemView.SemiAnnual1Day;
-                    debit.SemiAnnual2Month = (int?) detailItemView.SemiAnnual2Month;
-                    debit.SemiAnnual2Day = (int?) detailItemView.SemiAnnual2Day;
-                    debit.AnnualMOY = (int?) detailItemView.AnnualMOY;
-                    debit.AnnualDOM = (int?) detailItemView.AnnualDOM;
-                    debit.DateRangeReq = detailItemView.DateRangeReq;
-
-                    debit.Period = detailItemView.Period;
-
-                    _db.Entry(debit).State = EntityState.Modified;
-                    _db.SaveChanges();
-                }
-                else
-                {
-                    throw new ArgumentNullException();
-                }
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
-        }
-
-        /// ---------------------------------------------------------------------
-        /// <summary>
-        ///     Delete Debit
-        /// </summary>
-        /// <param name="id">int?</param>
-        /// <param name="userName">string</param>
-        /// <returns>bool</returns>
-        /// ---------------------------------------------------------------------
-        public bool Delete(int? id, string userName)
-        {
-            try
-            {
-                var debit = GetDebit(id, userName);
-                _db.Debits.Remove(debit);
-                _db.SaveChanges();
-                return true;
-            }
-            catch (Exception ex)
-            {
-                return false;
             }
         }
 
@@ -257,6 +167,86 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Debits.Repository
 
         /// ---------------------------------------------------------------------
         /// <summary>
+        ///     Save Debit View
+        /// </summary>
+        /// <param name="detailItemView">DetailItemView</param>
+        /// <returns>bool</returns>
+        /// ---------------------------------------------------------------------
+        public bool Save(DetailItemView detailItemView)
+        {
+            try
+            {
+                var debit = GetDebit(detailItemView.PkID, detailItemView.UserName);
+                if (debit != null)
+                {
+                    debit.Name = detailItemView.Name;
+                    debit.Amount = Convert.ToDecimal(detailItemView.StrAmount.Replace("$", ""));
+                    debit.FkPeriod = detailItemView.FkPeriod;
+                    debit.BeginDate = detailItemView.BeginDate;
+                    debit.EndDate = detailItemView.EndDate;
+                    debit.WeeklyDOW = (int?) detailItemView.WeeklyDOW;
+                    debit.EverOtherWeekDOW = (int?) detailItemView.EverOtherWeekDOW;
+                    debit.BiMonthlyDay1 = (int?) detailItemView.BiMonthlyDay1;
+                    debit.BiMonthlyDay2 = (int?) detailItemView.BiMonthlyDay2;
+                    debit.MonthlyDOM = (int?) detailItemView.MonthlyDOM;
+                    debit.Quarterly1Month = (int?) detailItemView.Quarterly1Month;
+                    debit.Quarterly1Day = (int?) detailItemView.Quarterly1Day;
+                    debit.Quarterly2Month = (int?) detailItemView.Quarterly2Month;
+                    debit.Quarterly2Day = (int?) detailItemView.Quarterly2Day;
+                    debit.Quarterly3Month = (int?) detailItemView.Quarterly3Month;
+                    debit.Quarterly3Day = (int?) detailItemView.Quarterly3Day;
+                    debit.Quarterly4Month = (int?) detailItemView.Quarterly4Month;
+                    debit.Quarterly4Day = (int?) detailItemView.Quarterly4Day;
+                    debit.SemiAnnual1Month = (int?) detailItemView.SemiAnnual1Month;
+                    debit.SemiAnnual1Day = (int?) detailItemView.SemiAnnual1Day;
+                    debit.SemiAnnual2Month = (int?) detailItemView.SemiAnnual2Month;
+                    debit.SemiAnnual2Day = (int?) detailItemView.SemiAnnual2Day;
+                    debit.AnnualMOY = (int?) detailItemView.AnnualMOY;
+                    debit.AnnualDOM = (int?) detailItemView.AnnualDOM;
+                    debit.DateRangeReq = detailItemView.DateRangeReq;
+
+                    debit.Period = detailItemView.Period;
+
+                    _db.Entry(debit).State = EntityState.Modified;
+                    _db.SaveChanges();
+                }
+                else
+                {
+                    throw new ArgumentNullException();
+                }
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        ///     Delete Debit
+        /// </summary>
+        /// <param name="id">int?</param>
+        /// <param name="userName">string</param>
+        /// <returns>bool</returns>
+        /// ---------------------------------------------------------------------
+        public bool Delete(int? id, string userName)
+        {
+            try
+            {
+                var debit = GetDebit(id, userName);
+                _db.Debits.Remove(debit);
+                _db.SaveChanges();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
         ///     Get a specific Debit
         /// </summary>
         /// <param name="id">int?</param>
@@ -273,6 +263,16 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Debits.Repository
             {
                 return null;
             }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        ///     Remove DBContext
+        /// </summary>
+        /// ---------------------------------------------------------------------
+        public void Dispose()
+        {
+            _db.Dispose();
         }
     }
 }

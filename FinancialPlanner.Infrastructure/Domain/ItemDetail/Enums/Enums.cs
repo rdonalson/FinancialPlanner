@@ -2,6 +2,11 @@
 
 namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Enums
 {
+    /// =====================================================================
+    /// <summary>
+    ///     Utilities
+    /// </summary>
+    /// =====================================================================
     public enum Weekday
     {
         [Display(Name = "Sunday")] Sunday = 1,

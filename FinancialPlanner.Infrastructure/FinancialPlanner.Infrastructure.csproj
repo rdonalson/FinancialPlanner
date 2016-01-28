@@ -43,25 +43,17 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Display\Ledger\Repository\ILedgerRepository.cs" />
+    <Compile Include="Domain\Display\Ledger\Repository\LedgerRepository.cs" />
     <Compile Include="Domain\Display\Timeline\Repository\ITimelineRepository.cs" />
     <Compile Include="Domain\Display\Timeline\Repository\TimelineRepository.cs" />
     <Compile Include="Domain\ItemDetail\Credits\Repository\CreditRepository.cs" />
     <Compile Include="Domain\ItemDetail\Credits\Repository\ICreditRepository.cs" />
-    <Compile Include="Domain\ItemDetail\Debits\MetaData\DebitMetadata.cs" />
     <Compile Include="Domain\ItemDetail\Debits\Repository\DebitRepository.cs" />
     <Compile Include="Domain\ItemDetail\Debits\Repository\IDebitRepository.cs" />
     <Compile Include="Domain\ItemDetail\Enums\Enums.cs">
@@ -69,22 +61,13 @@
     </Compile>
     <Compile Include="Domain\ItemDetail\Initial\Repository\IInitialAmountRepository.cs" />
     <Compile Include="Domain\ItemDetail\Initial\Repository\InitialAmountRepository.cs" />
-    <Compile Include="Domain\ItemDetail\Ledger\Repository\ILedgerRepository.cs" />
-    <Compile Include="Domain\ItemDetail\Ledger\Repository\LedgerRepository.cs" />
-    <Compile Include="Domain\ItemDetail\Periods\MetaData\PeriodMetadata.cs" />
     <Compile Include="Domain\ItemDetail\Periods\Repository\IPeriodRepository.cs" />
     <Compile Include="Domain\ItemDetail\Periods\Repository\PeriodRepository.cs" />
     <Compile Include="Domain\ItemDetail\ViewModels\DetailItemView.cs" />
     <Compile Include="Domain\ItemDetail\ViewModels\InitialAmountView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Domain\Display\Ledger\MetaData\" />
-    <Folder Include="Domain\Display\Ledger\Repository\" />
-    <Folder Include="Domain\Display\Timeline\MetaData\" />
-    <Folder Include="Domain\ItemDetail\Credits\MetaData\" />
-    <Folder Include="Domain\ItemDetail\Initial\MetaData\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
