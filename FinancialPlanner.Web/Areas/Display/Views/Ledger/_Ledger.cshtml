@@ -1,0 +1,70 @@
+﻿@model List<FinancialPlanner.Data.Entity.spCreateLedgerReadout_Result>
+@if (!Model.Any())
+{
+        <span class="text-muted">Did not match any item.</span>
+  }
+else
+{
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].PkLMain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].WDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].NetDaily)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].RunningTotal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].ItemType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].FkItemDetail)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].PeriodName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].Amount)
+        </th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PkLMain)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NetDaily)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunningTotal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ItemType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FkItemDetail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PeriodName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+    </tr>
+}
+</table>
+}

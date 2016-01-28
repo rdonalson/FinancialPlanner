@@ -169,7 +169,8 @@ namespace FinancialPlanner.Web.Controllers
                 //    ViewBag.Link = callbackUrl;
                 //    return View("DisplayEmail");
                 //}
-                //AddErrors(result);
+
+                AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form

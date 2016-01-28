@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web.Mvc;
 using FinancialPlanner.Data.Entity;
 using FinancialPlanner.Infrastructure.Domain.Display.Ledger.Repository;
-using FinancialPlanner.Web.Areas.Display.Models;
+using FinancialPlanner.Infrastructure.Domain.Display.ViewModels;
 using FinancialPlanner.Web.Helpers;
 using FinancialPlanner.Web.Properties;
 using Microsoft.AspNet.Identity;
@@ -60,7 +60,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
         /// ---------------------------------------------------------------------
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index(LedgerCriteriaViewModel vm)
+        public ActionResult Index(LedgerCriteriaView vm)
         {
             vm.Result =
                 _ledgerRepository.GetLedger(vm.timeFrameBegin, vm.timeFrameEnd, User.Identity.GetUserName()).ToList();
