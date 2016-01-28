@@ -254,6 +254,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Display\Controllers\TimelineController.cs" />
+    <Compile Include="Areas\Display\DisplayAreaRegistration.cs" />
+    <Compile Include="Areas\Display\Models\ViewModels.cs" />
     <Compile Include="Areas\ItemDetail\Controllers\CreditsController.cs" />
     <Compile Include="Areas\ItemDetail\Controllers\DebitsController.cs" />
     <Compile Include="Areas\ItemDetail\Controllers\InitialAmountController.cs" />
@@ -306,6 +309,12 @@
     <Content Include="Areas\ItemDetail\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Content\bootstrap\theme\theme-custom\colorPallet.txt" />
+    <Content Include="Content\custom.css">
+      <DependentUpon>custom.less</DependentUpon>
+    </Content>
+    <Content Include="Content\custom.min.css">
+      <DependentUpon>custom.less</DependentUpon>
+    </Content>
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\autoFill.dataTables.css" />
@@ -596,6 +605,8 @@
     <Content Include="Scripts\bootstrap.min.js.map">
       <DependentUpon>bootstrap.min.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\codebehind\views\Timeline\Index.js" />
+    <Content Include="Scripts\common\common.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.foundation.js" />
@@ -650,6 +661,7 @@
     <Content Include="Scripts\flot\jquery.colorhelpers.min.js">
       <DependentUpon>jquery.colorhelpers.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\flot\jquery.flot.axislabels.js" />
     <Content Include="Scripts\flot\jquery.flot.canvas.min.js">
       <DependentUpon>jquery.flot.canvas.js</DependentUpon>
     </Content>
@@ -665,6 +677,8 @@
     <Content Include="Scripts\flot\jquery.flot.fillbetween.min.js">
       <DependentUpon>jquery.flot.fillbetween.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\flot\jquery.flot.fp-tickrotor.js" />
+    <Content Include="Scripts\flot\jquery.flot.fp-time.js" />
     <Content Include="Scripts\flot\jquery.flot.image.min.js">
       <DependentUpon>jquery.flot.image.js</DependentUpon>
     </Content>
@@ -751,6 +765,10 @@
     </Content>
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Areas\Display\Views\web.config" />
+    <Content Include="Areas\Display\Views\Timeline\Index.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Display\Views\_ViewStart.cshtml" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\autoNumeric-1.9.24.min.js">
       <DependentUpon>autoNumeric-1.9.24.js</DependentUpon>
@@ -806,6 +824,7 @@
     <Content Include="Scripts\jquery-ui-1.11.4.min.js">
       <DependentUpon>jquery-ui-1.11.4.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\jquery.numberformatter-1.2.4.js" />
     <Content Include="Scripts\jquery.validate-vsdoc.min.js">
       <DependentUpon>jquery.validate-vsdoc.js</DependentUpon>
     </Content>
@@ -817,6 +836,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js">
       <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
     </Content>
+    <Content Include="Scripts\jshashtable-3.0.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Areas\ItemDetail\Views\Shared\EditorTemplates\_Dropdown.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Shared\DisplayTemplates\_Dropdown.cshtml" />

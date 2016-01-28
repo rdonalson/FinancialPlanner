@@ -114,6 +114,7 @@
       <DependentUpon>enItemDetail.tt</DependentUpon>
     </Compile>
     <Compile Include="Entity\Extenders.cs" />
+    <Compile Include="Entity\Partials.cs" />
     <Compile Include="Entity\Period.cs">
       <DependentUpon>enItemDetail.tt</DependentUpon>
     </Compile>

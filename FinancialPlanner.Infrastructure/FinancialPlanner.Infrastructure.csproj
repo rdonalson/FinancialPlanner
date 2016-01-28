@@ -57,6 +57,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Domain\Display\Timeline\Repository\ITimelineRepository.cs" />
+    <Compile Include="Domain\Display\Timeline\Repository\TimelineRepository.cs" />
     <Compile Include="Domain\ItemDetail\Credits\Repository\CreditRepository.cs" />
     <Compile Include="Domain\ItemDetail\Credits\Repository\ICreditRepository.cs" />
     <Compile Include="Domain\ItemDetail\Debits\MetaData\DebitMetadata.cs" />
@@ -77,6 +79,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Domain\Display\Ledger\MetaData\" />
+    <Folder Include="Domain\Display\Ledger\Repository\" />
+    <Folder Include="Domain\Display\Timeline\MetaData\" />
     <Folder Include="Domain\ItemDetail\Credits\MetaData\" />
     <Folder Include="Domain\ItemDetail\Initial\MetaData\" />
   </ItemGroup>
