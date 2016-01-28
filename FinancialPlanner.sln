@@ -31,7 +31,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ER Diagrams", "ER Diagrams", "{ED5D4BC5-8877-4CF7-A4A5-187FFF1EFBD8}"
 	ProjectSection(SolutionItems) = preProject
 		ER Diagrams\ER Diagram diaAuthentication.docx = ER Diagrams\ER Diagram diaAuthentication.docx
+		ER Diagrams\ER Diagram diaAuthentication.pdf = ER Diagrams\ER Diagram diaAuthentication.pdf
 		ER Diagrams\ER Diagram diaItemDetail.docx = ER Diagrams\ER Diagram diaItemDetail.docx
+		ER Diagrams\ER Diagram diaItemDetail.pdf = ER Diagrams\ER Diagram diaItemDetail.pdf
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ledger", "Ledger", "{4EA607D3-3CBF-4E8C-984F-B85605A62F0E}"
