@@ -5,12 +5,9 @@ VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{51B92F2D-FB72-41AA-AA3D-E564117CBBB7}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Create spCreateLedgerReadout.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Create spCreateLedgerReadout.sql
 		.nuget\NuGet.Config = .nuget\NuGet.Config
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
-		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Script spCreateLedgerReadout.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Script spCreateLedgerReadout.sql
-		..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Test Procedure spCreateLedgerReadout.sql = ..\..\..\Documents\SQL Server Management Studio\Financial Planner\Ledger\Test Procedure spCreateLedgerReadout.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinancialPlanner.Web", "FinancialPlanner.Web\FinancialPlanner.Web.csproj", "{878AB18F-99BA-4B68-BAF6-10F84F69DDFB}"
