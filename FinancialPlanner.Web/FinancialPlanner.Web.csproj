@@ -317,12 +317,6 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bootstrap\theme\theme-custom\colorPallet.txt" />
-    <Content Include="Content\custom.css">
-      <DependentUpon>custom.less</DependentUpon>
-    </Content>
-    <Content Include="Content\custom.min.css">
-      <DependentUpon>custom.less</DependentUpon>
-    </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-b.jpg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-daytime.jpg" />
@@ -684,11 +678,12 @@
     </Content>
     <Content Include="Areas\Display\Views\Ledger\Index.cshtml" />
     <Content Include="Areas\Display\Views\Ledger\_Ledger.cshtml" />
-    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\Archive\_Radio.cshtml" />
-    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Currency.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_CurrencyCD.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Date.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_DateTime.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Dropdown.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_ItemType.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_CurrencyRT.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>

@@ -2,7 +2,7 @@
 @if (!Model.Any())
 {
         <span class="text-muted">Did not match any item.</span>
-  }
+}
 else
 {
 <table class="table">
@@ -47,19 +47,19 @@ else
             @Html.DisplayFor(modelItem => item.WDate, "_Date")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreditSummary, "_Currency")
+            @Html.DisplayFor(modelItem => item.CreditSummary, "_CurrencyCD")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DebitSummary, "_Currency")
+            @Html.DisplayFor(modelItem => item.DebitSummary, "_CurrencyCD")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NetDaily, "_Currency")
+            @Html.DisplayFor(modelItem => item.NetDaily, "_CurrencyCD")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RunningTotal, "_Currency")
+            @Html.DisplayFor(modelItem => item.RunningTotal, "_CurrencyRT")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ItemType)
+            @Html.DisplayFor(modelItem => item.ItemType, "_ItemType")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PeriodName)
@@ -68,7 +68,7 @@ else
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Amount, "_Currency")
+            @Html.DisplayFor(modelItem => item.Amount, "_CurrencyCD")
         </td>
     </tr>
 }
