@@ -18,7 +18,7 @@ namespace FinancialPlanner.Data.Entity
         public int PkLMain { get; set; }
 
         [Display(Name = "Date")]
-        public System.DateTime? WDate { get; set; }
+        public DateTime? WDate { get; set; }
 
         [Display(Name = "Credit Summary")]
         public double? CreditSummary { get; set; }
@@ -45,7 +45,7 @@ namespace FinancialPlanner.Data.Entity
         public string Name { get; set; }
 
         [Display(Name = "Item Amount")]
-        public decimal? Amount { get; set; }
+        public double? Amount { get; set; }
 
     }
 }

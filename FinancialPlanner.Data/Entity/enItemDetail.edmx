@@ -488,7 +488,7 @@ warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwDebits' does not hav
           <Property Type="Int32" Name="FkItemDetail" Nullable="true" />
           <Property Type="String" Name="PeriodName" Nullable="true" MaxLength="75" />
           <Property Type="String" Name="Name" Nullable="true" MaxLength="75" />
-          <Property Type="Decimal" Name="Amount" Nullable="true" Precision="19" />
+          <Property Type="Double" Name="Amount" Nullable="true" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>

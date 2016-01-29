@@ -684,6 +684,11 @@
     </Content>
     <Content Include="Areas\Display\Views\Ledger\Index.cshtml" />
     <Content Include="Areas\Display\Views\Ledger\_Ledger.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\Archive\_Radio.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Currency.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Date.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_DateTime.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Dropdown.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
@@ -850,7 +855,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />
-    <Folder Include="Scripts\DataTables\" />
     <Folder Include="Scripts\ts\" />
   </ItemGroup>
   <ItemGroup>

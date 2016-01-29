@@ -7,11 +7,17 @@ else
 {
 <table class="table">
     <tr>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => Model[0].PkLMain)
-        </th>
+        </th>*@
         <th>
             @Html.DisplayNameFor(model => Model[0].WDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].CreditSummary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => Model[0].DebitSummary)
         </th>
         <th>
             @Html.DisplayNameFor(model => Model[0].NetDaily)
@@ -21,9 +27,6 @@ else
         </th>
         <th>
             @Html.DisplayNameFor(model => Model[0].ItemType)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => Model[0].FkItemDetail)
         </th>
         <th>
             @Html.DisplayNameFor(model => Model[0].PeriodName)
@@ -37,23 +40,26 @@ else
     </tr>
 @foreach (var item in Model) {
     <tr>
-        <td>
+        @*<td>
             @Html.DisplayFor(modelItem => item.PkLMain)
+        </td>*@
+        <td>
+            @Html.DisplayFor(modelItem => item.WDate, "_Date")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.WDate)
+            @Html.DisplayFor(modelItem => item.CreditSummary, "_Currency")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NetDaily)
+            @Html.DisplayFor(modelItem => item.DebitSummary, "_Currency")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RunningTotal)
+            @Html.DisplayFor(modelItem => item.NetDaily, "_Currency")
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RunningTotal, "_Currency")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ItemType)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.FkItemDetail)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PeriodName)
@@ -62,7 +68,7 @@ else
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Amount)
+            @Html.DisplayFor(modelItem => item.Amount, "_Currency")
         </td>
     </tr>
 }

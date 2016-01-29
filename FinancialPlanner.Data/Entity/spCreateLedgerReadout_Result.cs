@@ -23,6 +23,6 @@ namespace FinancialPlanner.Data.Entity
         public Nullable<int> FkItemDetail { get; set; }
         public string PeriodName { get; set; }
         public string Name { get; set; }
-        public Nullable<decimal> Amount { get; set; }
+        public Nullable<double> Amount { get; set; }
     }
 }
