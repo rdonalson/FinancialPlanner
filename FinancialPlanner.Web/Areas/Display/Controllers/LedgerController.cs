@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Web.Mvc;
@@ -10,6 +11,7 @@ using FinancialPlanner.Web.Helpers;
 using FinancialPlanner.Web.Properties;
 using Microsoft.AspNet.Identity;
 using OfficeOpenXml;
+using OfficeOpenXml.Style;
 
 namespace FinancialPlanner.Web.Areas.Display.Controllers
 {
@@ -108,7 +110,23 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
                     ws.Cells[currRow, 8].Value = item.Name;
                     ws.Cells[currRow, 9].Value = item.Amount;
                 }
-                //輸出
+
+                ws.SelectedRange["A:A"].Style.Numberformat.Format = @"mm/dd/yy;@";
+                ws.SelectedRange["B:B,C:C,D:D,I:I,E:E"].Style.Numberformat.Format = @"[Blue]_($* #,##0.00_);[Magenta]_($* (#,##0.00);[Black]_(* ""-""??_);_(@_)";
+
+                var selectedRange = ws.SelectedRange["A1:I1"];
+                selectedRange.Style.Border.Left.Style = ExcelBorderStyle.Thin;
+                selectedRange.Style.Border.Left.Color.SetColor(Color.Black);
+                selectedRange.Style.Border.Right.Style = ExcelBorderStyle.Thin;
+                selectedRange.Style.Border.Right.Color.SetColor(Color.Black);
+                selectedRange.Style.Border.BorderAround(ExcelBorderStyle.Thick, Color.Black);
+                selectedRange.Style.Fill.PatternType = ExcelFillStyle.Solid;
+                selectedRange.Style.Fill.BackgroundColor.SetColor(Color.DimGray);
+                selectedRange.Style.Font.Color.SetColor(Color.White);
+                selectedRange.AutoFilter = true;
+                ws.View.FreezePanes(2, 1);
+                ws.SelectedRange["A:A,B:B,C:C,D:D,E:E,F:F,G:G,H:H,I:I"].AutoFitColumns();
+
                 var stream = new MemoryStream();
                 package.SaveAs(stream);
                 var fileName = string.Format("Ledger-{0}.xlsx", DateTime.Today.ToString("yyyy-MM-dd"));
