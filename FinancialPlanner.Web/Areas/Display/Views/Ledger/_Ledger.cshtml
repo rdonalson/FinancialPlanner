@@ -7,9 +7,6 @@ else
 {
 <table class="table">
     <tr>
-        @*<th>
-            @Html.DisplayNameFor(model => Model[0].PkLMain)
-        </th>*@
         <th>
             @Html.DisplayNameFor(model => Model[0].WDate)
         </th>
@@ -40,23 +37,20 @@ else
     </tr>
 @foreach (var item in Model) {
     <tr>
-        @*<td>
-            @Html.DisplayFor(modelItem => item.PkLMain)
-        </td>*@
         <td>
             @Html.DisplayFor(modelItem => item.WDate, "_Date")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.CreditSummary, "_CurrencyCD")
+            @Html.DisplayFor(modelItem => item.CreditSummary, "_Currency")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DebitSummary, "_CurrencyCD")
+            @Html.DisplayFor(modelItem => item.DebitSummary, "_Currency")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.NetDaily, "_CurrencyCD")
+            @Html.DisplayFor(modelItem => item.NetDaily, "_Currency")
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.RunningTotal, "_CurrencyRT")
+            @Html.DisplayFor(modelItem => item.RunningTotal, "_Currency")
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.ItemType, "_ItemType")
@@ -68,7 +62,7 @@ else
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Amount, "_CurrencyCD")
+            @Html.DisplayFor(modelItem => item.Amount, "_Currency")
         </td>
     </tr>
 }

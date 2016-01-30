@@ -1,11 +1,19 @@
 ﻿@model int?
 
-@if (Model == 1)
+@if (Model == 0)
 {
-    <span class="positive-green">C</span>
+    <span class="black">-</span>
+}
+ else if (Model == 1)
+{
+    <span class="blue">Credit</span>
 }
 else if (Model == 2)
 {
-    <span class="negative-red">D</span>
+    <span class="magenta">Debit</span>
+}
+else if (Model == 2)
+{
+    <span class="red">?</span>
 }
 

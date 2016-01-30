@@ -1,0 +1,10 @@
+﻿@model double?
+
+@if (Model >= 0)
+{
+    <span class="blue">@Html.Encode(String.Format("{0:$#,##0.00;($#,##0.00);'-'}", Model))</span>
+}
+else
+{
+    <span class="magenta">@Html.Encode(String.Format("{0:$#,##0.00;($#,##0.00);'-'}", Model))</span>
+}

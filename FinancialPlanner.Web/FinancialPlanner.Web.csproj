@@ -349,7 +349,6 @@
     <Content Include="Content\img\Twitter.png" />
     <Content Include="Content\img\Windows.png" />
     <Content Include="Content\jumbotron-container.less" />
-    <Content Include="Content\site.less" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -678,12 +677,11 @@
     </Content>
     <Content Include="Areas\Display\Views\Ledger\Index.cshtml" />
     <Content Include="Areas\Display\Views\Ledger\_Ledger.cshtml" />
-    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_CurrencyCD.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Date.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_DateTime.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Dropdown.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_ItemType.cshtml" />
-    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_CurrencyRT.cshtml" />
+    <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Currency.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
