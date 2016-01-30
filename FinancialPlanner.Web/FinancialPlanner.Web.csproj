@@ -261,6 +261,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\Display\Controllers\DisplayHomeController.cs" />
     <Compile Include="Areas\Display\Controllers\LedgerController.cs" />
     <Compile Include="Areas\Display\Controllers\TimelineController.cs" />
     <Compile Include="Areas\Display\DisplayAreaRegistration.cs" />
@@ -313,9 +314,13 @@
     <Content Include="Areas\ItemDetail\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-theme.min.css">
+      <DependentUpon>bootstrap-theme.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap\theme\theme-custom\colorPallet.txt" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-b.jpg" />
@@ -662,10 +667,6 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
     <Content Include="Scripts\flot\jquery.flot.fp-tickrotor.min.js.map">
       <DependentUpon>jquery.flot.fp-tickrotor.min.js</DependentUpon>
     </Content>
@@ -682,6 +683,9 @@
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Dropdown.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_ItemType.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Currency.cshtml" />
+    <Content Include="Areas\Display\Views\DisplayHome\Index.cshtml" />
+    <Content Include="Content\site.less" />
+    <Content Include="Areas\Display\Views\Shared\_LoginPartial.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
@@ -786,7 +790,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index - Ver 1.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -845,6 +849,7 @@
     <Content Include="Scripts\jshashtable-3.0.min.js.map">
       <DependentUpon>jshashtable-3.0.min.js</DependentUpon>
     </Content>
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />

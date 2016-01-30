@@ -35,6 +35,7 @@
 
                     @if (Request.IsAuthenticated)
                     {
+                        <li>@Html.ActionLink("Display", "Index", "DisplayHome", new { area = "Display" }, new { })</li>
                         <li>@Html.ActionLink("Item Detail", "Index", "ItemDetailHome", new { area = "ItemDetail" }, new { })</li>
                         if (User.IsInRole("Admin"))
                         {
@@ -44,7 +45,6 @@
                     }
 
                 </ul>
-
                 @Html.Partial("_LoginPartial")
             </div>
         </div>

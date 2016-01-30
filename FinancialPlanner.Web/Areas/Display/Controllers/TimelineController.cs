@@ -16,6 +16,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
     ///     Timeline Controller
     /// </summary>
     /// =====================================================================
+    [Authorize]
     public class TimelineController : Controller
     {
         private readonly ITimelineRepository _timelineRepository;

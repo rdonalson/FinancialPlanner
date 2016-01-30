@@ -20,6 +20,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
     ///     Ledger Controller
     /// </summary>
     /// =====================================================================
+    [Authorize]
     public class LedgerController : Controller
     {
         private readonly ILedgerRepository _ledgerRepository;

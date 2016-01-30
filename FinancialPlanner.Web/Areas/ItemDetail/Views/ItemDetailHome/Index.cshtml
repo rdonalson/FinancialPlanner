@@ -1,11 +1,11 @@
 ﻿@{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Item Detail Home";
 }
 
-<h3>Item Detail</h3>
+<h3>@ViewBag.Title</h3>
 
 <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
+    <ul class="nav nav-pills nav-stacked span2">
         <li>@Html.ActionLink("Debits", "Index", "Debits")</li>
         <li>@Html.ActionLink("Credits", "Index", "Credits")</li>
         <li>@Html.ActionLink("Initial Amount", "Index", "InitialAmount")</li>

@@ -1,20 +1,20 @@
 ﻿using System.Web.Mvc;
 
-namespace FinancialPlanner.Web.Areas.ItemDetail.Controllers
+namespace FinancialPlanner.Web.Areas.Display.Controllers
 {
     /// =====================================================================
     /// <summary>
-    ///     ItemDetail Home Controller
+    ///     Display Home Controller
     /// </summary>
     /// =====================================================================
     [Authorize]
-    public class ItemDetailHomeController : Controller
+    public class DisplayHomeController : Controller
     {
         /// ---------------------------------------------------------------------
         /// <summary>
         /// ItemDetail Home Index
         /// -------------------------------------
-        /// GET: ItemDetail/IDHome
+        /// GET: Display/DHome
         /// </summary>
         /// <returns>ActionResult</returns>
         /// ---------------------------------------------------------------------
