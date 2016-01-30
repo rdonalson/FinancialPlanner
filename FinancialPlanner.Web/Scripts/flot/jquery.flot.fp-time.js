@@ -103,11 +103,11 @@
                         var ticks = [];
                         var span = axis.max - axis.min;
 
-                        if (span < timeUnitSize.month) {
+                        if (span <= (timeUnitSize.month * 2)) {
                             axis.tickSize = [1, "day"];
-                        } else if (span > timeUnitSize.month && span < timeUnitSize.year) {
+                        } else if (span > (timeUnitSize.month * 2) && span <= timeUnitSize.year) {
                             axis.tickSize = [1, "week"];
-                        } else if (span >= timeUnitSize.year && span < (timeUnitSize.year * 3)) {
+                        } else if (span > timeUnitSize.year && span <= (timeUnitSize.year * 3)) {
                             axis.tickSize = [1, "month"];
                         } else {
                             axis.tickSize = [1, "year"];
@@ -140,11 +140,11 @@
                         var span = axis.max - axis.min;
                         var fmt;
 
-                        if (span < timeUnitSize.month) {
-                            fmt = "%a-%m/%d";
-                        } else if (span > timeUnitSize.month && span < timeUnitSize.year) {
-                            fmt = "%a-%m/%d"; //"%a-%m/%d/%y";
-                        } else if (span >= timeUnitSize.year && span < (timeUnitSize.year * 3)) {
+                        if (span <= (timeUnitSize.month * 2)) {
+                            fmt = "%a %m/%d";
+                        } else if (span > (timeUnitSize.month * 2) && span <= timeUnitSize.year) {
+                            fmt = "%a %m/%d/%y";
+                        } else if (span > timeUnitSize.year && span <= (timeUnitSize.year * 3)) {
                             fmt = "%b %Y";
                         } else {
                             fmt = "%Y";

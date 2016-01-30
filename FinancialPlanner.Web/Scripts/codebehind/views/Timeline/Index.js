@@ -101,7 +101,13 @@ var options = {
         hoverable: true,
         clickable: true,
         borderWidth: 3,
-        backgroundColor: { colors: ["#ffffff", "#EDF5FF"] }
+        backgroundColor: { colors: ["#ffffff", "#EDF5FF"] },
+        margin: {
+            top: 0,
+            left: 0,
+            bottom: 10,
+            right: 0
+        }
     }
 };
 
@@ -134,8 +140,8 @@ function GetData() {
     };
 
     /* Diagnostic */
-    viewModel.timeFrameBegin = "1/1/2016";
-    viewModel.timeFrameEnd = "2/1/2016";
+    //viewModel.timeFrameBegin = "1/1/2016";
+    //viewModel.timeFrameEnd = "2/1/2016";
 
     /* Main ajax call to get the base data */
     $.ajax({

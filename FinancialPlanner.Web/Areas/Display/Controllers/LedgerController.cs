@@ -105,7 +105,8 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
                     ws.Cells[currRow, 3].Value = item.DebitSummary;
                     ws.Cells[currRow, 4].Value = item.NetDaily;
                     ws.Cells[currRow, 5].Value = item.RunningTotal;
-                    ws.Cells[currRow, 6].Value = item.ItemType;
+                    var range = ws.Cells[currRow, 6];
+                    GetItemType(ref range, item.ItemType);
                     ws.Cells[currRow, 7].Value = item.PeriodName;
                     ws.Cells[currRow, 8].Value = item.Name;
                     ws.Cells[currRow, 9].Value = item.Amount;
@@ -133,6 +134,36 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
                 const string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
                 stream.Position = 0;
                 return File(stream, contentType, fileName);
+            }
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        /// Sets the value and format for the Item Type (Credit or Debit)
+        /// </summary>
+        /// <param name="range">ExcelRangeBase</param>
+        /// <param name="value">int?</param>
+        /// ---------------------------------------------------------------------
+        private void GetItemType(ref ExcelRange range, int? value)
+        {
+            switch (value)
+            {
+                case 0:
+                    range.Value = "-";
+                    range.Style.Font.Color.SetColor(Color.Black);
+                    break;
+                case 1:
+                    range.Value = "Credit";
+                    range.Style.Font.Color.SetColor(Color.Blue);
+                    break;
+                case 2:
+                    range.Value = "Debit";
+                    range.Style.Font.Color.SetColor(Color.Magenta);
+                    break;
+                default:
+                    range.Value = "?";
+                    range.Style.Font.Color.SetColor(Color.Red);
+                    break;
             }
         }
     }
