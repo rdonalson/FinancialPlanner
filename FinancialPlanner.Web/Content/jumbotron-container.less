@@ -1,0 +1,69 @@
+//
+// Jumbotron
+// --------------------------------------------------
+// Core variables and mixins
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+
+@jumbotron-container-bg:                    @gray-lighter;
+@jumbotron-container-05:                    5px;
+@jumbotron-container-15:                    15px;
+@jumbotron-container-20:                    20px;
+@jumbotron-container-30:                    30px;
+@jumbotron-container-50:                    50px;
+
+@jumbotron-container-color:                 inherit;
+@jumbotron-container-border-color:          @gray-light;
+@jumbotron-container-heading-color:         inherit;
+@jumbotron-container-font-size:             ceil((@font-size-base * 1));
+
+@jumbotron-container-image-bg: "/Content/img/atlantaskylinesilhouette.jpg";
+
+.jumbotron-container {
+     
+    padding:            @jumbotron-container-30 @jumbotron-container-15;
+    margin:             0;
+    border:             @jumbotron-container-05 solid @jumbotron-container-border-color;
+    color:              @jumbotron-container-color;
+    background: url(@jumbotron-container-image-bg) #eeeeee no-repeat top center;
+
+    h1,
+    .h1 {
+        color: @jumbotron-container-heading-color;
+    }
+    p {
+        margin-bottom: (@jumbotron-container-30 / 2);
+        font-size: @jumbotron-container-font-size;
+        font-weight: 200;
+    }
+
+    hr {
+        border-top: 2px solid @jumbotron-container-border-color;
+        max-width: 100%;
+    }
+
+    .container & {
+        border-radius: @border-radius-large; // Only round corners at higher resolutions if contained in a container
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+    @media screen and (min-width: @screen-sm-min) {
+        padding-top:    (@jumbotron-container-30 * 1.6);
+        padding-bottom: ( @jumbotron-container-30 * 1.6);
+        margin:         @jumbotron-container-30;
+        border:         @jumbotron-container-20 solid @jumbotron-container-border-color;
+        
+        .container & {
+            padding-left:  (@jumbotron-container-15 * 2);
+            padding-right: (@jumbotron-container-15 * 2);
+        }
+
+        h1,
+        .h1 {
+            font-size: (@font-size-base * 4.5);
+        }
+    }
+}

@@ -1,0 +1,10 @@
+﻿@model DateTime?
+
+@Html.TextBox("", Model, "{0:MM/dd/yyyy}", new {@class = "form-control"})
+<script>
+    // Datepicker
+    $('input[id$="Date"]').datepicker({
+        changeMonth: true,
+        changeYear: true
+    });
+</script>

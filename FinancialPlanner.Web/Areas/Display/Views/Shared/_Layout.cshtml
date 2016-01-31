@@ -1,0 +1,58 @@
+﻿@using FinancialPlanner.Web.Helpers
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>@ViewBag.Title</title>
+
+        <!-- Bootstrap core CSS -->
+        @Styles.Render("~/bundles/css")
+        @Scripts.Render("~/bundles/modernizr")
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/bundles/autoNumeric")
+        <!--[if lt IE 9]>
+            <script src="~/Scripts/html5shiv.min.js"></script>
+        <![endif]-->
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink((AssemblyHelper.ApplicationTitle()).ToString(), "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Return to Main", "Index", "Home", new {area = ""}, null)</li>
+                        <li>@Html.ActionLink("Display Home", "Index", "DisplayHome")</li>
+                        <li>@Html.ActionLink("Item Detail", "Index", "ItemDetailHome", new { area = "ItemDetail" }, new { })</li>
+                        <li>@Html.ActionLink("Credits", "Index", "Credits")</li>
+                        <li>@Html.ActionLink("Debits", "Index", "Debits")</li>
+                        <li>@Html.ActionLink("Initial", "Index", "InitialAmount")</li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+        <div class="container body-content">
+            <div class="jumbotron-container">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>@AssemblyHelper.ApplicationVersion()</p>
+                </footer>
+            </div>
+        </div>
+        @RenderSection("scripts", false)
+    </body>
+
+</html>

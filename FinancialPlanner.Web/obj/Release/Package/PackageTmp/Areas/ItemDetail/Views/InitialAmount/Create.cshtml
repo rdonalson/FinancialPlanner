@@ -1,0 +1,31 @@
+﻿@model FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels.InitialAmountView
+
+@{
+    ViewBag.Title = "Add";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Initial Amount - Add</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        @Html.Partial("_IAEditForm")
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

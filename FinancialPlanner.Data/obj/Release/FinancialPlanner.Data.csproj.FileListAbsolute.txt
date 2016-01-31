@@ -1,0 +1,11 @@
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Release\FinancialPlanner.Data.dll.config
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Release\FinancialPlanner.Data.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Release\FinancialPlanner.Data.pdb
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Release\EntityFramework.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Release\EntityFramework.xml
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Release\FinancialPlanner.Data.Properties.Resources.resources
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Release\FinancialPlanner.Data.csproj.GenerateResource.Cache
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Release\FinancialPlanner.Data.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Release\FinancialPlanner.Data.pdb

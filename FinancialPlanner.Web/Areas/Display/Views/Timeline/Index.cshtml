@@ -1,0 +1,81 @@
+﻿@{
+    ViewBag.Title = "Timeline";
+}
+@Scripts.Render("~/bundles/jqueryval")
+
+<script src="/Scripts/flot/jquery.flot.js"></script>
+<script src="/Scripts/flot/jquery.flot.stack.js"></script>
+<script src="/Scripts/jshashtable-3.0.js"></script>
+<script src="/Scripts/jquery.numberformatter-1.2.4.js"></script>
+<script src="/Scripts/flot/jquery.flot.symbol.js"></script>
+<script src="~/Scripts/flot/jquery.flot.stack.js"></script>
+<script src="/Scripts/flot/jquery.flot.axislabels.js"></script>
+<script src="/Scripts/flot/jquery.flot.fp-time.js"></script>
+<script src="/Scripts/flot/jquery.flot.fp-tickrotor.js"></script>
+<script src="/Scripts/common/common.js"></script>
+<script src="/Scripts/codebehind/views/timeline/index.js"></script>
+<h2>Timeline</h2>
+<div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Filter</a>
+            </div>
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <label class="sr-only" for="timeFrameBegin">From:</label>
+                    <input id="timeFrameBegin"
+                           name="timeFrameBegin"
+                           class="form-control text-box single-line"
+                           data-val="true"
+                           data-val-date="The field Time Frame Begin must be a date."
+                           placeholder="Time Frame Begin"
+                           type="datetime"
+                           value="" />
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="timeFrameEnd">To:</label>
+                    <input id="timeFrameEnd"
+                           name="timeFrameEnd"
+                           class="form-control text-box single-line"
+                           data-val="true"
+                           data-val-date="The field Time Frame End must be a date."
+                           placeholder="Time Frame End"
+                           type="datetime"
+                           value="" />
+                </div>
+                <button type="button" class="btn btn-default" id="SearchButton" onclick=" GetData() ">
+                    <span class="glyphicon glyphicon-search"></span> Search
+                </button>
+                <div class="validation-summary-valid text-danger" data-valmsg-summary="true">
+                    <ul>
+                        <li style="display: none"></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>
+<div id="content">
+    <div id="phRT" style="float: right; height: 300px; margin: 0 auto; width: 100%;"></div>
+    <div id="phCDND" style="float: right; height: 250px; margin: 0 auto; width: 100%;"></div>
+    <div id="choicesCDND">
+        <table>
+            <tbody>
+                <tr>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><input name="0" id="chkCredits" type="checkbox" checked="checked"></td>
+                    <td>&nbsp;<label for="chkCredits">Credits</label></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input name="1" id="chkDebits" type="checkbox" checked="checked"></td>
+                    <td>&nbsp;<label for="chkDebits">Debits</label></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td><input name="2" id="chkNetDaily" type="checkbox" checked="checked"></td>
+                    <td>&nbsp;<label for="chkNetDaily">Net Daily</label></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

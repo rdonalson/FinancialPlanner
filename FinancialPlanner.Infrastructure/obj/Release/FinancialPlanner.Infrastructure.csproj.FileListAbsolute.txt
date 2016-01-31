@@ -1,0 +1,10 @@
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Release\FinancialPlanner.Infrastructure.dll.config
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Release\FinancialPlanner.Infrastructure.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Release\FinancialPlanner.Infrastructure.pdb
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Release\EntityFramework.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Release\FinancialPlanner.Data.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Release\FinancialPlanner.Data.pdb
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Release\EntityFramework.xml
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Release\FinancialPlanner.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Release\FinancialPlanner.Infrastructure.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Release\FinancialPlanner.Infrastructure.pdb

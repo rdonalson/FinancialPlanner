@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="e0f599fc080a4e2db285b7e6dd7623c6" Name="diaItemDetail" ZoomLevel="81">
+        <EntityTypeShape EntityType="ItemDetailModel.Credit" Width="1.5" PointX="5.875" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemDetailModel.Debit" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemDetailModel.InitialAmount" Width="1.5" PointX="8.125" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ItemDetailModel.Period" Width="1.5" PointX="3.375" PointY="1" IsExpanded="true" />
+        <AssociationConnector Association="ItemDetailModel.FK_Credits_Periods" ManuallyRouted="false" />
+        <AssociationConnector Association="ItemDetailModel.FK_Debits_Periods" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ItemDetailModel.vwCredit" Width="1.5" PointX="0.75" PointY="8.75" />
+        <EntityTypeShape EntityType="ItemDetailModel.vwDebit" Width="1.5" PointX="2.75" PointY="8.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

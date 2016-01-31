@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ItemDetailModelStoreContainer" CdmEntityContainer="ItemDetailEntities">
+    <EntitySetMapping Name="Credits">
+      <EntityTypeMapping TypeName="ItemDetailModel.Credit">
+        <MappingFragment StoreEntitySet="Credits">
+          <ScalarProperty Name="PkCredit" ColumnName="PkCredit" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FkPeriod" ColumnName="FkPeriod" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="WeeklyDOW" ColumnName="WeeklyDOW" />
+          <ScalarProperty Name="EverOtherWeekDOW" ColumnName="EverOtherWeekDOW" />
+          <ScalarProperty Name="BiMonthlyDay1" ColumnName="BiMonthlyDay1" />
+          <ScalarProperty Name="BiMonthlyDay2" ColumnName="BiMonthlyDay2" />
+          <ScalarProperty Name="MonthlyDOM" ColumnName="MonthlyDOM" />
+          <ScalarProperty Name="Quarterly1Month" ColumnName="Quarterly1Month" />
+          <ScalarProperty Name="Quarterly1Day" ColumnName="Quarterly1Day" />
+          <ScalarProperty Name="Quarterly2Month" ColumnName="Quarterly2Month" />
+          <ScalarProperty Name="Quarterly2Day" ColumnName="Quarterly2Day" />
+          <ScalarProperty Name="Quarterly3Month" ColumnName="Quarterly3Month" />
+          <ScalarProperty Name="Quarterly3Day" ColumnName="Quarterly3Day" />
+          <ScalarProperty Name="Quarterly4Month" ColumnName="Quarterly4Month" />
+          <ScalarProperty Name="Quarterly4Day" ColumnName="Quarterly4Day" />
+          <ScalarProperty Name="SemiAnnual1Month" ColumnName="SemiAnnual1Month" />
+          <ScalarProperty Name="SemiAnnual1Day" ColumnName="SemiAnnual1Day" />
+          <ScalarProperty Name="SemiAnnual2Month" ColumnName="SemiAnnual2Month" />
+          <ScalarProperty Name="SemiAnnual2Day" ColumnName="SemiAnnual2Day" />
+          <ScalarProperty Name="AnnualMOY" ColumnName="AnnualMOY" />
+          <ScalarProperty Name="AnnualDOM" ColumnName="AnnualDOM" />
+          <ScalarProperty Name="DateRangeReq" ColumnName="DateRangeReq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Debits">
+      <EntityTypeMapping TypeName="ItemDetailModel.Debit">
+        <MappingFragment StoreEntitySet="Debits">
+          <ScalarProperty Name="PkDebit" ColumnName="PkDebit" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="FkPeriod" ColumnName="FkPeriod" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="WeeklyDOW" ColumnName="WeeklyDOW" />
+          <ScalarProperty Name="EverOtherWeekDOW" ColumnName="EverOtherWeekDOW" />
+          <ScalarProperty Name="BiMonthlyDay1" ColumnName="BiMonthlyDay1" />
+          <ScalarProperty Name="BiMonthlyDay2" ColumnName="BiMonthlyDay2" />
+          <ScalarProperty Name="MonthlyDOM" ColumnName="MonthlyDOM" />
+          <ScalarProperty Name="Quarterly1Month" ColumnName="Quarterly1Month" />
+          <ScalarProperty Name="Quarterly1Day" ColumnName="Quarterly1Day" />
+          <ScalarProperty Name="Quarterly2Month" ColumnName="Quarterly2Month" />
+          <ScalarProperty Name="Quarterly2Day" ColumnName="Quarterly2Day" />
+          <ScalarProperty Name="Quarterly3Month" ColumnName="Quarterly3Month" />
+          <ScalarProperty Name="Quarterly3Day" ColumnName="Quarterly3Day" />
+          <ScalarProperty Name="Quarterly4Month" ColumnName="Quarterly4Month" />
+          <ScalarProperty Name="Quarterly4Day" ColumnName="Quarterly4Day" />
+          <ScalarProperty Name="SemiAnnual1Month" ColumnName="SemiAnnual1Month" />
+          <ScalarProperty Name="SemiAnnual1Day" ColumnName="SemiAnnual1Day" />
+          <ScalarProperty Name="SemiAnnual2Month" ColumnName="SemiAnnual2Month" />
+          <ScalarProperty Name="SemiAnnual2Day" ColumnName="SemiAnnual2Day" />
+          <ScalarProperty Name="AnnualMOY" ColumnName="AnnualMOY" />
+          <ScalarProperty Name="AnnualDOM" ColumnName="AnnualDOM" />
+          <ScalarProperty Name="DateRangeReq" ColumnName="DateRangeReq" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="InitialAmounts">
+      <EntityTypeMapping TypeName="ItemDetailModel.InitialAmount">
+        <MappingFragment StoreEntitySet="InitialAmount">
+          <ScalarProperty Name="PkID" ColumnName="PkID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Periods">
+      <EntityTypeMapping TypeName="ItemDetailModel.Period">
+        <MappingFragment StoreEntitySet="Periods">
+          <ScalarProperty Name="PkPeriod" ColumnName="PkPeriod" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwCredits">
+      <EntityTypeMapping TypeName="ItemDetailModel.vwCredit">
+        <MappingFragment StoreEntitySet="vwCredits">
+          <ScalarProperty Name="DateRangeReq" ColumnName="DateRangeReq" />
+          <ScalarProperty Name="AnnualDOM" ColumnName="AnnualDOM" />
+          <ScalarProperty Name="AnnualMOY" ColumnName="AnnualMOY" />
+          <ScalarProperty Name="SemiAnnual2Day" ColumnName="SemiAnnual2Day" />
+          <ScalarProperty Name="SemiAnnual2Month" ColumnName="SemiAnnual2Month" />
+          <ScalarProperty Name="SemiAnnual1Day" ColumnName="SemiAnnual1Day" />
+          <ScalarProperty Name="SemiAnnual1Month" ColumnName="SemiAnnual1Month" />
+          <ScalarProperty Name="Quarterly4Day" ColumnName="Quarterly4Day" />
+          <ScalarProperty Name="Quarterly4Month" ColumnName="Quarterly4Month" />
+          <ScalarProperty Name="Quarterly3Day" ColumnName="Quarterly3Day" />
+          <ScalarProperty Name="Quarterly3Month" ColumnName="Quarterly3Month" />
+          <ScalarProperty Name="Quarterly2Day" ColumnName="Quarterly2Day" />
+          <ScalarProperty Name="Quarterly2Month" ColumnName="Quarterly2Month" />
+          <ScalarProperty Name="Quarterly1Day" ColumnName="Quarterly1Day" />
+          <ScalarProperty Name="Quarterly1Month" ColumnName="Quarterly1Month" />
+          <ScalarProperty Name="MonthlyDOM" ColumnName="MonthlyDOM" />
+          <ScalarProperty Name="BiMonthlyDay2" ColumnName="BiMonthlyDay2" />
+          <ScalarProperty Name="BiMonthlyDay1" ColumnName="BiMonthlyDay1" />
+          <ScalarProperty Name="EverOtherWeekDOW" ColumnName="EverOtherWeekDOW" />
+          <ScalarProperty Name="WeeklyDOW" ColumnName="WeeklyDOW" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+          <ScalarProperty Name="FkPeriod" ColumnName="FkPeriod" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PkCredit" ColumnName="PkCredit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vwDebits">
+      <EntityTypeMapping TypeName="ItemDetailModel.vwDebit">
+        <MappingFragment StoreEntitySet="vwDebits">
+          <ScalarProperty Name="DateRangeReq" ColumnName="DateRangeReq" />
+          <ScalarProperty Name="AnnualDOM" ColumnName="AnnualDOM" />
+          <ScalarProperty Name="AnnualMOY" ColumnName="AnnualMOY" />
+          <ScalarProperty Name="SemiAnnual2Day" ColumnName="SemiAnnual2Day" />
+          <ScalarProperty Name="SemiAnnual2Month" ColumnName="SemiAnnual2Month" />
+          <ScalarProperty Name="SemiAnnual1Day" ColumnName="SemiAnnual1Day" />
+          <ScalarProperty Name="SemiAnnual1Month" ColumnName="SemiAnnual1Month" />
+          <ScalarProperty Name="Quarterly4Day" ColumnName="Quarterly4Day" />
+          <ScalarProperty Name="Quarterly4Month" ColumnName="Quarterly4Month" />
+          <ScalarProperty Name="Quarterly3Day" ColumnName="Quarterly3Day" />
+          <ScalarProperty Name="Quarterly3Month" ColumnName="Quarterly3Month" />
+          <ScalarProperty Name="Quarterly2Day" ColumnName="Quarterly2Day" />
+          <ScalarProperty Name="Quarterly2Month" ColumnName="Quarterly2Month" />
+          <ScalarProperty Name="Quarterly1Day" ColumnName="Quarterly1Day" />
+          <ScalarProperty Name="Quarterly1Month" ColumnName="Quarterly1Month" />
+          <ScalarProperty Name="MonthlyDOM" ColumnName="MonthlyDOM" />
+          <ScalarProperty Name="BiMonthlyDay2" ColumnName="BiMonthlyDay2" />
+          <ScalarProperty Name="BiMonthlyDay1" ColumnName="BiMonthlyDay1" />
+          <ScalarProperty Name="EverOtherWeekDOW" ColumnName="EverOtherWeekDOW" />
+          <ScalarProperty Name="WeeklyDOW" ColumnName="WeeklyDOW" />
+          <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+          <ScalarProperty Name="BeginDate" ColumnName="BeginDate" />
+          <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+          <ScalarProperty Name="FkPeriod" ColumnName="FkPeriod" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="PkDebit" ColumnName="PkDebit" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="spCreateLedgerReadout" FunctionName="ItemDetailModel.Store.spCreateLedgerReadout">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="ItemDetailModel.spCreateLedgerReadout_Result">
+          <ScalarProperty Name="PkLMain" ColumnName="PkLMain" />
+          <ScalarProperty Name="WDate" ColumnName="WDate" />
+          <ScalarProperty Name="CreditSummary" ColumnName="CreditSummary" />
+          <ScalarProperty Name="DebitSummary" ColumnName="DebitSummary" />
+          <ScalarProperty Name="NetDaily" ColumnName="NetDaily" />
+          <ScalarProperty Name="RunningTotal" ColumnName="RunningTotal" />
+          <ScalarProperty Name="ItemType" ColumnName="ItemType" />
+          <ScalarProperty Name="FkItemDetail" ColumnName="FkItemDetail" />
+          <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

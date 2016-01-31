@@ -1,0 +1,7 @@
+﻿@model string
+
+@Html.TextBox("", Model, "{0:c}", new {@class = "form-control", data_a_sign = "$ "})
+
+<script>
+    $('input[id="StrAmount"]').autoNumeric('init');
+</script>

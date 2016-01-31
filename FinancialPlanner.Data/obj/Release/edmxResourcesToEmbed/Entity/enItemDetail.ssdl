@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ItemDetailModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Credits">
+    <Key>
+      <PropertyRef Name="PkCredit" />
+    </Key>
+    <Property Name="PkCredit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="75" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="FkPeriod" Type="int" />
+    <Property Name="BeginDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="WeeklyDOW" Type="int" />
+    <Property Name="EverOtherWeekDOW" Type="int" />
+    <Property Name="BiMonthlyDay1" Type="int" />
+    <Property Name="BiMonthlyDay2" Type="int" />
+    <Property Name="MonthlyDOM" Type="int" />
+    <Property Name="Quarterly1Month" Type="int" />
+    <Property Name="Quarterly1Day" Type="int" />
+    <Property Name="Quarterly2Month" Type="int" />
+    <Property Name="Quarterly2Day" Type="int" />
+    <Property Name="Quarterly3Month" Type="int" />
+    <Property Name="Quarterly3Day" Type="int" />
+    <Property Name="Quarterly4Month" Type="int" />
+    <Property Name="Quarterly4Day" Type="int" />
+    <Property Name="SemiAnnual1Month" Type="int" />
+    <Property Name="SemiAnnual1Day" Type="int" />
+    <Property Name="SemiAnnual2Month" Type="int" />
+    <Property Name="SemiAnnual2Day" Type="int" />
+    <Property Name="AnnualMOY" Type="int" />
+    <Property Name="AnnualDOM" Type="int" />
+    <Property Name="DateRangeReq" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Debits">
+    <Key>
+      <PropertyRef Name="PkDebit" />
+    </Key>
+    <Property Name="PkDebit" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="75" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="FkPeriod" Type="int" />
+    <Property Name="BeginDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="WeeklyDOW" Type="int" />
+    <Property Name="EverOtherWeekDOW" Type="int" />
+    <Property Name="BiMonthlyDay1" Type="int" />
+    <Property Name="BiMonthlyDay2" Type="int" />
+    <Property Name="MonthlyDOM" Type="int" />
+    <Property Name="Quarterly1Month" Type="int" />
+    <Property Name="Quarterly1Day" Type="int" />
+    <Property Name="Quarterly2Month" Type="int" />
+    <Property Name="Quarterly2Day" Type="int" />
+    <Property Name="Quarterly3Month" Type="int" />
+    <Property Name="Quarterly3Day" Type="int" />
+    <Property Name="Quarterly4Month" Type="int" />
+    <Property Name="Quarterly4Day" Type="int" />
+    <Property Name="SemiAnnual1Month" Type="int" />
+    <Property Name="SemiAnnual1Day" Type="int" />
+    <Property Name="SemiAnnual2Month" Type="int" />
+    <Property Name="SemiAnnual2Day" Type="int" />
+    <Property Name="AnnualMOY" Type="int" />
+    <Property Name="AnnualDOM" Type="int" />
+    <Property Name="DateRangeReq" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="InitialAmount">
+    <Key>
+      <PropertyRef Name="PkID" />
+    </Key>
+    <Property Name="PkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="BeginDate" Type="date" />
+  </EntityType>
+  <EntityType Name="Periods">
+    <Key>
+      <PropertyRef Name="PkPeriod" />
+    </Key>
+    <Property Name="PkPeriod" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="75" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwCredits' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwCredits">
+    <Key>
+      <PropertyRef Name="PkCredit" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="PeriodName" />
+      <PropertyRef Name="DateRangeReq" />
+    </Key>
+    <Property Name="PkCredit" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="75" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="FkPeriod" Type="int" />
+    <Property Name="PeriodName" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="BeginDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="WeeklyDOW" Type="int" />
+    <Property Name="EverOtherWeekDOW" Type="int" />
+    <Property Name="BiMonthlyDay1" Type="int" />
+    <Property Name="BiMonthlyDay2" Type="int" />
+    <Property Name="MonthlyDOM" Type="int" />
+    <Property Name="Quarterly1Month" Type="int" />
+    <Property Name="Quarterly1Day" Type="int" />
+    <Property Name="Quarterly2Month" Type="int" />
+    <Property Name="Quarterly2Day" Type="int" />
+    <Property Name="Quarterly3Month" Type="int" />
+    <Property Name="Quarterly3Day" Type="int" />
+    <Property Name="Quarterly4Month" Type="int" />
+    <Property Name="Quarterly4Day" Type="int" />
+    <Property Name="SemiAnnual1Month" Type="int" />
+    <Property Name="SemiAnnual1Day" Type="int" />
+    <Property Name="SemiAnnual2Month" Type="int" />
+    <Property Name="SemiAnnual2Day" Type="int" />
+    <Property Name="AnnualMOY" Type="int" />
+    <Property Name="AnnualDOM" Type="int" />
+    <Property Name="DateRangeReq" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwDebits' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vwDebits">
+    <Key>
+      <PropertyRef Name="PkDebit" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="PeriodName" />
+      <PropertyRef Name="DateRangeReq" />
+    </Key>
+    <Property Name="PkDebit" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="75" />
+    <Property Name="Amount" Type="money" />
+    <Property Name="FkPeriod" Type="int" />
+    <Property Name="PeriodName" Type="nvarchar" MaxLength="75" Nullable="false" />
+    <Property Name="BeginDate" Type="date" />
+    <Property Name="EndDate" Type="date" />
+    <Property Name="WeeklyDOW" Type="int" />
+    <Property Name="EverOtherWeekDOW" Type="int" />
+    <Property Name="BiMonthlyDay1" Type="int" />
+    <Property Name="BiMonthlyDay2" Type="int" />
+    <Property Name="MonthlyDOM" Type="int" />
+    <Property Name="Quarterly1Month" Type="int" />
+    <Property Name="Quarterly1Day" Type="int" />
+    <Property Name="Quarterly2Month" Type="int" />
+    <Property Name="Quarterly2Day" Type="int" />
+    <Property Name="Quarterly3Month" Type="int" />
+    <Property Name="Quarterly3Day" Type="int" />
+    <Property Name="Quarterly4Month" Type="int" />
+    <Property Name="Quarterly4Day" Type="int" />
+    <Property Name="SemiAnnual1Month" Type="int" />
+    <Property Name="SemiAnnual1Day" Type="int" />
+    <Property Name="SemiAnnual2Month" Type="int" />
+    <Property Name="SemiAnnual2Day" Type="int" />
+    <Property Name="AnnualMOY" Type="int" />
+    <Property Name="AnnualDOM" Type="int" />
+    <Property Name="DateRangeReq" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Credits_Periods">
+    <End Role="Periods" Type="Self.Periods" Multiplicity="0..1" />
+    <End Role="Credits" Type="Self.Credits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periods">
+        <PropertyRef Name="PkPeriod" />
+      </Principal>
+      <Dependent Role="Credits">
+        <PropertyRef Name="FkPeriod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Debits_Periods">
+    <End Role="Periods" Type="Self.Periods" Multiplicity="0..1" />
+    <End Role="Debits" Type="Self.Debits" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Periods">
+        <PropertyRef Name="PkPeriod" />
+      </Principal>
+      <Dependent Role="Debits">
+        <PropertyRef Name="FkPeriod" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="spCreateLedgerReadout" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ItemDetail">
+    <Parameter Name="TimeFrameBegin" Type="date" Mode="In" />
+    <Parameter Name="TimeFrameEnd" Type="date" Mode="In" />
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ItemDetailModelStoreContainer">
+    <EntitySet Name="Credits" EntityType="Self.Credits" Schema="ItemDetail" store:Type="Tables" />
+    <EntitySet Name="Debits" EntityType="Self.Debits" Schema="ItemDetail" store:Type="Tables" />
+    <EntitySet Name="InitialAmount" EntityType="Self.InitialAmount" Schema="ItemDetail" store:Type="Tables" />
+    <EntitySet Name="Periods" EntityType="Self.Periods" Schema="ItemDetail" store:Type="Tables" />
+    <EntitySet Name="vwCredits" EntityType="Self.vwCredits" store:Type="Views" store:Schema="ItemDetail">
+      <DefiningQuery>SELECT 
+    [vwCredits].[PkCredit] AS [PkCredit], 
+    [vwCredits].[UserName] AS [UserName], 
+    [vwCredits].[Name] AS [Name], 
+    [vwCredits].[Amount] AS [Amount], 
+    [vwCredits].[FkPeriod] AS [FkPeriod], 
+    [vwCredits].[PeriodName] AS [PeriodName], 
+    [vwCredits].[BeginDate] AS [BeginDate], 
+    [vwCredits].[EndDate] AS [EndDate], 
+    [vwCredits].[WeeklyDOW] AS [WeeklyDOW], 
+    [vwCredits].[EverOtherWeekDOW] AS [EverOtherWeekDOW], 
+    [vwCredits].[BiMonthlyDay1] AS [BiMonthlyDay1], 
+    [vwCredits].[BiMonthlyDay2] AS [BiMonthlyDay2], 
+    [vwCredits].[MonthlyDOM] AS [MonthlyDOM], 
+    [vwCredits].[Quarterly1Month] AS [Quarterly1Month], 
+    [vwCredits].[Quarterly1Day] AS [Quarterly1Day], 
+    [vwCredits].[Quarterly2Month] AS [Quarterly2Month], 
+    [vwCredits].[Quarterly2Day] AS [Quarterly2Day], 
+    [vwCredits].[Quarterly3Month] AS [Quarterly3Month], 
+    [vwCredits].[Quarterly3Day] AS [Quarterly3Day], 
+    [vwCredits].[Quarterly4Month] AS [Quarterly4Month], 
+    [vwCredits].[Quarterly4Day] AS [Quarterly4Day], 
+    [vwCredits].[SemiAnnual1Month] AS [SemiAnnual1Month], 
+    [vwCredits].[SemiAnnual1Day] AS [SemiAnnual1Day], 
+    [vwCredits].[SemiAnnual2Month] AS [SemiAnnual2Month], 
+    [vwCredits].[SemiAnnual2Day] AS [SemiAnnual2Day], 
+    [vwCredits].[AnnualMOY] AS [AnnualMOY], 
+    [vwCredits].[AnnualDOM] AS [AnnualDOM], 
+    [vwCredits].[DateRangeReq] AS [DateRangeReq]
+    FROM [ItemDetail].[vwCredits] AS [vwCredits]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="vwDebits" EntityType="Self.vwDebits" store:Type="Views" store:Schema="ItemDetail">
+      <DefiningQuery>SELECT 
+    [vwDebits].[PkDebit] AS [PkDebit], 
+    [vwDebits].[UserName] AS [UserName], 
+    [vwDebits].[Name] AS [Name], 
+    [vwDebits].[Amount] AS [Amount], 
+    [vwDebits].[FkPeriod] AS [FkPeriod], 
+    [vwDebits].[PeriodName] AS [PeriodName], 
+    [vwDebits].[BeginDate] AS [BeginDate], 
+    [vwDebits].[EndDate] AS [EndDate], 
+    [vwDebits].[WeeklyDOW] AS [WeeklyDOW], 
+    [vwDebits].[EverOtherWeekDOW] AS [EverOtherWeekDOW], 
+    [vwDebits].[BiMonthlyDay1] AS [BiMonthlyDay1], 
+    [vwDebits].[BiMonthlyDay2] AS [BiMonthlyDay2], 
+    [vwDebits].[MonthlyDOM] AS [MonthlyDOM], 
+    [vwDebits].[Quarterly1Month] AS [Quarterly1Month], 
+    [vwDebits].[Quarterly1Day] AS [Quarterly1Day], 
+    [vwDebits].[Quarterly2Month] AS [Quarterly2Month], 
+    [vwDebits].[Quarterly2Day] AS [Quarterly2Day], 
+    [vwDebits].[Quarterly3Month] AS [Quarterly3Month], 
+    [vwDebits].[Quarterly3Day] AS [Quarterly3Day], 
+    [vwDebits].[Quarterly4Month] AS [Quarterly4Month], 
+    [vwDebits].[Quarterly4Day] AS [Quarterly4Day], 
+    [vwDebits].[SemiAnnual1Month] AS [SemiAnnual1Month], 
+    [vwDebits].[SemiAnnual1Day] AS [SemiAnnual1Day], 
+    [vwDebits].[SemiAnnual2Month] AS [SemiAnnual2Month], 
+    [vwDebits].[SemiAnnual2Day] AS [SemiAnnual2Day], 
+    [vwDebits].[AnnualMOY] AS [AnnualMOY], 
+    [vwDebits].[AnnualDOM] AS [AnnualDOM], 
+    [vwDebits].[DateRangeReq] AS [DateRangeReq]
+    FROM [ItemDetail].[vwDebits] AS [vwDebits]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Credits_Periods" Association="Self.FK_Credits_Periods">
+      <End Role="Periods" EntitySet="Periods" />
+      <End Role="Credits" EntitySet="Credits" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Debits_Periods" Association="Self.FK_Debits_Periods">
+      <End Role="Periods" EntitySet="Periods" />
+      <End Role="Debits" EntitySet="Debits" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

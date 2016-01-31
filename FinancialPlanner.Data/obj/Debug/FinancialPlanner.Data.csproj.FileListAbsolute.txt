@@ -1,0 +1,12 @@
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Debug\FinancialPlanner.Data.dll.config
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Debug\FinancialPlanner.Data.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Debug\FinancialPlanner.Data.pdb
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Debug\EntityFramework.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Debug\EntityFramework.xml
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.Properties.Resources.resources
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.csproj.GenerateResource.Cache
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.dll
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.pdb
+C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.csprojResolveAssemblyReference.cache
