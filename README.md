@@ -1,2 +1,0 @@
-# FinancialPlanner
-FinancialPlanner - Source Code 
