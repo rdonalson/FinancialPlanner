@@ -97,7 +97,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to @89UIor#-jk.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string CONN_AZURE_PASSWORD {
             get {
@@ -106,7 +106,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to pn5745kjcc.database.windows.net.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string CONN_AZURE_SERVER {
             get {
@@ -115,7 +115,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to rdonalson@pn5745kjcc.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string CONN_AZURE_USERID {
             get {
@@ -124,7 +124,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 2.
+        ///   Looks up a localized string similar to 3.
         /// </summary>
         internal static string CONN_DIRECTION {
             get {
@@ -169,7 +169,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to LENOVO-PC\APPLICATION.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string CONN_SRVR_SERVER {
             get {
@@ -187,7 +187,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 911887638900586.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string FACEBOOK_APPID {
             get {
@@ -196,7 +196,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 9e73f35cef07f403dae1ae83a0109071.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string FACEBOOK_APPSECRET {
             get {
@@ -205,7 +205,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to azure_607f1bb93191b2c9f7f4c94289989ea9@azure.com.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string SENDGRIDMAIL_LOGIN {
             get {
@@ -214,7 +214,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 4VTfSki0a8a0wl8.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string SENDGRIDMAIL_PASSWORD {
             get {
@@ -223,7 +223,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to igALky6X6Zpb4rpPVZtsx9HSJ.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string TWITTER_CONSUMERKEY {
             get {
@@ -232,7 +232,7 @@ namespace FinancialPlanner.Web.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to YA0ikAfOSBDzhdcNpYzhLIXKavtJZnzd1gYZ6xXDB5Dn3zLRwN.
+        ///   Looks up a localized string similar to -.
         /// </summary>
         internal static string TWITTER_CONSUMERSECRET {
             get {

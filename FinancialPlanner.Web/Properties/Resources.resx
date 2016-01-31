@@ -128,18 +128,22 @@
   </data>
   <data name="CONN_AZURE_DATABASE" xml:space="preserve">
     <value>FinancialPlanner</value>
+    <comment>FinancialPlanner</comment>
   </data>
   <data name="CONN_AZURE_PASSWORD" xml:space="preserve">
-    <value>@89UIor#-jk</value>
+    <value>-</value>
+    <comment>YourAZURE_PASSWORD</comment>
   </data>
   <data name="CONN_AZURE_SERVER" xml:space="preserve">
-    <value>pn5745kjcc.database.windows.net</value>
+    <value>-</value>
+    <comment>YourAZURE_SERVER</comment>
   </data>
   <data name="CONN_AZURE_USERID" xml:space="preserve">
-    <value>rdonalson@pn5745kjcc</value>
+    <value>-</value>
+    <comment>Your AZURE_USERID</comment>
   </data>
   <data name="CONN_DIRECTION" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
     <comment>Set the application connection to:
 1  - Azure (your Azure datatbase)
 2  - Server (A network or local server database)
@@ -158,27 +162,34 @@
     <value>Abc123*</value>
   </data>
   <data name="CONN_SRVR_SERVER" xml:space="preserve">
-    <value>LENOVO-PC\APPLICATION</value>
+    <value>-</value>
+    <comment>Your Local Server Instance</comment>
   </data>
   <data name="CONN_SRVR_USERID" xml:space="preserve">
     <value>fpadmin</value>
   </data>
   <data name="FACEBOOK_APPID" xml:space="preserve">
-    <value>911887638900586</value>
+    <value>-</value>
+    <comment>Your FACEBOOK_APPID</comment>
   </data>
   <data name="FACEBOOK_APPSECRET" xml:space="preserve">
-    <value>9e73f35cef07f403dae1ae83a0109071</value>
+    <value>-</value>
+    <comment>Your FACEBOOK_APPSECRET</comment>
   </data>
   <data name="SENDGRIDMAIL_LOGIN" xml:space="preserve">
-    <value>azure_607f1bb93191b2c9f7f4c94289989ea9@azure.com</value>
+    <value>-</value>
+    <comment>Your SENDGRIDMAIL_LOGIN</comment>
   </data>
   <data name="SENDGRIDMAIL_PASSWORD" xml:space="preserve">
-    <value>4VTfSki0a8a0wl8</value>
+    <value>-</value>
+    <comment>Your SENDGRIDMAIL_PASSWORD</comment>
   </data>
   <data name="TWITTER_CONSUMERKEY" xml:space="preserve">
-    <value>igALky6X6Zpb4rpPVZtsx9HSJ</value>
+    <value>-</value>
+    <comment>Your TWITTER_CONSUMERKEY</comment>
   </data>
   <data name="TWITTER_CONSUMERSECRET" xml:space="preserve">
-    <value>YA0ikAfOSBDzhdcNpYzhLIXKavtJZnzd1gYZ6xXDB5Dn3zLRwN</value>
+    <value>-</value>
+    <comment>Your TWITTER_CONSUMERSECRET</comment>
   </data>
 </root>
