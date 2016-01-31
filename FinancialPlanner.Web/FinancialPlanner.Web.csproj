@@ -686,6 +686,7 @@
     <Content Include="Areas\Display\Views\DisplayHome\Index.cshtml" />
     <Content Include="Content\site.less" />
     <Content Include="Areas\Display\Views\Shared\_LoginPartial.cshtml" />
+    <None Include="Properties\PublishProfiles\New FP Profile.pubxml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
@@ -852,7 +853,6 @@
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="Scripts\ts\" />
   </ItemGroup>
   <ItemGroup>
