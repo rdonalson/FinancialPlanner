@@ -8,3 +8,13 @@ C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure
 C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Debug\FinancialPlanner.Infrastructure.csprojResolveAssemblyReference.cache
 C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Debug\FinancialPlanner.Infrastructure.dll
 C:\Users\rdonalson\Source\Repos\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Debug\FinancialPlanner.Infrastructure.pdb
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Debug\FinancialPlanner.Infrastructure.dll.config
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Debug\FinancialPlanner.Infrastructure.dll
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Debug\FinancialPlanner.Infrastructure.pdb
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Debug\EntityFramework.dll
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Debug\FinancialPlanner.Data.dll
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Debug\FinancialPlanner.Data.pdb
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\bin\Debug\EntityFramework.xml
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Debug\FinancialPlanner.Infrastructure.csprojResolveAssemblyReference.cache
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Debug\FinancialPlanner.Infrastructure.dll
+C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Infrastructure\obj\Debug\FinancialPlanner.Infrastructure.pdb

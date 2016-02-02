@@ -119,6 +119,7 @@
   </resheader>
   <data name="ADMINNAME" xml:space="preserve">
     <value>admin@financialplanner.net</value>
+    <comment>Default Admin User that has access to Admin Section</comment>
   </data>
   <data name="ADMINPASSWORD" xml:space="preserve">
     <value>Abc123*</value>
@@ -128,19 +129,15 @@
   </data>
   <data name="CONN_AZURE_DATABASE" xml:space="preserve">
     <value>FinancialPlanner</value>
-    <comment>FinancialPlanner</comment>
   </data>
   <data name="CONN_AZURE_PASSWORD" xml:space="preserve">
     <value>-</value>
-    <comment>YourAZURE_PASSWORD</comment>
   </data>
   <data name="CONN_AZURE_SERVER" xml:space="preserve">
     <value>-</value>
-    <comment>YourAZURE_SERVER</comment>
   </data>
   <data name="CONN_AZURE_USERID" xml:space="preserve">
     <value>-</value>
-    <comment>Your AZURE_USERID</comment>
   </data>
   <data name="CONN_DIRECTION" xml:space="preserve">
     <value>3</value>
@@ -151,45 +148,43 @@
   </data>
   <data name="CONN_LCLDB_DATABASE" xml:space="preserve">
     <value>FinancialPlannerLocalDb</value>
+    <comment>Default Database in the App_Data folder in FinancialPlanner.Web</comment>
   </data>
   <data name="CONN_LCLDB_SERVER" xml:space="preserve">
     <value>(LocalDb)\v11.0</value>
   </data>
   <data name="CONN_SRVR_DATABASE" xml:space="preserve">
     <value>FinancialPlanner</value>
+    <comment>Database on Local or Network Instance of SQL Server</comment>
   </data>
   <data name="CONN_SRVR_PASSWORD" xml:space="preserve">
     <value>Abc123*</value>
   </data>
   <data name="CONN_SRVR_SERVER" xml:space="preserve">
     <value>-</value>
-    <comment>Your Local Server Instance</comment>
   </data>
   <data name="CONN_SRVR_USERID" xml:space="preserve">
     <value>fpadmin</value>
   </data>
   <data name="FACEBOOK_APPID" xml:space="preserve">
     <value>-</value>
-    <comment>Your FACEBOOK_APPID</comment>
+    <comment>Facebook account </comment>
   </data>
   <data name="FACEBOOK_APPSECRET" xml:space="preserve">
     <value>-</value>
-    <comment>Your FACEBOOK_APPSECRET</comment>
   </data>
   <data name="SENDGRIDMAIL_LOGIN" xml:space="preserve">
     <value>-</value>
-    <comment>Your SENDGRIDMAIL_LOGIN</comment>
+    <comment>Sendgrid account</comment>
   </data>
   <data name="SENDGRIDMAIL_PASSWORD" xml:space="preserve">
     <value>-</value>
-    <comment>Your SENDGRIDMAIL_PASSWORD</comment>
   </data>
   <data name="TWITTER_CONSUMERKEY" xml:space="preserve">
     <value>-</value>
-    <comment>Your TWITTER_CONSUMERKEY</comment>
+    <comment>Twitter account</comment>
   </data>
   <data name="TWITTER_CONSUMERSECRET" xml:space="preserve">
     <value>-</value>
-    <comment>Your TWITTER_CONSUMERSECRET</comment>
   </data>
 </root>
