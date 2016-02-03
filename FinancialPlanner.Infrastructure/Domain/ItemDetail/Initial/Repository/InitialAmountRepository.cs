@@ -75,7 +75,7 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Initial.Repository
                         PkID = initialAmount.PkID,
                         UserName = initialAmount.UserName,
                         StrAmount = initialAmount.Amount.ToString(),
-                        BeginDate = initialAmount.BeginDate
+                        //BeginDate = initialAmount.BeginDate	// Archive
                     };
                     return initialAmountView;
                 }
@@ -102,7 +102,7 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Initial.Repository
                 if (initialAmount != null)
                 {
                     initialAmount.Amount = Convert.ToDecimal(initialAmountView.StrAmount.Replace("$", ""));
-                    initialAmount.BeginDate = initialAmountView.BeginDate;
+                    //initialAmount.BeginDate = initialAmountView.BeginDate;	// Archive
 
                     _db.Entry(initialAmount).State = EntityState.Modified;
                     _db.SaveChanges();
@@ -134,7 +134,7 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.Initial.Repository
                 {
                     UserName = initialAmountView.UserName,
                     Amount = Convert.ToDecimal(initialAmountView.StrAmount.Replace("$", "")),
-                    BeginDate = initialAmountView.BeginDate
+                    //BeginDate = initialAmountView.BeginDate	// Archive
                 };
 
                 _db.InitialAmounts.Add(initialAmount);

@@ -71,7 +71,8 @@ namespace FinancialPlanner.Web.Areas.ItemDetail.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(
             [Bind(
-                Include = "PkID,UserName,StrAmount,BeginDate"
+                //Include = "PkID,UserName,StrAmount,BeginDate"	// Archive
+                Include = "PkID,UserName,StrAmount"
                 )] InitialAmountView initialAmountView)
         {
             if (ModelState.IsValid)
@@ -121,8 +122,8 @@ namespace FinancialPlanner.Web.Areas.ItemDetail.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit(
             [Bind(
-                Include =
-                    "PkID,UserName,StrAmount,BeginDate"
+                //Include = "PkID,UserName,StrAmount,BeginDate"	//Archive
+					Include = "PkID,UserName,StrAmount"
                 )] InitialAmountView initialAmountView)
         {
             if (ModelState.IsValid)

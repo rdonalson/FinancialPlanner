@@ -571,7 +571,6 @@
     <Content Include="Scripts\html5shiv.min.js">
       <DependentUpon>html5shiv.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\jquery-2.1.4.js" />
     <Content Include="Scripts\flot\excanvas.js" />
     <Content Include="Scripts\flot\jquery.colorhelpers.js" />
     <Content Include="Scripts\flot\jquery.flot.canvas.js" />
@@ -589,9 +588,6 @@
     <Content Include="Scripts\flot\jquery.flot.symbol.js" />
     <Content Include="Scripts\flot\jquery.flot.threshold.js" />
     <Content Include="Scripts\flot\jquery.flot.time.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js.map">
-      <DependentUpon>jquery-2.1.4.min.js</DependentUpon>
-    </Content>
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -710,9 +706,6 @@
       <DependentUpon>jquery.numberformatter-1.2.4.min.js</DependentUpon>
     </Content>
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-2.1.4.min.js">
-      <DependentUpon>jquery-2.1.4.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-ui-1.10.3.custom.min.js">
       <DependentUpon>jquery-ui-1.10.3.custom.js</DependentUpon>
     </Content>
@@ -909,7 +902,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>54506</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1010/</IISUrl>
+          <IISUrl>http://localhost:1020/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

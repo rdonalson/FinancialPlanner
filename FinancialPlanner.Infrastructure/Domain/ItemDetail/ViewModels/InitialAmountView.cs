@@ -25,8 +25,9 @@ namespace FinancialPlanner.Infrastructure.Domain.ItemDetail.ViewModels
         [RegularExpression(@"\$\040{0,1}(\d{1,3}(\,\d{3})*|(\d+))(\.\d{2})?", ErrorMessage = "Invalid Currency Value")]
         public string StrAmount { get; set; }
 
-        [Display(Name = "Initialization Date:")]
-        [Required(ErrorMessage = "Please select: A date")]
-        public DateTime? BeginDate { get; set; }
+		// Archive
+        //[Display(Name = "Initialization Date:")]
+        //[Required(ErrorMessage = "Please select: A date")]
+        //public DateTime? BeginDate { get; set; }
     }
 }

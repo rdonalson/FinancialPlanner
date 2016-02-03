@@ -26,9 +26,9 @@ else
         <th>
             @Html.DisplayNameFor(model => model.Amount)
         </th>
-        <th>
+        @*<th>	// Archive
             @Html.DisplayNameFor(model => model.BeginDate)
-        </th>
+        </th>*@
     </tr>
 
     @foreach (var item in Model)
@@ -40,9 +40,9 @@ else
             <td>
                 @Html.DisplayFor(modelItem => item.Amount, "_Currency")
             </td>
-            <td>
+            @*<td>	// Archive
                 @Html.DisplayFor(modelItem => item.BeginDate, "_Date")
-            </td>
+            </td>*@
         </tr>
     }
 

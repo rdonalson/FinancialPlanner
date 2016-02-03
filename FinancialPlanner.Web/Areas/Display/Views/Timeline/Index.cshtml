@@ -79,3 +79,14 @@
         </table>
     </div>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        // Datepicker
+        $('input[id*="timeFrame"]').datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    </script>
+}
