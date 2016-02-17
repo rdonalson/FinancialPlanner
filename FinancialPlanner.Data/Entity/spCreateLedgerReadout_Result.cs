@@ -13,16 +13,17 @@ namespace FinancialPlanner.Data.Entity
     
     public partial class spCreateLedgerReadout_Result
     {
-        public int PkLMain { get; set; }
+        public int RollupKey { get; set; }
+        public Nullable<int> Year { get; set; }
         public Nullable<System.DateTime> WDate { get; set; }
         public Nullable<double> CreditSummary { get; set; }
         public Nullable<double> DebitSummary { get; set; }
-        public Nullable<double> NetDaily { get; set; }
+        public Nullable<double> Net { get; set; }
         public Nullable<double> RunningTotal { get; set; }
-        public Nullable<int> ItemType { get; set; }
-        public Nullable<int> FkItemDetail { get; set; }
+        public Nullable<System.DateTime> OccurrenceDate { get; set; }
+        public int ItemType { get; set; }
         public string PeriodName { get; set; }
         public string Name { get; set; }
-        public Nullable<double> Amount { get; set; }
+        public double Amount { get; set; }
     }
 }

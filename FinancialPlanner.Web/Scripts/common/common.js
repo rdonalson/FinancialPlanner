@@ -4,7 +4,7 @@
 /* ---------------------------------------------------------------------------------------
  * 
  * -------------------------------------------------------------------------------------*/
-function TooltipDialogPanel(event, pos, item, detailList) {
+function TooltipDialogPanel(event, pos, item, mainList) {
     if (item) {
         $("#tooltip").remove();
 
@@ -28,7 +28,7 @@ function TooltipDialogPanel(event, pos, item, detailList) {
                 itemFilter = 0;
                 break;
         }
-        var sb = CreatePopupPanel(detailList, xvalue, yvalue, itemFilter, date, item.series.label);
+        var sb = CreatePopupPanel(mainList, xvalue, yvalue, itemFilter, date, item.series.label);
         ShowTooltip(item.pageX, item.pageY, color, sb);
     } else {
         $("#tooltip").remove();
@@ -41,42 +41,46 @@ function TooltipDialogPanel(event, pos, item, detailList) {
  * The data displayed consists of the basic Data Type, the X and Y values from the data point
  * and an itemized list that represents the data point.
  * -------------------------------------------------------------------------------------*/
-function CreatePopupPanel(detailList, xvalue, yvalue, itemFilter, date, label) {
-    var list = GetItemList(detailList, xvalue, itemFilter);
-    var sb = "<table class='table table-condensed' >";
+function CreatePopupPanel(mainList, xvalue, yvalue, itemFilter, date, label) {
+    var list = GetItemList(mainList, xvalue);
+    var sb = "<table class='popuptable' >";
     sb = sb + "<thead>";
-    sb = sb + "<tr class='row'>";
-    sb = sb + "<th colspan='3' class='headerPopup'>" + label + "</th>";
+    sb = sb + "<tr class='titleheader'>";
+    sb = sb + "<th colspan='4' >" + label + "</th>";
     sb = sb + "</tr>";
 
     if (itemFilter !== 0) {
-        sb = sb + "<tr class='row'>";
-        sb = sb + "<th class='col-md-5' >" + date + "</th>";
-        sb = sb + "<th class='col-md-5 alignRight' >Total:</th>";
-        sb = sb + "<th class='col-md-7 alignRight'>" + FormatNumber(yvalue, 2, "$ ", ",", ".") + "</th>";
+        sb = sb + "<tr class='columnheaderWhite'>";
+        sb = sb + "<th class='left100' colspan='2' >" + date + "</th>";
+        sb = sb + "<th >Total:</th>";
+        sb = sb + "<th class='right150'>" + FormatNumber(yvalue, 2, "$ ", ",", ".") + "</th>";
         sb = sb + "</tr>";
 
-        sb = sb + "<tr class='row columnHeading'>";
-        sb = sb + "<th >Period:</th>";
-        sb = sb + "<th >Name:</th>";
-        sb = sb + "<th class='alignRight'>Amount:</th>";
+        sb = sb + "<tr class='columnheaderLightGray'>";
+        sb = sb + "<th class='left100' >Occurance Date</th>";
+        sb = sb + "<th >Period Type</th>";
+        sb = sb + "<th >Item Name</th>";
+        sb = sb + "<th class='right150'>Item Amount:</th>";
         sb = sb + "</tr>";
         sb = sb + "</thead>";
 
         sb = sb + "<tbody>";
-        $.each(list, function (index, value) {
-            sb = sb + "<tr class='row'>";
-            sb = sb + "<td>" + value[4] + "</td>";
-            sb = sb + "<td>" + value[5] + "</td>";
-            sb = sb + "<td class='alignRight'>" + FormatNumber(value[6], 2, "$ ", ",", ".") + "</td>";
-            sb = sb + "</tr>";
+        $.each(list.DetailsList, function (index, value) {
+            if (value.ItemType === itemFilter) {
+                sb = sb + "<tr >";
+                sb = sb + "<td class='left100'>" + $.datepicker.formatDate("mm/dd/yy D", new Date(GetTime(value.OccurrenceDate))) + "</td>";
+                sb = sb + "<td>" + value.PeriodName + "</td>";
+                sb = sb + "<td>" + value.Name + "</td>";
+                sb = sb + "<td class='right150'>" + FormatNumber(value.Amount, 2, "$ ", ",", ".") + "</td>";
+                sb = sb + "</tr>";
+            }
         });
         sb = sb + "</tbody>";
     } else {
-        sb = sb + "<tr class='row'>";
-        sb = sb + "<th class='col-md-5' >" + date + "</th>";
-        sb = sb + "<th class='col-md-5 alignRight' >&nbsp;</th>";
-        sb = sb + "<th class='col-md-7 alignRight'>" + FormatNumber(yvalue, 2, "$ ", ",", ".") + "</th>";
+        sb = sb + "<tr class='columnheaderWhite'>";
+        sb = sb + "<th class='left100' colspan='2' >" + date + "</th>";
+        sb = sb + "<th >Total:</th>";
+        sb = sb + "<th class='right150'>" + FormatNumber(yvalue, 2, "$ ", ",", ".") + "</th>";
         sb = sb + "</tr>";
         sb = sb + "</thead>";
     }
@@ -87,21 +91,11 @@ function CreatePopupPanel(detailList, xvalue, yvalue, itemFilter, date, label) {
 /* ---------------------------------------------------------------------------------------
  * 
  * -------------------------------------------------------------------------------------*/
-function GetItemList(detailList, xvalue, itemFilter) {
+function GetItemList(mainList, xvalue) {
     var result = [];
-    $.each(detailList, function (index, value) {
-        if (value[1] === xvalue && value[3] === itemFilter) {
-            var row = new Array();
-            row.push(
-                value[0],
-                value[1],
-                value[2],
-                value[3],
-                value[4],
-                value[5],
-                value[6]
-            );
-            result.push(row);
+    $.each(mainList, function (index, value) {
+        if (GetTime(value.WDate) === xvalue) {
+            result = value;
         }
     });
     return result;

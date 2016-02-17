@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.Entity.Core.Objects;
 using FinancialPlanner.Data.Entity;
+using FinancialPlanner.Infrastructure.Domain.Display.Models;
 
 namespace FinancialPlanner.Infrastructure.Domain.Display.Ledger.Repository
 {
@@ -51,7 +52,7 @@ namespace FinancialPlanner.Infrastructure.Domain.Display.Ledger.Repository
         {
             try
             {
-                return _db.spCreateLedgerReadout(timeFrameBegin, timeFrameEnd, userName);
+                return _db.spCreateLedgerReadout(timeFrameBegin, timeFrameEnd, userName, false);
             }
             catch (Exception ex)
             {

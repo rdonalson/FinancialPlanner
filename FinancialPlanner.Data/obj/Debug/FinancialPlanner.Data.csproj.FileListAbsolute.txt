@@ -17,7 +17,6 @@ C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\bin\D
 C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\bin\Debug\EntityFramework.xml
 C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.csprojResolveAssemblyReference.cache
 C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.Properties.Resources.resources
 C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.csproj.GenerateResource.Cache
 C:\Users\rdonalson\Documents\GitHub\FinancialPlanner\FinancialPlanner.Data\obj\Debug\FinancialPlanner.Data.dll

@@ -1,26 +1,11 @@
 ﻿@{
     ViewBag.Title = "Timeline";
 }
-@Scripts.Render("~/bundles/jqueryval")
 
-<script src="/Scripts/flot/jquery.flot.js"></script>
-<script src="/Scripts/flot/jquery.flot.stack.js"></script>
-<script src="/Scripts/jshashtable-3.0.js"></script>
-<script src="/Scripts/jquery.numberformatter-1.2.4.js"></script>
-<script src="/Scripts/flot/jquery.flot.symbol.js"></script>
-<script src="~/Scripts/flot/jquery.flot.stack.js"></script>
-<script src="/Scripts/flot/jquery.flot.axislabels.js"></script>
-<script src="/Scripts/flot/jquery.flot.fp-time.js"></script>
-<script src="/Scripts/flot/jquery.flot.fp-tickrotor.js"></script>
-<script src="/Scripts/common/common.js"></script>
-<script src="/Scripts/codebehind/views/timeline/index.js"></script>
-<h2>Timeline</h2>
+<h4 >@ViewBag.Title</h4>
 <div>
     <nav class="navbar navbar-default" role="navigation">
         <div class="collapse navbar-collapse">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">Filter</a>
-            </div>
             <form class="navbar-form navbar-left" role="search">
                 <div class="form-group">
                     <label class="sr-only" for="timeFrameBegin">From:</label>
@@ -62,19 +47,25 @@
     <div id="choicesCDND">
         <table>
             <tbody>
-                <tr>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td><input name="0" id="chkCredits" type="checkbox" checked="checked"></td>
-                    <td>&nbsp;<label for="chkCredits">Credits</label></td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input name="1" id="chkDebits" type="checkbox" checked="checked"></td>
-                    <td>&nbsp;<label for="chkDebits">Debits</label></td>
-                    <td>&nbsp;&nbsp;&nbsp;</td>
-                    <td><input name="2" id="chkNetDaily" type="checkbox" checked="checked"></td>
-                    <td>&nbsp;<label for="chkNetDaily">Net Daily</label></td>
-                </tr>
+            <tr>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <input name="0" id="chkCredits" type="checkbox" checked="checked">
+                </td>
+                <td>&nbsp;<label for="chkCredits">Credits</label></td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <input name="1" id="chkDebits" type="checkbox" checked="checked">
+                </td>
+                <td>&nbsp;<label for="chkDebits">Debits</label></td>
+                <td>&nbsp;&nbsp;&nbsp;</td>
+                <td>
+                    <input name="2" id="chkNetDaily" type="checkbox" checked="checked">
+                </td>
+                <td>&nbsp;<label for="chkNetDaily">Net Daily</label></td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -82,6 +73,9 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/flot")
+    @Scripts.Render("~/Scripts/common/common.js")
+    @Scripts.Render("~/Scripts/codebehind/views/timeline/index.js")
     <script>
         // Datepicker
         $('input[id*="timeFrame"]').datepicker({

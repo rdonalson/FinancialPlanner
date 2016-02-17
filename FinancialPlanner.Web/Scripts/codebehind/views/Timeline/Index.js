@@ -5,13 +5,21 @@
  * Dataset and Chart Configurations
  * ======================================================================================*/
 /* Declaration & Initialization */
-var PrimaryList = new Array(),
-    DetailList = new Array(),
+var timeUnitSize = {
+// These are intended for bar width only
+    "day": 24 * 60 * 60 * 800,
+    "week": 7 * 24 * 60 * 60 * 800,
+    "month": 30 * 24 * 60 * 60 * 800,
+    "quarter": 90 * 24 * 60 * 60 * 800,
+    "year": 365.2425 * 24 * 60 * 60 * 800
+};
+var standardDay = 24 * 60 * 60 * 1000;
+var MainList = new Array(),
     RunningTotalList = new Array(),
     CreditList = new Array(),
     DebitList = new Array(),
-    NetDailyAmount = new Array(),
-    buffer = 24 * 60 * 60 * 300,
+    NetAmount = new Array(),
+    dailyBarWidth = timeUnitSize.day,
     choiceContainer;
 /* Datasets */
 var dsRunningTotal = [
@@ -30,7 +38,7 @@ var dsCredits = {
     bars: {
         show: true,
         align: "center",
-        barWidth: buffer,
+        barWidth: dailyBarWidth,
         lineWidth: 1
     }
 };
@@ -41,13 +49,13 @@ var dsDebits = {
     bars: {
         show: true,
         align: "center",
-        barWidth: buffer,
+        barWidth: dailyBarWidth,
         lineWidth: 1
     }
 };
-var dsNetDaily = {
+var dsNet = {
     label: "Net Daily",
-    data: NetDailyAmount,
+    data: NetAmount,
     color: "black",
     points: {
         symbol: "circle",
@@ -59,7 +67,7 @@ var dsNetDaily = {
         lineWidth: .5
     }
 };
-/* Overall container for "dsCredits", "dsDebits" & "dsNetDaily" */
+/* Overall container for "dsCredits", "dsDebits" & "dsNet" */
 var dsCDND = [
     [], [], []
 ];
@@ -80,7 +88,7 @@ var options = {
     },
     yaxes: [
         {
-            tickFormatter: function (yvalue) {
+            tickFormatter: function(yvalue) {
                 return FormatNumber(yvalue, 0, "", ",", ".");
             },
             position: "left",
@@ -114,7 +122,7 @@ var options = {
 /* ======================================================================================
  * Document Complete
  * ======================================================================================*/
-$(function () {
+$(function() {
     choiceContainer = $("#choicesCDND");
     choiceContainer.find("input").click(PlotCDND);
 });
@@ -141,7 +149,24 @@ function GetData() {
 
     /* Diagnostic */
     //viewModel.timeFrameBegin = "1/1/2016";
-    //viewModel.timeFrameEnd = "2/1/2016";
+    //viewModel.timeFrameEnd = "3/1/2016";
+
+    /* In days */
+    var dailyCutoff = 60;
+    var weeklyCutoff = 360;
+    var monthlyCutoff = 1090;
+    var quarterlyCutoff = 2850;
+
+    AutoAdjustBarWidth(
+        viewModel.timeFrameBegin,
+        viewModel.timeFrameEnd,
+        dailyCutoff,
+        weeklyCutoff,
+        monthlyCutoff,
+        quarterlyCutoff,
+        dsCredits,
+        dsDebits
+    );
 
     /* Main ajax call to get the base data */
     $.ajax({
@@ -149,12 +174,11 @@ function GetData() {
         url: "/Display/Timeline/GetLedgerReadout",
         data: viewModel,
         /* Take the return data and construct the datasets */
-        success: function (dataList) {
-            GetPrimaryList(dataList);
-            GetDetailList(dataList);
+        success: function(dataList) {
+            MainList = dataList;
         },
         /* Display any errors */
-        error: function (xhr, ajaxOptions, thrownError) {
+        error: function(xhr, ajaxOptions, thrownError) {
             alert(xhr.responseText.toString());
         },
         /* -----------------------------------------------------------------
@@ -162,28 +186,28 @@ function GetData() {
          * and break it out into the data series that will be used
          * in the charts
          * ---------------------------------------------------------------*/
-        complete: function () {
+        complete: function() {
             RunningTotalList.length = 0;
             CreditList.length = 0;
             DebitList.length = 0;
-            NetDailyAmount.length = 0;
-            $.each(PrimaryList, function (index, value) {
+            NetAmount.length = 0;
+            $.each(MainList, function(index, value) {
                 /* Running Total */
                 var rt = [];
-                rt.push(value[1], value[5]); // Date, Running Total
+                rt.push(GetTime(value.WDate), value.RunningTotal); // Date, Running Total
                 RunningTotalList.push(rt);
                 /* Credits */
                 var c = [];
-                c.push(value[1], value[2]); // Date, Credit Summary
+                c.push(GetTime(value.WDate), value.CreditSummary); // Date, Credit Summary
                 CreditList.push(c);
                 /* Debits */
                 var d = [];
-                d.push(value[1], value[3]); // Date, Debit Summary
+                d.push(GetTime(value.WDate), value.DebitSummary); // Date, Debit Summary
                 DebitList.push(d);
                 /* Net Daily Amounts */
                 var nda = [];
-                nda.push(value[1], value[4]); // Date, Net Daily Amount
-                NetDailyAmount.push(nda);
+                nda.push(GetTime(value.WDate), value.Net); // Date, Net Daily Amount
+                NetAmount.push(nda);
             });
             PlotRT();
             PlotCDND();
@@ -192,65 +216,41 @@ function GetData() {
 }
 
 /* ---------------------------------------------------------------------------------------
- * Creates a distinct list of the overall and summary fields which are repeated for a 
- * given date such as Date, Credit Summary, Debit Summary, Net Daily and RunningTotal. 
+ * Auto adjust the bar width by determining the time span in days and setting the 
+ * bar width according introduced cutoff values.
  * -------------------------------------------------------------------------------------*/
-function GetPrimaryList(list) {
-    PrimaryList.length = 0;
-    $.each(list, function (index, value) {
-        var result = new Array();
-        result.push(
-            value.PkLMain,
-            GetTime(value.WDate),
-            parseFloat(value.CreditSummary),
-            parseFloat(value.DebitSummary),
-            parseFloat(value.NetDaily),
-            parseFloat(value.RunningTotal)
-        );
-        PrimaryList.push(result);
-    });
-    PrimaryList = GetUniqueList(PrimaryList);
-}
+function AutoAdjustBarWidth(
+    timeFrameBegin,
+    timeFrameEnd,
+    dailyCutoff,
+    weeklyCutoff,
+    monthlyCutoff,
+    quarterlyCutoff,
+    barFirst,
+    barSecond) {
 
-/* ---------------------------------------------------------------------------------------
- * Creates a detail list of Credits and Debits items for each day
- * -------------------------------------------------------------------------------------*/
-function GetDetailList(list) {
-    DetailList.length = 0;
-    $.each(list, function (index, value) {
-        var result = new Array();
-        result.push(
-            value.FkItemDetail,
-            GetTime(value.WDate),
-            value.PkLMain,
-            value.ItemType,
-            value.PeriodName.toString(),
-            value.Name.toString(),
-            parseFloat(value.Amount)
-        );
-        DetailList.push(result);
-    });
-}
+    var start = new Date(timeFrameBegin);
+    var end = new Date(timeFrameEnd);
+    var timespan = end - start;
+    var days = timespan / standardDay;
 
-/* ---------------------------------------------------------------------------------------
- * This function takes the returned data and constructs the distinct list of items that
- * go into the PrimaryList dataset by using the "Date" field
- * -------------------------------------------------------------------------------------*/
-function GetUniqueList(list) {
-    var result = new Array();
-    for (var i = 0; i < list.length; i++) {
-        var exists = false;
-        var x = list[i][0];
-        for (var j = 0; j < result.length; j++) {
-            var y = result[j][0];
-            if (x === y) {
-                exists = true;
-            }
-        }
-        if (!exists)
-            result.push(list[i]);
+    /* Time frame In days */
+    if (days <= dailyCutoff) {
+        barFirst.bars.barWidth = timeUnitSize.day;
+        barSecond.bars.barWidth = timeUnitSize.day;
+    } else if (days > dailyCutoff && days <= weeklyCutoff) {
+        barFirst.bars.barWidth = timeUnitSize.week;
+        barSecond.bars.barWidth = timeUnitSize.week;
+    } else if (days > weeklyCutoff && days <= monthlyCutoff) {
+        barFirst.bars.barWidth = timeUnitSize.month;
+        barSecond.bars.barWidth = timeUnitSize.month;
+    } else if (days > monthlyCutoff && days <= quarterlyCutoff) {
+        barFirst.bars.barWidth = timeUnitSize.quarter;
+        barSecond.bars.barWidth = timeUnitSize.quarter;
+    } else if (days > quarterlyCutoff) {
+        barFirst.bars.barWidth = timeUnitSize.year;
+        barSecond.bars.barWidth = timeUnitSize.year;
     }
-    return result;
 }
 
 /* ---------------------------------------------------------------------------------------
@@ -274,23 +274,23 @@ function PlotCDND() {
 }
 
 /* ---------------------------------------------------------------------------------------
- * Initialize the "dsCDND" with child datasets (dsCredits, dsDebits & dsNetDaily) based 
+ * Initialize the "dsCDND" with child datasets (dsCredits, dsDebits & dsNet) based 
  * on the user's checkbox selections.
  * -------------------------------------------------------------------------------------*/
 function InitCDNDDataset() {
     dsCDND = [[], [], []];
-    choiceContainer.find("input:checked").each(function () {
+    choiceContainer.find("input:checked").each(function() {
         var key = parseInt($(this).attr("name"));
         switch (key) {
-            case 0:
-                dsCDND[key] = dsCredits;
-                break;
-            case 1:
-                dsCDND[key] = dsDebits;
-                break;
-            case 2:
-                dsCDND[key] = dsNetDaily;
-                break;
+        case 0:
+            dsCDND[key] = dsCredits;
+            break;
+        case 1:
+            dsCDND[key] = dsDebits;
+            break;
+        case 2:
+            dsCDND[key] = dsNet;
+            break;
         }
     });
 }
@@ -299,8 +299,32 @@ function InitCDNDDataset() {
  * Event function that displays a popup screen when user hovers over a chart data point.
  * It calls the "TooltipDialogPanel" function which constucts the panel within the screen.
  * -------------------------------------------------------------------------------------*/
-$.fn.UseTooltip = function () {
-    $(this).bind("plothover", function (event, pos, item) {
-        TooltipDialogPanel(event, pos, item, DetailList);
+$.fn.UseTooltip = function() {
+    $(this).bind("plothover", function(event, pos, item) {
+        TooltipDialogPanel(event, pos, item, MainList);
     });
 };
+
+
+/* Archived ********************************************************************************/
+/* ---------------------------------------------------------------------------------------
+ * This function takes the returned data and constructs the distinct list of items that
+ * go into the PrimaryList dataset by using the "Date" field
+ * -------------------------------------------------------------------------------------*/
+function GetUniqueList(list) {
+    var result = new Array();
+    for (var i = 0; i < list.length; i++) {
+        var exists = false;
+        var x = list[i][0];
+        for (var j = 0; j < result.length; j++) {
+            var y = result[j][0];
+            if (x === y) {
+                exists = true;
+            }
+        }
+        if (!exists)
+            result.push(list[i]);
+    }
+    return result;
+}
+/******************************************************************************************/

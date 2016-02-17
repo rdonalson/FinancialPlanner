@@ -5,7 +5,8 @@
  * Set axis.mode to "time" to enable. See the section "Time series data" in
  * API.txt for details.
  * --------------------------------------------------------------------------
- * Custom Version for use in the Financial Planner based on the original listed above
+ * Custom Version "jquery.flot.fp-time.js" for use in the Financial Planner based on 
+ * the original, "jquery.flot.time.js", listed above
  * Copyright (c) 2016 Rick Donalson.
  * Licensed under the MIT license.
  * ======================================================================================*/
@@ -13,7 +14,7 @@
 
     var options = {
         xaxis: {
-            weekDayInit: 0  // first weekday that you want the weekly ticks to begin on, if not the min day
+            weekDayInit: 0  // first weekday that you want the weekly ticks to begin on
         }
     };
 
@@ -30,13 +31,14 @@
         "day": 24 * 60 * 60 * 1000,
         "week": 7 * 24 * 60 * 60 * 1000,
         "month": 30 * 24 * 60 * 60 * 1000,
+        "quarter": 90 * 24 * 60 * 60 * 1000,
         "year": 365.2425 * 24 * 60 * 60 * 1000
     };
     /* ---------------------------------------------------------------------------------------
      * Returns a string with the date d formatted according to fmt.
      * A subset of the Open Group's strftime format is supported.
      * -------------------------------------------------------------------------------------*/
-    function formatDate(d, fmt, monthNames, dayNames) {
+    function formatDate(d, fmt, monthNames, dayNames, quarterNames) {
 
         if (typeof d.strftime == "function") {
             return d.strftime(fmt);
@@ -59,6 +61,10 @@
             dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         }
 
+        if (quarterNames == null) {
+            quarterNames = ["1 Qtr", "2 Qtr", "3 Qtr", "4 Qtr"];
+        }
+
         for (var i = 0; i < fmt.length; ++i) {
 
             var c = fmt.charAt(i);
@@ -73,6 +79,7 @@
                     case "y": c = leftPad(d.getFullYear() % 100); break;
                     case "Y": c = "" + d.getFullYear(); break;
                     case "w": c = "" + d.getDay(); break;
+                    case "q": c = "" + quarterNames[(Math.floor(d.getMonth() / 3) + 1) - 1]; break;
                 }
                 r.push(c);
                 escape = false;
@@ -95,21 +102,35 @@
             $.each(plot.getAxes(), function (axisName, axis) {
 
                 var opts = axis.options;
+                /* In days */
+                var dailyCutoff = 45;
+                var weeklyCutoff = 330;
+                var monthlyCutoff = 1000;
+                var quarterlyCutoff = 2850;
 
                 if (opts.mode === "time") {
 
                     axis.tickGenerator = function (axis) {
 
                         var ticks = [];
-                        var span = axis.max - axis.min;
 
-                        if (span <= (timeUnitSize.month * 2)) {
+                        var span = axis.max - axis.min;
+                        var days = span / timeUnitSize.day;
+
+                        /* Time frame In days */
+                        if (days <= dailyCutoff) {
                             axis.tickSize = [1, "day"];
-                        } else if (span > (timeUnitSize.month * 2) && span <= timeUnitSize.year) {
+                        }
+                        else if (days > dailyCutoff && days <= weeklyCutoff) {
                             axis.tickSize = [1, "week"];
-                        } else if (span > timeUnitSize.year && span <= (timeUnitSize.year * 3)) {
+                        }
+                        else if (days > weeklyCutoff && days <= monthlyCutoff) {
                             axis.tickSize = [1, "month"];
-                        } else {
+                        }
+                        else if (days > monthlyCutoff && days <= quarterlyCutoff) {
+                            axis.tickSize = [1, "quarter"];
+                        }
+                        else if (days > quarterlyCutoff) {
                             axis.tickSize = [1, "year"];
                         }
 
@@ -138,19 +159,27 @@
 
                         var d = dateGenerator(v, axis.options);
                         var span = axis.max - axis.min;
-                        var fmt;
-
-                        if (span <= (timeUnitSize.month * 2)) {
+                        var days = span / timeUnitSize.day;
+                        var fmt = "";
+                        
+                        /* Time frame In days */
+                        if (days <= dailyCutoff) {
                             fmt = "%a %m/%d";
-                        } else if (span > (timeUnitSize.month * 2) && span <= timeUnitSize.year) {
-                            fmt = "%a %m/%d/%y";
-                        } else if (span > timeUnitSize.year && span <= (timeUnitSize.year * 3)) {
-                            fmt = "%b %Y";
-                        } else {
+                        }
+                        else if (days > dailyCutoff && days <= weeklyCutoff) {
+                            fmt = "%a %m/%d";
+                        }
+                        else if (days > weeklyCutoff && days <= monthlyCutoff) {
+                            fmt = "%b %y";
+                        }
+                        else if (days > monthlyCutoff && days <= quarterlyCutoff) {
+                            fmt = "%q %y";
+                        }
+                        else if (days > quarterlyCutoff) {
                             fmt = "%Y";
                         }
 
-                        var rt = formatDate(d, fmt, opts.monthNames, opts.dayNames);
+                        var rt = formatDate(d, fmt);
 
                         return rt;
                     };

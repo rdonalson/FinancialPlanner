@@ -14,8 +14,8 @@ namespace FinancialPlanner.Data.Entity
 
     public partial class spCreateLedgerReadout_ResultMetadata
     {
-        [Display(Name = "PkLMain")]
-        public int PkLMain { get; set; }
+        [Display(Name = "RollupKey")]
+        public int RollupKey { get; set; }
 
         [Display(Name = "Date")]
         public DateTime? WDate { get; set; }
@@ -26,17 +26,17 @@ namespace FinancialPlanner.Data.Entity
         [Display(Name = "Debit Summary")]
         public double? DebitSummary { get; set; }
 
-        [Display(Name = "Net Daily")]
-        public double? NetDaily { get; set; }
+        [Display(Name = "Net")]
+        public double? Net { get; set; }
 
-        [Display(Name = "Running Total")]
+        [Display(Name = "Running Balance")]
         public double? RunningTotal { get; set; }
+
+        [Display(Name = "Occurrence Date")]
+        public DateTime? OccurrenceDate { get; set; }
 
         [Display(Name = "Item Type")]
         public int? ItemType { get; set; }
-
-        [Display(Name = "FkItemDetail")]
-        public int? FkItemDetail { get; set; }
 
         [Display(Name = "Period Type")]
         public string PeriodName { get; set; }

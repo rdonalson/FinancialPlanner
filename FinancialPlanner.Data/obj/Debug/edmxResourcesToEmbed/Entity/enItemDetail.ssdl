@@ -184,6 +184,7 @@ warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwDebits' does not hav
     <Parameter Name="TimeFrameBegin" Type="date" Mode="In" />
     <Parameter Name="TimeFrameEnd" Type="date" Mode="In" />
     <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="GroupingTranform" Type="bit" Mode="In" />
   </Function>
   <EntityContainer Name="ItemDetailModelStoreContainer">
     <EntitySet Name="Credits" EntityType="Self.Credits" Schema="ItemDetail" store:Type="Tables" />

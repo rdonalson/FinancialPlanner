@@ -6,19 +6,12 @@
 
 <div class="navbar-collapse collapse">
     <ul class="nav nav-pills nav-stacked span2">
-        @if (Request.IsAuthenticated)
+        <li>@Html.ActionLink("Display", "Index", "DisplayHome", new {area = "Display"}, new {})</li>
+        <li>@Html.ActionLink("Item Detail", "Index", "ItemDetailHome", new {area = "ItemDetail"}, new {})</li>
+        @if (User.IsInRole("Admin"))
         {
-            <li>@Html.ActionLink("Display", "Index", "DisplayHome", new {area = "Display"}, new {})</li>
-            <li>@Html.ActionLink("Item Detail", "Index", "ItemDetailHome", new {area = "ItemDetail"}, new {})</li>
-            if (User.IsInRole("Admin"))
-            {
-                <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
-                <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
-            }
-        }
-        else
-        {
-            <li style="float: left">@Html.Partial("_LoginPartial")</li>
+            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
         }
     </ul>
 </div>

@@ -17,8 +17,8 @@ namespace FinancialPlanner.Web
 
             var cssBundle = new StyleBundle("~/bundles/css");
             cssBundle.Include(
-                "~/Content/custom.less", 
-                "~/Content/standard.less");
+                "~/Content/fp-custom.less",
+                "~/Content/fp-standard.less");
             cssBundle.Transforms.Add(cssTransformer);
             cssBundle.Orderer = nullOrderer;
             bundles.Add(cssBundle);
@@ -59,6 +59,20 @@ namespace FinancialPlanner.Web
             autoNumericBundle.Transforms.Add(jsTransformer);
             autoNumericBundle.Orderer = nullOrderer;
             bundles.Add(autoNumericBundle);
+
+            var flotBundle = new ScriptBundle("~/bundles/flot");
+            flotBundle.Include(
+                "~/Scripts/flot/jquery.flot.js",
+                "~/Scripts/flot/jquery.flot.stack.js",
+                "~/Scripts/flot/jquery.flot.symbol.js",
+                "~/Scripts/flot/jquery.flot.axislabels.js",
+                "~/Scripts/flot/jquery.flot.fp-time.js",
+                "~/Scripts/flot/jquery.flot.fp-tickrotor.js",
+                "~/Scripts/jshashtable-{version}.js",
+                "~/Scripts/jquery.numberformatter-{version}.js");
+            flotBundle.Transforms.Add(jsTransformer);
+            flotBundle.Orderer = nullOrderer;
+            bundles.Add(flotBundle);
         }
     }
 }

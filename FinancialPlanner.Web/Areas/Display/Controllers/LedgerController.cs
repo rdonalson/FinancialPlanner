@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web.Mvc;
 using FinancialPlanner.Data.Entity;
 using FinancialPlanner.Infrastructure.Domain.Display.Ledger.Repository;
-using FinancialPlanner.Infrastructure.Domain.Display.ViewModels;
+using FinancialPlanner.Infrastructure.Domain.Display.Models;
 using FinancialPlanner.Web.Helpers;
 using FinancialPlanner.Web.Properties;
 using Microsoft.AspNet.Identity;
@@ -65,8 +65,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(LedgerCriteriaView vm)
         {
-            vm.Result =
-                _ledgerRepository.GetLedger(vm.timeFrameBegin, vm.timeFrameEnd, User.Identity.GetUserName()).ToList();
+            vm.Result = _ledgerRepository.GetLedger(vm.timeFrameBegin, vm.timeFrameEnd, User.Identity.GetUserName()).ToList();
             if (vm.DoExport && vm.Result.Count > 0)
             {
                 return LedgerExport(vm.Result);
@@ -93,7 +92,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
                 ws.Cells[currRow, 2].Value = "Credit Summary";
                 ws.Cells[currRow, 3].Value = "Debit Summary";
                 ws.Cells[currRow, 4].Value = "Net Daily";
-                ws.Cells[currRow, 5].Value = "Running Total";
+                ws.Cells[currRow, 5].Value = "Running Balance";
                 ws.Cells[currRow, 6].Value = "Item Type";
                 ws.Cells[currRow, 7].Value = "Period Type";
                 ws.Cells[currRow, 8].Value = "Item Name";
@@ -101,20 +100,20 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
                 foreach (var item in data)
                 {
                     currRow += 1;
-                    ws.Cells[currRow, 1].Value = item.WDate;
-                    ws.Cells[currRow, 2].Value = item.CreditSummary;
-                    ws.Cells[currRow, 3].Value = item.DebitSummary;
-                    ws.Cells[currRow, 4].Value = item.NetDaily;
-                    ws.Cells[currRow, 5].Value = item.RunningTotal;
-                    var range = ws.Cells[currRow, 6];
+                    ws.Cells[currRow, 1].Value = item.WDate;                // A:A  Date
+                    ws.Cells[currRow, 2].Value = item.CreditSummary;        // B:B  Currency
+                    ws.Cells[currRow, 3].Value = item.DebitSummary;         // C:C  Currency
+                    ws.Cells[currRow, 4].Value = item.Net;                  // D:D  Currency
+                    ws.Cells[currRow, 5].Value = item.RunningTotal;         // E:E  Currency
+                    var range = ws.Cells[currRow, 6];                       // F:F  Custom
                     GetItemType(ref range, item.ItemType);
-                    ws.Cells[currRow, 7].Value = item.PeriodName;
-                    ws.Cells[currRow, 8].Value = item.Name;
-                    ws.Cells[currRow, 9].Value = item.Amount;
+                    ws.Cells[currRow, 7].Value = item.PeriodName;           // G:G  Text
+                    ws.Cells[currRow, 8].Value = item.Name;                 // H:H  Text
+                    ws.Cells[currRow, 9].Value = item.Amount;               // I:I  Currency
                 }
 
                 ws.SelectedRange["A:A"].Style.Numberformat.Format = @"mm/dd/yy;@";
-                ws.SelectedRange["B:B,C:C,D:D,I:I,E:E"].Style.Numberformat.Format = @"[Blue]_($* #,##0.00_);[Magenta]_($* (#,##0.00);[Black]_(* ""-""??_);_(@_)";
+                ws.SelectedRange["B:B,C:C,D:D,E:E,I:I"].Style.Numberformat.Format = @"[Blue]_($* #,##0.00_);[Magenta]_($* (#,##0.00);[Black]_(* ""-""??_);_(@_)";
 
                 var selectedRange = ws.SelectedRange["A1:I1"];
                 selectedRange.Style.Border.Left.Style = ExcelBorderStyle.Thin;

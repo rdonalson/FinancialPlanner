@@ -190,6 +190,7 @@ warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwDebits' does not hav
           <Parameter Name="TimeFrameBegin" Type="date" Mode="In" />
           <Parameter Name="TimeFrameEnd" Type="date" Mode="In" />
           <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+          <Parameter Name="GroupingTranform" Type="bit" Mode="In" />
         </Function>
         <EntityContainer Name="ItemDetailModelStoreContainer">
           <EntitySet Name="Credits" EntityType="Self.Credits" Schema="ItemDetail" store:Type="Tables" />
@@ -403,6 +404,7 @@ warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwDebits' does not hav
             <Parameter Name="TimeFrameBegin" Mode="In" Type="DateTime" />
             <Parameter Name="TimeFrameEnd" Mode="In" Type="DateTime" />
             <Parameter Name="UserName" Mode="In" Type="String" />
+            <Parameter Name="GroupingTranform" Mode="In" Type="Boolean" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="vwCredit">
@@ -478,17 +480,18 @@ warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwDebits' does not hav
           <Property Name="DateRangeReq" Type="Boolean" Nullable="false" />
         </EntityType>
         <ComplexType Name="spCreateLedgerReadout_Result">
-          <Property Type="Int32" Name="PkLMain" Nullable="false" />
+          <Property Type="Int32" Name="RollupKey" Nullable="false" />
+          <Property Type="Int32" Name="Year" Nullable="true" />
           <Property Type="DateTime" Name="WDate" Nullable="true" />
           <Property Type="Double" Name="CreditSummary" Nullable="true" />
           <Property Type="Double" Name="DebitSummary" Nullable="true" />
-          <Property Type="Double" Name="NetDaily" Nullable="true" />
+          <Property Type="Double" Name="Net" Nullable="true" />
           <Property Type="Double" Name="RunningTotal" Nullable="true" />
-          <Property Type="Int32" Name="ItemType" Nullable="true" />
-          <Property Type="Int32" Name="FkItemDetail" Nullable="true" />
-          <Property Type="String" Name="PeriodName" Nullable="true" MaxLength="75" />
-          <Property Type="String" Name="Name" Nullable="true" MaxLength="75" />
-          <Property Type="Double" Name="Amount" Nullable="true" />
+          <Property Type="DateTime" Name="OccurrenceDate" Nullable="true" />
+          <Property Type="Int32" Name="ItemType" Nullable="false" />
+          <Property Type="String" Name="PeriodName" Nullable="false" MaxLength="75" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="75" />
+          <Property Type="Double" Name="Amount" Nullable="false" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -652,14 +655,15 @@ warning 6002: The table/view 'FinancialPlanner.ItemDetail.vwDebits' does not hav
           <FunctionImportMapping FunctionImportName="spCreateLedgerReadout" FunctionName="ItemDetailModel.Store.spCreateLedgerReadout">
             <ResultMapping>
               <ComplexTypeMapping TypeName="ItemDetailModel.spCreateLedgerReadout_Result">
-                <ScalarProperty Name="PkLMain" ColumnName="PkLMain" />
+                <ScalarProperty Name="RollupKey" ColumnName="RollupKey" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
                 <ScalarProperty Name="WDate" ColumnName="WDate" />
                 <ScalarProperty Name="CreditSummary" ColumnName="CreditSummary" />
                 <ScalarProperty Name="DebitSummary" ColumnName="DebitSummary" />
-                <ScalarProperty Name="NetDaily" ColumnName="NetDaily" />
+                <ScalarProperty Name="Net" ColumnName="Net" />
                 <ScalarProperty Name="RunningTotal" ColumnName="RunningTotal" />
+                <ScalarProperty Name="OccurrenceDate" ColumnName="OccurrenceDate" />
                 <ScalarProperty Name="ItemType" ColumnName="ItemType" />
-                <ScalarProperty Name="FkItemDetail" ColumnName="FkItemDetail" />
                 <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Amount" ColumnName="Amount" />

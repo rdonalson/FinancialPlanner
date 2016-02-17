@@ -34,7 +34,7 @@ namespace FinancialPlanner.Data.Entity
         public virtual DbSet<vwCredit> vwCredits { get; set; }
         public virtual DbSet<vwDebit> vwDebits { get; set; }
     
-        public virtual ObjectResult<spCreateLedgerReadout_Result> spCreateLedgerReadout(Nullable<System.DateTime> timeFrameBegin, Nullable<System.DateTime> timeFrameEnd, string userName)
+        public virtual ObjectResult<spCreateLedgerReadout_Result> spCreateLedgerReadout(Nullable<System.DateTime> timeFrameBegin, Nullable<System.DateTime> timeFrameEnd, string userName, Nullable<bool> groupingTranform)
         {
             var timeFrameBeginParameter = timeFrameBegin.HasValue ?
                 new ObjectParameter("TimeFrameBegin", timeFrameBegin) :
@@ -48,7 +48,11 @@ namespace FinancialPlanner.Data.Entity
                 new ObjectParameter("UserName", userName) :
                 new ObjectParameter("UserName", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spCreateLedgerReadout_Result>("spCreateLedgerReadout", timeFrameBeginParameter, timeFrameEndParameter, userNameParameter);
+            var groupingTranformParameter = groupingTranform.HasValue ?
+                new ObjectParameter("GroupingTranform", groupingTranform) :
+                new ObjectParameter("GroupingTranform", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<spCreateLedgerReadout_Result>("spCreateLedgerReadout", timeFrameBeginParameter, timeFrameEndParameter, userNameParameter, groupingTranformParameter);
         }
     }
 }

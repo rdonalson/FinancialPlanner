@@ -127,6 +127,7 @@
       <Parameter Name="TimeFrameBegin" Mode="In" Type="DateTime" />
       <Parameter Name="TimeFrameEnd" Mode="In" Type="DateTime" />
       <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="GroupingTranform" Mode="In" Type="Boolean" />
     </FunctionImport>
   </EntityContainer>
   <EntityType Name="vwCredit">
@@ -202,16 +203,17 @@
     <Property Name="DateRangeReq" Type="Boolean" Nullable="false" />
   </EntityType>
   <ComplexType Name="spCreateLedgerReadout_Result">
-    <Property Type="Int32" Name="PkLMain" Nullable="false" />
+    <Property Type="Int32" Name="RollupKey" Nullable="false" />
+    <Property Type="Int32" Name="Year" Nullable="true" />
     <Property Type="DateTime" Name="WDate" Nullable="true" />
     <Property Type="Double" Name="CreditSummary" Nullable="true" />
     <Property Type="Double" Name="DebitSummary" Nullable="true" />
-    <Property Type="Double" Name="NetDaily" Nullable="true" />
+    <Property Type="Double" Name="Net" Nullable="true" />
     <Property Type="Double" Name="RunningTotal" Nullable="true" />
-    <Property Type="Int32" Name="ItemType" Nullable="true" />
-    <Property Type="Int32" Name="FkItemDetail" Nullable="true" />
-    <Property Type="String" Name="PeriodName" Nullable="true" MaxLength="75" />
-    <Property Type="String" Name="Name" Nullable="true" MaxLength="75" />
-    <Property Type="Double" Name="Amount" Nullable="true" />
+    <Property Type="DateTime" Name="OccurrenceDate" Nullable="true" />
+    <Property Type="Int32" Name="ItemType" Nullable="false" />
+    <Property Type="String" Name="PeriodName" Nullable="false" MaxLength="75" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="75" />
+    <Property Type="Double" Name="Amount" Nullable="false" />
   </ComplexType>
 </Schema>

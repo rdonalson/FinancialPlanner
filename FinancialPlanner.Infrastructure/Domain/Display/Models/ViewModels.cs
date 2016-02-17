@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using FinancialPlanner.Data.Entity;
 
-namespace FinancialPlanner.Infrastructure.Domain.Display.ViewModels
+namespace FinancialPlanner.Infrastructure.Domain.Display.Models
 {
     /// =====================================================================
     /// <summary>

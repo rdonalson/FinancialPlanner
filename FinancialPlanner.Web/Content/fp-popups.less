@@ -1,0 +1,64 @@
+//
+// List
+// --------------------------------------------------
+// Core variables and mixins
+@import "bootstrap/variables.less";
+@import "bootstrap/mixins.less";
+
+table.popuptable {
+    width: 500px;
+
+    thead {
+        tr {
+            font-weight: bold;
+        }
+
+        tr.titleheader {
+            font-size: large;
+            background-color: gray;
+            color: white;
+        }
+
+        tr.columnheaderWhite {
+            font-size: larger;
+            background-color: white;
+        }
+
+        tr.columnheaderLightGray {
+            font-size: larger;
+            background-color: lightgray;
+
+            th {
+                padding-bottom: 2px;
+            }
+        }
+
+        th {
+            padding-left: 5px;
+        }
+    }
+
+    td {
+        padding-left: 5px;
+    }
+
+    .right100 {
+        text-align: right;
+        width: 100px;
+    }
+
+    .right150 {
+        text-align: right;
+        width: 150px;
+    }
+
+    .left100 {
+        text-align: left;
+        width: 100px;
+    }
+
+    .left150 {
+        text-align: left;
+        width: 150px;
+    }
+}

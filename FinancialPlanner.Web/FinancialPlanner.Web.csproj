@@ -322,7 +322,7 @@
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\theme\theme-custom\colorPallet.txt" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-b.jpg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-daytime.jpg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline.jpg" />
@@ -353,7 +353,6 @@
     <Content Include="Content\img\slide-3.jpg" />
     <Content Include="Content\img\Twitter.png" />
     <Content Include="Content\img\Windows.png" />
-    <Content Include="Content\jumbotron-container.less" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -430,7 +429,6 @@
     <Content Include="Content\bootstrap\theme\thirdParty\wijmo-theming.less" />
     <Content Include="Content\standard.less" />
     <Content Include="Content\spacelab.less" />
-    <Content Include="Content\custom.less" />
     <Content Include="Project_Readme.html" />
     <Content Include="Scripts\autoNumeric-1.9.24.min.js.map">
       <DependentUpon>autoNumeric-1.9.24.min.js</DependentUpon>
@@ -470,9 +468,6 @@
       <DependentUpon>jquery.flot.fp-tickrotor.js</DependentUpon>
     </Content>
     <Content Include="Scripts\flot\jquery.flot.fp-time.js" />
-    <Content Include="Scripts\flot\jquery.flot.fp-time.min.js">
-      <DependentUpon>jquery.flot.fp-time.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\flot\jquery.flot.image.min.js">
       <DependentUpon>jquery.flot.image.js</DependentUpon>
     </Content>
@@ -588,10 +583,10 @@
     <Content Include="Scripts\flot\jquery.flot.symbol.js" />
     <Content Include="Scripts\flot\jquery.flot.threshold.js" />
     <Content Include="Scripts\flot\jquery.flot.time.js" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\wells.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\utilities.less" />
@@ -666,9 +661,6 @@
     <Content Include="Scripts\flot\jquery.flot.fp-tickrotor.min.js.map">
       <DependentUpon>jquery.flot.fp-tickrotor.min.js</DependentUpon>
     </Content>
-    <Content Include="Scripts\flot\jquery.flot.fp-time.min.js.map">
-      <DependentUpon>jquery.flot.fp-time.min.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\flot\jquery.flot.axislabels.min.js.map">
       <DependentUpon>jquery.flot.axislabels.min.js</DependentUpon>
     </Content>
@@ -680,8 +672,17 @@
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_ItemType.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Currency.cshtml" />
     <Content Include="Areas\Display\Views\DisplayHome\Index.cshtml" />
-    <Content Include="Content\site.less" />
     <Content Include="Areas\Display\Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Content\fp-custom.less" />
+    <Content Include="Content\fp-jumbotron-container.less" />
+    <Content Include="Content\fp-list-group-plain.less" />
+    <Content Include="Content\fp-popups.less" />
+    <Content Include="Content\fp-reponsive-list.less" />
+    <Content Include="Content\fp-site.less" />
+    <Content Include="Content\fp-spacelab.less" />
+    <Content Include="Content\fp-standard.less" />
+    <Content Include="Content\bootstrap\theme\jq-ui-bootstrap\fp-jq-ui-bootstrap-variable-adapter.less" />
+    <Content Include="Content\bootstrap\theme\jq-ui-bootstrap\fp-jq-ui-bootstrap.less" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
@@ -744,8 +745,6 @@
     <Content Include="Areas\ItemDetail\Views\InitialAmount\Create.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Shared\_IAEditForm.cshtml" />
     <Content Include="Areas\ItemDetail\Views\InitialAmount\Edit.cshtml" />
-    <Content Include="Content\reponsive-list.less" />
-    <Content Include="Content\list-group-plain.less" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -783,7 +782,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index - Ver 1.cshtml" />
+    <Content Include="Views\Home\Archive\Index - Ver 1.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
     <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
@@ -817,7 +816,7 @@
     <Content Include="Views\Account\ConfirmEmail.cshtml">
       <SubType>Code</SubType>
     </Content>
-    <Content Include="Views\Home\Index - Orig.cshtml" />
+    <Content Include="Views\Home\Archive\Index - Orig.cshtml" />
     <Content Include="Scripts\jquery.validate-vsdoc.min.js.map">
       <DependentUpon>jquery.validate-vsdoc.min.js</DependentUpon>
     </Content>

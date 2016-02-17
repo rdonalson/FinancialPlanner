@@ -156,14 +156,15 @@
     <FunctionImportMapping FunctionImportName="spCreateLedgerReadout" FunctionName="ItemDetailModel.Store.spCreateLedgerReadout">
       <ResultMapping>
         <ComplexTypeMapping TypeName="ItemDetailModel.spCreateLedgerReadout_Result">
-          <ScalarProperty Name="PkLMain" ColumnName="PkLMain" />
+          <ScalarProperty Name="RollupKey" ColumnName="RollupKey" />
+          <ScalarProperty Name="Year" ColumnName="Year" />
           <ScalarProperty Name="WDate" ColumnName="WDate" />
           <ScalarProperty Name="CreditSummary" ColumnName="CreditSummary" />
           <ScalarProperty Name="DebitSummary" ColumnName="DebitSummary" />
-          <ScalarProperty Name="NetDaily" ColumnName="NetDaily" />
+          <ScalarProperty Name="Net" ColumnName="Net" />
           <ScalarProperty Name="RunningTotal" ColumnName="RunningTotal" />
+          <ScalarProperty Name="OccurrenceDate" ColumnName="OccurrenceDate" />
           <ScalarProperty Name="ItemType" ColumnName="ItemType" />
-          <ScalarProperty Name="FkItemDetail" ColumnName="FkItemDetail" />
           <ScalarProperty Name="PeriodName" ColumnName="PeriodName" />
           <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Amount" ColumnName="Amount" />
