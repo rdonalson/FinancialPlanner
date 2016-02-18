@@ -18,7 +18,8 @@ namespace FinancialPlanner.Web
             var cssBundle = new StyleBundle("~/bundles/css");
             cssBundle.Include(
                 "~/Content/fp-custom.less",
-                "~/Content/fp-standard.less");
+                "~/Content/fp-standard.less");   //fp-spacelab
+
             cssBundle.Transforms.Add(cssTransformer);
             cssBundle.Orderer = nullOrderer;
             bundles.Add(cssBundle);

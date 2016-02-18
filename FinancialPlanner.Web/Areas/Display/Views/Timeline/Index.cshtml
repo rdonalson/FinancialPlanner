@@ -16,7 +16,7 @@
                            data-val-date="The field Time Frame Begin must be a date."
                            placeholder="Time Frame Begin"
                            type="datetime"
-                           value="" />
+                           value=""/>
                 </div>
                 <div class="form-group">
                     <label class="sr-only" for="timeFrameEnd">To:</label>
@@ -27,10 +27,10 @@
                            data-val-date="The field Time Frame End must be a date."
                            placeholder="Time Frame End"
                            type="datetime"
-                           value="" />
+                           value=""/>
                 </div>
                 <button type="button" class="btn btn-default" id="SearchButton" onclick=" GetData() ">
-                    <span class="glyphicon glyphicon-search"></span> Search
+                    <span class="glyphicon glyphicon-search"></span> View
                 </button>
                 <div class="validation-summary-valid text-danger" data-valmsg-summary="true">
                     <ul>
@@ -78,7 +78,7 @@
     @Scripts.Render("~/Scripts/codebehind/views/timeline/index.js")
     <script>
         // Datepicker
-        $('input[id*="timeFrame"]').datepicker({
+        $("input[id*=\"timeFrame\"]").datepicker({
             changeMonth: true,
             changeYear: true
         });

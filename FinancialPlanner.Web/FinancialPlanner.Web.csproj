@@ -322,7 +322,7 @@
       <DependentUpon>bootstrap.css</DependentUpon>
     </Content>
     <Content Include="Content\bootstrap\theme\theme-custom\colorPallet.txt" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-b.jpg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-daytime.jpg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline.jpg" />
@@ -583,10 +583,10 @@
     <Content Include="Scripts\flot\jquery.flot.symbol.js" />
     <Content Include="Scripts\flot\jquery.flot.threshold.js" />
     <Content Include="Scripts\flot\jquery.flot.time.js" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap\wells.less" />
     <Content Include="Content\bootstrap\variables.less" />
     <Content Include="Content\bootstrap\utilities.less" />
