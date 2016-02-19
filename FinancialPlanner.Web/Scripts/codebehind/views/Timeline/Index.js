@@ -120,12 +120,16 @@ var options = {
 };
 
 /* ======================================================================================
- * Document Complete
+ * Initialize page
  * ======================================================================================*/
-$(function() {
+function InitializeTimelineChart(model)
+{
     choiceContainer = $("#choicesCDND");
     choiceContainer.find("input").click(PlotCDND);
-});
+    if (model != undefined)
+        GetData(model);
+}
+
 
 /* ======================================================================================
  * Utility Functions
@@ -141,11 +145,13 @@ $(function() {
  * fields Date, ItemType (1 "Credit" or 2 "Debit"), Period (period type), Name (Item Name) 
  * and Item Amount.
  * -------------------------------------------------------------------------------------*/
-function GetData() {
+function GetData(model) {
     var viewModel = {
         timeFrameBegin: $("#timeFrameBegin").val(),
         timeFrameEnd: $("#timeFrameEnd").val()
     };
+
+    MainList = model.Result;
 
     /* Diagnostic */
     //viewModel.timeFrameBegin = "1/1/2016";
@@ -167,52 +173,31 @@ function GetData() {
         dsCredits,
         dsDebits
     );
-
-    /* Main ajax call to get the base data */
-    $.ajax({
-        type: "GET",
-        url: "/Display/Timeline/GetLedgerReadout",
-        data: viewModel,
-        /* Take the return data and construct the datasets */
-        success: function(dataList) {
-            MainList = dataList;
-        },
-        /* Display any errors */
-        error: function(xhr, ajaxOptions, thrownError) {
-            alert(xhr.responseText.toString());
-        },
-        /* -----------------------------------------------------------------
-         * Once the datasets are complete take the Primary List
-         * and break it out into the data series that will be used
-         * in the charts
-         * ---------------------------------------------------------------*/
-        complete: function() {
-            RunningTotalList.length = 0;
-            CreditList.length = 0;
-            DebitList.length = 0;
-            NetAmount.length = 0;
-            $.each(MainList, function(index, value) {
-                /* Running Total */
-                var rt = [];
-                rt.push(GetTime(value.WDate), value.RunningTotal); // Date, Running Total
-                RunningTotalList.push(rt);
-                /* Credits */
-                var c = [];
-                c.push(GetTime(value.WDate), value.CreditSummary); // Date, Credit Summary
-                CreditList.push(c);
-                /* Debits */
-                var d = [];
-                d.push(GetTime(value.WDate), value.DebitSummary); // Date, Debit Summary
-                DebitList.push(d);
-                /* Net Daily Amounts */
-                var nda = [];
-                nda.push(GetTime(value.WDate), value.Net); // Date, Net Daily Amount
-                NetAmount.push(nda);
-            });
-            PlotRT();
-            PlotCDND();
-        }
+    
+    RunningTotalList.length = 0;
+    CreditList.length = 0;
+    DebitList.length = 0;
+    NetAmount.length = 0;
+    $.each(MainList, function(index, value) {
+        /* Running Total */
+        var rt = [];
+        rt.push(GetTime(value.WDate), value.RunningTotal); // Date, Running Total
+        RunningTotalList.push(rt);
+        /* Credits */
+        var c = [];
+        c.push(GetTime(value.WDate), value.CreditSummary); // Date, Credit Summary
+        CreditList.push(c);
+        /* Debits */
+        var d = [];
+        d.push(GetTime(value.WDate), value.DebitSummary); // Date, Debit Summary
+        DebitList.push(d);
+        /* Net Daily Amounts */
+        var nda = [];
+        nda.push(GetTime(value.WDate), value.Net); // Date, Net Daily Amount
+        NetAmount.push(nda);
     });
+    PlotRT();
+    PlotCDND();
 }
 
 /* ---------------------------------------------------------------------------------------

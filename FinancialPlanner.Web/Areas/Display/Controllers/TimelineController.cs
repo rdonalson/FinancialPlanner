@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using FinancialPlanner.Infrastructure.Domain.Display.Models;
 using FinancialPlanner.Infrastructure.Domain.Display.Timeline.Repository;
-using FinancialPlanner.Infrastructure.Domain.ItemDetail.Credits.Repository;
 using FinancialPlanner.Web.Helpers;
 using FinancialPlanner.Web.Properties;
 using Microsoft.AspNet.Identity;
@@ -36,9 +34,9 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        /// Display Criterial
-        /// -------------------------------------
-        /// GET: Display/Timeline
+        ///     Display Criterial
+        ///     -------------------------------------
+        ///     GET: Display/Timeline
         /// </summary>
         /// <returns>ActionResult</returns>
         /// ---------------------------------------------------------------------
@@ -49,10 +47,28 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        /// Return List of Timeline Items from the TimelineRepository repository.
-        /// Scheduled Credits and Debits in a Ledger format
-        /// -------------------------------------
-        /// GET: Display/Timeline/GetLedgerReadout
+        ///     Receive "TimelineCriteriaViewModel" View Model data from
+        ///     Timeline Criteria View
+        ///     -------------------------------------
+        ///     POST: Display/Timeline
+        /// </summary>
+        /// <param name="vm">TimelineCriteriaViewModel</param>
+        /// <returns>ActionResult</returns>
+        /// ---------------------------------------------------------------------
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index(TimelineCriteriaView vm)
+        {
+            vm.Result = _timelineRepository.GetLedger(vm.timeFrameBegin, vm.timeFrameEnd, User.Identity.GetUserName()).ToList();
+            return View(vm);
+        }
+
+        /// ---------------------------------------------------------------------
+        /// <summary>
+        ///     Return List of Timeline Items from the TimelineRepository repository.
+        ///     Scheduled Credits and Debits in a Ledger format
+        ///     -------------------------------------
+        ///     GET: Display/Timeline/GetLedgerReadout
         /// </summary>
         /// <param name="timeFrameBegin">DateTime</param>
         /// <param name="timeFrameEnd">DateTime</param>
@@ -61,7 +77,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
         [HttpGet]
         public ActionResult GetLedgerReadout(DateTime timeFrameBegin, DateTime timeFrameEnd)
         {
-            var result = _timelineRepository.GetLedger(timeFrameBegin, timeFrameEnd, User.Identity.GetUserName()).ToList();
+            var result = _timelineRepository.GetLedger(timeFrameBegin, timeFrameEnd, User.Identity.GetUserName());
             return Json(result, JsonRequestBehavior.AllowGet);
         }
     }

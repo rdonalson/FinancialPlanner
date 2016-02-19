@@ -22,12 +22,7 @@ namespace FinancialPlanner.Infrastructure.Domain.Display.Timeline.Repository
         /// <param name="timeFrameEnd">DateTime</param>
         /// <param name="userName">userName</param>
         /// <returns>ObjectResult(spCreateLedgerReadout_Result)</returns>
-        /// ---------------------------------------------------------------------
-        //ObjectResult<spCreateLedgerReadout_Result> GetLedger(
-        //    DateTime timeFrameBegin,
-        //    DateTime timeFrameEnd,
-        //    string userName);
-
+        /// --------------------------------------------------------------------
         List<PrimaryDataView> GetLedger(
             DateTime timeFrameBegin,
             DateTime timeFrameEnd,

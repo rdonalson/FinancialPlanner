@@ -678,6 +678,7 @@
     <Content Include="Content\bootstrap\theme\jq-ui-bootstrap\fp-jq-ui-bootstrap-variable-adapter.less" />
     <Content Include="Content\bootstrap\theme\jq-ui-bootstrap\fp-jq-ui-bootstrap.less" />
     <Content Include="Content\fp-charting.less" />
+    <Content Include="Areas\Display\Views\Timeline\_TimelineChart.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
