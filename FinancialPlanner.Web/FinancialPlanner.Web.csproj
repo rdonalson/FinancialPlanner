@@ -314,13 +314,7 @@
     <Content Include="Areas\ItemDetail\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Content\bootstrap-theme.css" />
-    <Content Include="Content\bootstrap-theme.min.css">
-      <DependentUpon>bootstrap-theme.css</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css">
-      <DependentUpon>bootstrap.css</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap\theme\theme-custom\colorPallet.txt" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\img\archive\Atlanta-GA-Skyline-b.jpg" />
@@ -683,6 +677,7 @@
     <Content Include="Content\fp-standard.less" />
     <Content Include="Content\bootstrap\theme\jq-ui-bootstrap\fp-jq-ui-bootstrap-variable-adapter.less" />
     <Content Include="Content\bootstrap\theme\jq-ui-bootstrap\fp-jq-ui-bootstrap.less" />
+    <Content Include="Content\fp-charting.less" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>

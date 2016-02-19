@@ -2,7 +2,7 @@
     ViewBag.Title = "Timeline";
 }
 
-<h4 >@ViewBag.Title</h4>
+<h4>@ViewBag.Title</h4>
 <div>
     <nav class="navbar navbar-default" role="navigation">
         <div class="collapse navbar-collapse">
@@ -16,7 +16,7 @@
                            data-val-date="The field Time Frame Begin must be a date."
                            placeholder="Time Frame Begin"
                            type="datetime"
-                           value=""/>
+                           value="" />
                 </div>
                 <div class="form-group">
                     <label class="sr-only" for="timeFrameEnd">To:</label>
@@ -27,7 +27,7 @@
                            data-val-date="The field Time Frame End must be a date."
                            placeholder="Time Frame End"
                            type="datetime"
-                           value=""/>
+                           value="" />
                 </div>
                 <button type="button" class="btn btn-default" id="SearchButton" onclick=" GetData() ">
                     <span class="glyphicon glyphicon-search"></span> View
@@ -42,30 +42,19 @@
     </nav>
 </div>
 <div id="content">
-    <div id="phRT" style="float: right; height: 300px; margin: 0 auto; width: 100%;"></div>
-    <div id="phCDND" style="float: right; height: 250px; margin: 0 auto; width: 100%;"></div>
-    <div id="choicesCDND">
+    <div id="phRT" class="phRT"></div>
+    <div id="phCDND" class="phCDND"></div>
+    <div id="choicesCDND" align="center" class="choicesCDND">
         <table>
             <tbody>
-            <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td>
-                    <input name="0" id="chkCredits" type="checkbox" checked="checked">
-                </td>
-                <td>&nbsp;<label for="chkCredits">Credits</label></td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td>
-                    <input name="1" id="chkDebits" type="checkbox" checked="checked">
-                </td>
-                <td>&nbsp;<label for="chkDebits">Debits</label></td>
-                <td>&nbsp;&nbsp;&nbsp;</td>
-                <td>
-                    <input name="2" id="chkNetDaily" type="checkbox" checked="checked">
-                </td>
-                <td>&nbsp;<label for="chkNetDaily">Net Daily</label></td>
-            </tr>
+                <tr>
+                    <td><input name="0" id="chkCredits" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkCredits">Credits</label></td>
+                    <td class="padding-5-left"><input name="1" id="chkDebits" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkDebits">Debits</label></td>
+                    <td class="padding-5-left"><input name="2" id="chkNetDaily" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkNetDaily">Net Daily</label></td>
+                </tr>
             </tbody>
         </table>
     </div>
