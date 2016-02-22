@@ -679,6 +679,9 @@
     <Content Include="Content\bootstrap\theme\jq-ui-bootstrap\fp-jq-ui-bootstrap.less" />
     <Content Include="Content\fp-charting.less" />
     <Content Include="Areas\Display\Views\Timeline\_TimelineChart.cshtml" />
+    <Content Include="Areas\Help\PartialViews\HelpFiles\_DisplayModes.cshtml" />
+    <Content Include="Areas\Help\PartialViews\HelpFiles\_ItemDetails.cshtml" />
+    <Content Include="Areas\Help\PartialViews\web.config" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
       <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
@@ -735,8 +738,6 @@
     <Content Include="Areas\ItemDetail\Views\Debits\Create.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Debits\Edit.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Debits\Index.cshtml" />
-    <Content Include="Areas\ItemDetail\Views\Shared\DisplayTemplates\Archive\_Radio.cshtml" />
-    <Content Include="Areas\ItemDetail\Views\Shared\EditorTemplates\Archive\_Radio.cshtml" />
     <Content Include="Areas\ItemDetail\Views\InitialAmount\Index.cshtml" />
     <Content Include="Areas\ItemDetail\Views\InitialAmount\Create.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Shared\_IAEditForm.cshtml" />
@@ -838,6 +839,11 @@
       <DependentUpon>jshashtable-3.0.min.js</DependentUpon>
     </Content>
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="_Deprecated\ChartIndex.cshtml" />
+    <Content Include="_Deprecated\DT_Radio.cshtml" />
+    <Content Include="_Deprecated\ET_Radio.cshtml" />
+    <Content Include="_Deprecated\Index - Orig.cshtml" />
+    <Content Include="_Deprecated\Index - Ver 1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />

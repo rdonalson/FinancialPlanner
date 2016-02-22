@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Display Modes";
+}
+
+<div class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="DisplayLable">@ViewBag.Title</h4>
+    </div>
+    <div class="modal-body">
+        <article>
+            <p>
+                <ul class="list-unstyled">
+                    <li>
+                        There are two Display Modes:
+                        <ul>
+                            <li>
+                                Timeline - Displays two charts:
+                                <ul>
+                                    <li>
+                                        The Top shows:
+                                        <ul>
+                                            <li>Running Balance (blue line)</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        And the Bottom shows:
+                                        <ul>
+                                            <li>Net Amount (black line)</li>
+                                            <li>Credit total (blue bar)</li>
+                                            <li>Debit total (red bar)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Ledger & Export to Excel:
+                                <ul>
+                                    <li>
+                                        The Ledger displays the day by day Item Detail of Credits & Debits
+                                    </li>
+                                    <li>
+                                        It can also be exported to excel
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </p>
+            <p>
+                ** With either the Timeline or the Ledger Display & Export enter a time frame and click enter. 
+            </p>
+        </article>
+    </div>
+</div>

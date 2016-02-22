@@ -1,0 +1,28 @@
+﻿@model List<FinancialPlanner.Infrastructure.Domain.Display.Models.PrimaryDataView>
+
+@{
+    ViewBag.Title = "Timeline";
+}
+<div id="content">
+    <div id="phRT" class="phRT"></div>
+    <div id="phCDND" class="phCDND"></div>
+    <div id="choicesCDND" align="center" class="choicesCDND">
+        <table>
+            <tbody>
+                <tr>
+                    <td><input name="0" id="chkCredits" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkCredits">Credits</label></td>
+                    <td class="padding-5-left"><input name="1" id="chkDebits" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkDebits">Debits</label></td>
+                    <td class="padding-5-left"><input name="2" id="chkNetDaily" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkNetDaily">Net Daily</label></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+

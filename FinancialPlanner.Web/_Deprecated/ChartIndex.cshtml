@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.Title = "Timeline";
+}
+
+<h4>@ViewBag.Title</h4>
+<div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse">
+            <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                    <label class="sr-only" for="timeFrameBegin">From:</label>
+                    <input id="timeFrameBegin"
+                           name="timeFrameBegin"
+                           class="form-control text-box single-line"
+                           data-val="true"
+                           data-val-date="The field Time Frame Begin must be a date."
+                           placeholder="Time Frame Begin"
+                           type="datetime"
+                           value="" />
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="timeFrameEnd">To:</label>
+                    <input id="timeFrameEnd"
+                           name="timeFrameEnd"
+                           class="form-control text-box single-line"
+                           data-val="true"
+                           data-val-date="The field Time Frame End must be a date."
+                           placeholder="Time Frame End"
+                           type="datetime"
+                           value="" />
+                </div>
+                <button type="button" class="btn btn-default" id="SearchButton" onclick=" GetData() ">
+                    <span class="glyphicon glyphicon-search"></span> View
+                </button>
+                <div class="validation-summary-valid text-danger" data-valmsg-summary="true">
+                    <ul>
+                        <li style="display: none"></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </nav>
+</div>
+<div id="content">
+    <div id="phRT" class="phRT"></div>
+    <div id="phCDND" class="phCDND"></div>
+    <div id="choicesCDND" align="center" class="choicesCDND">
+        <table>
+            <tbody>
+                <tr>
+                    <td><input name="0" id="chkCredits" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkCredits">Credits</label></td>
+                    <td class="padding-5-left"><input name="1" id="chkDebits" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkDebits">Debits</label></td>
+                    <td class="padding-5-left"><input name="2" id="chkNetDaily" type="checkbox" checked="checked"></td>
+                    <td class="padding-5-left"><label for="chkNetDaily">Net Daily</label></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/flot")
+    @Scripts.Render("~/Scripts/common/common.js")
+    @Scripts.Render("~/Scripts/codebehind/views/timeline/index.js")
+    <script>
+        // Datepicker
+        $("input[id*=\"timeFrame\"]").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    </script>
+}

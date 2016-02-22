@@ -6,12 +6,45 @@
 
 <div class="navbar-collapse collapse">
     <ul class="nav nav-pills nav-stacked span2">
-        <li>@Html.ActionLink("Display", "Index", "DisplayHome", new {area = "Display"}, new {})</li>
-        <li>@Html.ActionLink("Item Detail", "Index", "ItemDetailHome", new {area = "ItemDetail"}, new {})</li>
+        <li>
+            <p>
+                <a href="#" data-toggle="modal" data-target="#popupDisplayModes">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </a>
+                @Html.ActionLink("Display", "Index", "DisplayHome", new { area = "Display" }, new { })
+            </p>
+        </li>
+        <li>
+            <p>
+                <a href="#" data-toggle="modal" data-target="#popupItemDetail">
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                </a>
+                @Html.ActionLink("Item Detail", "Index", "ItemDetailHome", new { area = "ItemDetail" }, new { })
+            </p>
+        </li>
         @if (User.IsInRole("Admin"))
         {
             <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
             <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
         }
     </ul>
+</div>
+
+
+<!-- Modal Popup Display Modes -->
+<div class="modal fade" id="popupDisplayModes" tabindex="-1" role="dialog" aria-labelledby="DisplayModesLabel">
+    <div class="modal-dialog" role="document">
+        @{
+            @Html.Partial("~/Areas/Help/PartialViews/HelpFiles/_DisplayModes.cshtml", null)
+        }
+    </div>
+</div>
+
+<!-- Modal Popup Item Detail -->
+<div class="modal fade" id="popupItemDetail" tabindex="-1" role="dialog" aria-labelledby="ItemDetailLabel">
+    <div class="modal-dialog" role="document">
+        @{
+            @Html.Partial("~/Areas/Help/PartialViews/HelpFiles/_ItemDetails.cshtml", null)
+        }
+    </div>
 </div>
