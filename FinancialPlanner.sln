@@ -41,6 +41,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ledger", "Ledger", "{4EA607
 		Database Scripts\Ledger\Test Procedure spCreateLedgerReadout.sql = Database Scripts\Ledger\Test Procedure spCreateLedgerReadout.sql
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{BDCB5EEA-C46E-4E7B-9354-6B8F6C01CA41}"
+	ProjectSection(SolutionItems) = preProject
+		LICENSE.md = LICENSE.md
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

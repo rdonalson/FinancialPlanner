@@ -424,138 +424,18 @@
     <Content Include="Content\standard.less" />
     <Content Include="Content\spacelab.less" />
     <Content Include="Project_Readme.html" />
-    <Content Include="Scripts\autoNumeric-1.9.24.min.js.map">
-      <DependentUpon>autoNumeric-1.9.24.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\bootstrap.min.js.map">
-      <DependentUpon>bootstrap.min.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\codebehind\views\Timeline\Index.js" />
     <Content Include="Scripts\common\common.js" />
-    <Content Include="Scripts\flot\excanvas.min.js">
-      <DependentUpon>excanvas.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.colorhelpers.min.js">
-      <DependentUpon>jquery.colorhelpers.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\flot\jquery.flot.axislabels.js" />
-    <Content Include="Scripts\flot\jquery.flot.axislabels.min.js">
-      <DependentUpon>jquery.flot.axislabels.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.canvas.min.js">
-      <DependentUpon>jquery.flot.canvas.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.categories.min.js">
-      <DependentUpon>jquery.flot.categories.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.crosshair.min.js">
-      <DependentUpon>jquery.flot.crosshair.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.errorbars.min.js">
-      <DependentUpon>jquery.flot.errorbars.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.fillbetween.min.js">
-      <DependentUpon>jquery.flot.fillbetween.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\flot\jquery.flot.fp-tickrotor.js" />
-    <Content Include="Scripts\flot\jquery.flot.fp-tickrotor.min.js">
-      <DependentUpon>jquery.flot.fp-tickrotor.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\flot\jquery.flot.fp-time.js" />
-    <Content Include="Scripts\flot\jquery.flot.image.min.js">
-      <DependentUpon>jquery.flot.image.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.min.js">
-      <DependentUpon>jquery.flot.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.navigate.min.js">
-      <DependentUpon>jquery.flot.navigate.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.pie.min.js">
-      <DependentUpon>jquery.flot.pie.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.resize.min.js">
-      <DependentUpon>jquery.flot.resize.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.selection.min.js">
-      <DependentUpon>jquery.flot.selection.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.stack.min.js">
-      <DependentUpon>jquery.flot.stack.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.symbol.min.js">
-      <DependentUpon>jquery.flot.symbol.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.threshold.min.js">
-      <DependentUpon>jquery.flot.threshold.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.time.min.js">
-      <DependentUpon>jquery.flot.time.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\html5shiv.min.js.map">
       <DependentUpon>html5shiv.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\excanvas.min.js.map">
-      <DependentUpon>excanvas.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.colorhelpers.min.js.map">
-      <DependentUpon>jquery.colorhelpers.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.canvas.min.js.map">
-      <DependentUpon>jquery.flot.canvas.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.categories.min.js.map">
-      <DependentUpon>jquery.flot.categories.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.crosshair.min.js.map">
-      <DependentUpon>jquery.flot.crosshair.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.errorbars.min.js.map">
-      <DependentUpon>jquery.flot.errorbars.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.fillbetween.min.js.map">
-      <DependentUpon>jquery.flot.fillbetween.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.image.min.js.map">
-      <DependentUpon>jquery.flot.image.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.min.js.map">
-      <DependentUpon>jquery.flot.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.navigate.min.js.map">
-      <DependentUpon>jquery.flot.navigate.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.pie.min.js.map">
-      <DependentUpon>jquery.flot.pie.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.resize.min.js.map">
-      <DependentUpon>jquery.flot.resize.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.selection.min.js.map">
-      <DependentUpon>jquery.flot.selection.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.stack.min.js.map">
-      <DependentUpon>jquery.flot.stack.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.symbol.min.js.map">
-      <DependentUpon>jquery.flot.symbol.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.threshold.min.js.map">
-      <DependentUpon>jquery.flot.threshold.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.time.min.js.map">
-      <DependentUpon>jquery.flot.time.min.js</DependentUpon>
     </Content>
     <Content Include="Areas\Display\Views\web.config" />
     <Content Include="Areas\Display\Views\Timeline\Index.cshtml" />
     <Content Include="Areas\Display\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Display\Views\_ViewStart.cshtml" />
-    <Content Include="Scripts\autoNumeric-1.9.24.min.js">
-      <DependentUpon>autoNumeric-1.9.24.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\bootstrap.min.js">
-      <DependentUpon>bootstrap.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\html5shiv.js" />
     <Content Include="Scripts\html5shiv.min.js">
       <DependentUpon>html5shiv.js</DependentUpon>
@@ -652,12 +532,6 @@
     <Content Include="Content\bootstrap\bootstrap.less" />
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
-    <Content Include="Scripts\flot\jquery.flot.fp-tickrotor.min.js.map">
-      <DependentUpon>jquery.flot.fp-tickrotor.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\flot\jquery.flot.axislabels.min.js.map">
-      <DependentUpon>jquery.flot.axislabels.min.js</DependentUpon>
-    </Content>
     <Content Include="Areas\Display\Views\Ledger\Index.cshtml" />
     <Content Include="Areas\Display\Views\Ledger\_Ledger.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Date.cshtml" />
@@ -682,56 +556,16 @@
     <Content Include="Areas\Help\PartialViews\HelpFiles\_DisplayModes.cshtml" />
     <Content Include="Areas\Help\PartialViews\HelpFiles\_ItemDetails.cshtml" />
     <Content Include="Areas\Help\PartialViews\web.config" />
+    <Content Include="Content\bootstrap\datepicker.less" />
+    <Content Include="Content\bootstrap\datepicker3.less" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
-    <Content Include="Scripts\jquery-2.2.0.intellisense.min.js">
-      <DependentUpon>jquery-2.2.0.intellisense.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-2.2.0.js" />
-    <Content Include="Scripts\jquery-2.2.0.min.js">
-      <DependentUpon>jquery-2.2.0.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery-ui-1.10.3.custom.min.js.map">
-      <DependentUpon>jquery-ui-1.10.3.custom.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery-ui-1.11.4.min.js.map">
-      <DependentUpon>jquery-ui-1.11.4.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery-2.2.0.min.js.map">
-      <DependentUpon>jquery-2.2.0.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery-2.2.0.intellisense.min.js.map">
-      <DependentUpon>jquery-2.2.0.intellisense.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery.numberformatter-1.2.4.min.js.map">
-      <DependentUpon>jquery.numberformatter-1.2.4.min.js</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery.validate-vsdoc.js" />
-    <Content Include="Scripts\jquery-ui-1.10.3.custom.min.js">
-      <DependentUpon>jquery-ui-1.10.3.custom.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery-ui-1.11.4.js" />
-    <Content Include="Scripts\jquery-ui-1.11.4.min.js">
-      <DependentUpon>jquery-ui-1.11.4.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery.numberformatter-1.2.4.js" />
-    <Content Include="Scripts\jquery.numberformatter-1.2.4.min.js">
-      <DependentUpon>jquery.numberformatter-1.2.4.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery.validate-vsdoc.min.js">
-      <DependentUpon>jquery.validate-vsdoc.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery.validate.js" />
-    <Content Include="Scripts\jquery.validate.min.js">
-      <DependentUpon>jquery.validate.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js">
-      <DependentUpon>jquery.validate.unobtrusive.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\jshashtable-3.0.js" />
-    <Content Include="Scripts\jshashtable-3.0.min.js">
-      <DependentUpon>jshashtable-3.0.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Areas\ItemDetail\Views\Shared\EditorTemplates\_Dropdown.cshtml" />
     <Content Include="Areas\ItemDetail\Views\Shared\DisplayTemplates\_Dropdown.cshtml" />
@@ -749,21 +583,9 @@
     <Content Include="Scripts\autoNumeric-1.9.24.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\jquery-ui-1.10.3.custom.js" />
-    <Content Include="Scripts\modernizr-2.8.3.min.js">
-      <DependentUpon>modernizr-2.8.3.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
-    <Content Include="Scripts\respond.matchmedia.addListener.min.js">
-      <DependentUpon>respond.matchmedia.addListener.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\respond.min.js">
-      <DependentUpon>respond.js</DependentUpon>
-    </Content>
     <Content Include="Scripts\_references.js" />
-    <Content Include="Scripts\_references.min.js">
-      <DependentUpon>_references.js</DependentUpon>
-    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -814,30 +636,6 @@
       <SubType>Code</SubType>
     </Content>
     <Content Include="Views\Home\Archive\Index - Orig.cshtml" />
-    <Content Include="Scripts\jquery.validate-vsdoc.min.js.map">
-      <DependentUpon>jquery.validate-vsdoc.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery.validate.min.js.map">
-      <DependentUpon>jquery.validate.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jquery.validate.unobtrusive.min.js.map">
-      <DependentUpon>jquery.validate.unobtrusive.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\modernizr-2.8.3.min.js.map">
-      <DependentUpon>modernizr-2.8.3.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\respond.matchmedia.addListener.min.js.map">
-      <DependentUpon>respond.matchmedia.addListener.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\_references.min.js.map">
-      <DependentUpon>_references.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\respond.min.js.map">
-      <DependentUpon>respond.min.js</DependentUpon>
-    </Content>
-    <Content Include="Scripts\jshashtable-3.0.min.js.map">
-      <DependentUpon>jshashtable-3.0.min.js</DependentUpon>
-    </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="_Deprecated\ChartIndex.cshtml" />
     <Content Include="_Deprecated\DT_Radio.cshtml" />

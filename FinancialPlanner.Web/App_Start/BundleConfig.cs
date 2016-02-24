@@ -19,7 +19,6 @@ namespace FinancialPlanner.Web
             cssBundle.Include(
                 "~/Content/fp-custom.less",
                 "~/Content/fp-standard.less");   //fp-spacelab
-
             cssBundle.Transforms.Add(cssTransformer);
             cssBundle.Orderer = nullOrderer;
             bundles.Add(cssBundle);
@@ -27,7 +26,8 @@ namespace FinancialPlanner.Web
             var jqueryBundle = new ScriptBundle("~/bundles/jquery");
             jqueryBundle.Include(
                 "~/Scripts/jquery-{version}.js",
-                "~/Scripts/jquery-ui-{version}.custom.js");
+                "~/Scripts/jquery-ui-{version}.custom.js",
+                "~/Scripts/bootstrap-datepicker.js");
             jqueryBundle.Transforms.Add(jsTransformer);
             jqueryBundle.Orderer = nullOrderer;
             bundles.Add(jqueryBundle);
