@@ -1,0 +1,64 @@
+﻿@model  FinancialPlanner.Infrastructure.Domain.Display.Models.LedgerCriteriaView
+
+@{
+    ViewBag.Title = "Ledger";
+}
+<h4>@ViewBag.Title</h4>
+<div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse">
+            @using (Html.BeginForm("Index", "Ledger", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.DoExport)
+                <div class="form-group">
+                    <label class="sr-only" for="TimeFrameBegin">Email address</label>
+                    @Html.EditorFor(model => model.TimeFrameBegin, new { htmlAttributes = new { placeholder = Html.DisplayNameFor(model => model.TimeFrameBegin), @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    <label class="sr-only" for="TimeFrameEnd">Email address</label>
+                    @Html.EditorFor(model => model.TimeFrameEnd, new { htmlAttributes = new { placeholder = Html.DisplayNameFor(model => model.TimeFrameEnd), @class = "form-control" } })
+                </div>
+                <button type="submit" class="btn btn-default" id="SearchButton"><span class="glyphicon glyphicon-search"></span> Generate</button>
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            }
+
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" id="ExportButton"><span class="glyphicon glyphicon-save"></span> Export</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+@{
+    if (Model != null)
+    {
+        @Html.Partial("_Ledger", Model.Result)
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script>
+        $(function () {
+            $('#SearchButton').click(function () {
+                $('#DoExport').val(false);
+            });
+
+            $('#ExportButton').click(function () {
+                $('#DoExport').val(true);
+                $('#DoExport').closest("form").submit();
+            });
+        })
+
+        // Datepicker
+        $('input[id*="timeFrame"]').datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    </script>
+}
+

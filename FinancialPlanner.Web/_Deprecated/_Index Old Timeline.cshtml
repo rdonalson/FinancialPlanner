@@ -1,0 +1,51 @@
+﻿@model  FinancialPlanner.Infrastructure.Domain.Display.Models.TimelineCriteriaView
+
+@{
+    ViewBag.Title = "Timeline";
+}
+<h4>@ViewBag.Title</h4>
+<div>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="collapse navbar-collapse">
+            @using (Html.BeginForm("Index", "Timeline", FormMethod.Post, new { @class = "navbar-form navbar-left", role = "search" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    @Html.EditorFor(model => model.TimeFrameBegin, new { htmlAttributes = new { placeholder = Html.DisplayNameFor(model => model.TimeFrameBegin), @class = "form-control" } })
+                </div>
+                <div class="form-group">
+                    @Html.EditorFor(model => model.TimeFrameEnd, new { htmlAttributes = new { placeholder = Html.DisplayNameFor(model => model.TimeFrameEnd), @class = "form-control" } })
+                </div>
+                <button type="submit" class="btn btn-default" id="SearchButton"><span class="glyphicon glyphicon-search"></span> View</button>
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+            }
+        </div>
+    </nav>
+</div>
+
+@{
+    if (Model != null)
+    {
+        @Html.Partial("_TimelineChart", Model.Result)
+    }
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/flot")
+    @Scripts.Render("~/Scripts/common/common.js")
+    @Scripts.Render("~/Scripts/codebehind/views/timeline/index.js")
+    <script>
+        $(function () {
+            InitializeTimelineChart(@Html.Raw(Json.Encode(Model)));
+        });
+
+        /* Datepicker */
+        $("input[id*=\"timeFrame\"]").datepicker({
+            changeMonth: true,
+            changeYear: true
+        });
+    </script>
+}
+
+

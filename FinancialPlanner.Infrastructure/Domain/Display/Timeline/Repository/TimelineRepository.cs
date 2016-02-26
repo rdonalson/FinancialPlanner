@@ -118,19 +118,19 @@ namespace FinancialPlanner.Infrastructure.Domain.Display.Timeline.Repository
         ///     Return ObjectResult of Timeline Items.  Scheduled Credits and Debits
         ///     in a Ledger format
         /// </summary>
-        /// <param name="timeFrameBegin">DateTime</param>
-        /// <param name="timeFrameEnd">DateTime</param>
+        /// <param name="TimeFrameBegin">DateTime</param>
+        /// <param name="TimeFrameEnd">DateTime</param>
         /// <param name="userName">userName</param>
         /// <returns>ObjectResult(spCreateLedgerReadout_Result)</returns>
         /// ---------------------------------------------------------------------
         public ObjectResult<spCreateLedgerReadout_Result> GetLedger(
-            DateTime timeFrameBegin,
-            DateTime timeFrameEnd,
+            DateTime TimeFrameBegin,
+            DateTime TimeFrameEnd,
             string userName)
         {
             try
             {
-                return _db.spCreateLedgerReadout(timeFrameBegin, timeFrameEnd, userName, true);
+                return _db.spCreateLedgerReadout(TimeFrameBegin, TimeFrameEnd, userName, true);
             }
             catch (Exception ex)
             {

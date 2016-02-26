@@ -7,6 +7,17 @@ namespace FinancialPlanner.Infrastructure.Domain.Display.Models
 {
     /// =====================================================================
     /// <summary>
+    ///     This View Model is used in the Temp Data Container
+    /// </summary>
+    /// =====================================================================
+    public class TempDateCriteriaView
+    {
+        public DateTime TimeFrameBegin { get; set; }
+        public DateTime TimeFrameEnd { get; set; }
+    }
+
+    /// =====================================================================
+    /// <summary>
     ///     This View Model is used in the Timeline Criteria Section
     /// </summary>
     /// =====================================================================
@@ -19,11 +30,11 @@ namespace FinancialPlanner.Infrastructure.Domain.Display.Models
         /// ---------------------------------------------------------------------
         [Required]
         [Display(Name = "Time Frame Begin")]
-        public DateTime timeFrameBegin { get; set; }
+        public DateTime TimeFrameBegin { get; set; }
 
         [Required]
         [Display(Name = "Time Frame End")]
-        public DateTime timeFrameEnd { get; set; }
+        public DateTime TimeFrameEnd { get; set; }
 
         /// ---------------------------------------------------------------------
         /// <summary>
@@ -47,11 +58,11 @@ namespace FinancialPlanner.Infrastructure.Domain.Display.Models
         /// ---------------------------------------------------------------------
         [Required]
         [Display(Name = "Time Frame Begin")]
-        public DateTime timeFrameBegin { get; set; }
+        public DateTime TimeFrameBegin { get; set; }
 
         [Required]
         [Display(Name = "Time Frame End")]
-        public DateTime timeFrameEnd { get; set; }
+        public DateTime TimeFrameEnd { get; set; }
 
         /// ---------------------------------------------------------------------
         /// <summary>

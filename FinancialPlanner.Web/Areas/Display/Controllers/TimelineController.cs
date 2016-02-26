@@ -42,7 +42,26 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
         /// ---------------------------------------------------------------------
         public ActionResult Index()
         {
-            return View();
+            var vm = new TimelineCriteriaView();
+            var cm = new TempDateCriteriaView();
+            if (TempData["CriteriaModel"] == null)
+            {
+                var dateTime = DateTime.Today;
+                vm.TimeFrameBegin = dateTime;
+                vm.TimeFrameEnd = dateTime.AddMonths(1);
+                cm.TimeFrameBegin = vm.TimeFrameBegin;
+                cm.TimeFrameEnd = vm.TimeFrameEnd;
+                TempData["CriteriaModel"] = cm;
+            }
+            else
+            {
+                cm = TempData["CriteriaModel"] as TempDateCriteriaView;
+                if (cm != null) vm.TimeFrameBegin = cm.TimeFrameBegin;
+                if (cm != null) vm.TimeFrameEnd = cm.TimeFrameEnd;
+            }
+            vm.Result =
+                _timelineRepository.GetLedger(vm.TimeFrameBegin, vm.TimeFrameEnd, User.Identity.GetUserName()).ToList();
+            return View(vm);
         }
 
         /// ---------------------------------------------------------------------
@@ -56,10 +75,10 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
         /// <returns>ActionResult</returns>
         /// ---------------------------------------------------------------------
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Index(TimelineCriteriaView vm)
         {
-            vm.Result = _timelineRepository.GetLedger(vm.timeFrameBegin, vm.timeFrameEnd, User.Identity.GetUserName()).ToList();
+            vm.Result =
+                _timelineRepository.GetLedger(vm.TimeFrameBegin, vm.TimeFrameEnd, User.Identity.GetUserName()).ToList();
             return View(vm);
         }
 

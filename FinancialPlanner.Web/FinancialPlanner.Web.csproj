@@ -424,6 +424,7 @@
     <Content Include="Content\standard.less" />
     <Content Include="Content\spacelab.less" />
     <Content Include="Project_Readme.html" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
     <Content Include="Scripts\codebehind\views\Timeline\Index.js" />
     <Content Include="Scripts\common\common.js" />
     <Content Include="Scripts\flot\jquery.flot.axislabels.js" />
@@ -533,7 +534,7 @@
     <Content Include="Content\bootstrap\badges.less" />
     <Content Include="Content\bootstrap\alerts.less" />
     <Content Include="Areas\Display\Views\Ledger\Index.cshtml" />
-    <Content Include="Areas\Display\Views\Ledger\_Ledger.cshtml" />
+    <Content Include="_Deprecated\_Ledger.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Date.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_DateTime.cshtml" />
     <Content Include="Areas\Display\Views\Shared\DisplayTemplates\_Dropdown.cshtml" />
@@ -558,6 +559,7 @@
     <Content Include="Areas\Help\PartialViews\web.config" />
     <Content Include="Content\bootstrap\datepicker.less" />
     <Content Include="Content\bootstrap\datepicker3.less" />
+    <Content Include="Areas\Display\Views\Ledger\_LedgerReadout.cshtml" />
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -642,6 +644,8 @@
     <Content Include="_Deprecated\ET_Radio.cshtml" />
     <Content Include="_Deprecated\Index - Orig.cshtml" />
     <Content Include="_Deprecated\Index - Ver 1.cshtml" />
+    <Content Include="_Deprecated\_Index Old Ledger.cshtml" />
+    <Content Include="_Deprecated\_Index Old Timeline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\PublishProfiles\" />

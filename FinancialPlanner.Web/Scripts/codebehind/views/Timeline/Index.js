@@ -147,15 +147,15 @@ function InitializeTimelineChart(model)
  * -------------------------------------------------------------------------------------*/
 function GetData(model) {
     var viewModel = {
-        timeFrameBegin: $("#timeFrameBegin").val(),
-        timeFrameEnd: $("#timeFrameEnd").val()
+        timeFrameBegin: $("#TimeFrameBegin").val(),
+        timeFrameEnd: $("#TimeFrameEnd").val()
     };
 
     MainList = model.Result;
 
     /* Diagnostic */
-    //viewModel.timeFrameBegin = "1/1/2016";
-    //viewModel.timeFrameEnd = "3/1/2016";
+    //viewModel.TimeFrameBegin = "1/1/2016";
+    //viewModel.TimeFrameEnd = "3/1/2016";
 
     /* In days */
     var dailyCutoff = 60;

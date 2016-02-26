@@ -48,7 +48,26 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
         /// ---------------------------------------------------------------------
         public ActionResult Index()
         {
-            return View();
+            var vm = new LedgerCriteriaView();
+            var cm = new TempDateCriteriaView();
+            if (TempData["CriteriaModel"] == null)
+            {
+                var dateTime = DateTime.Today;
+                vm.TimeFrameBegin = dateTime;
+                vm.TimeFrameEnd = dateTime.AddMonths(1);
+                cm.TimeFrameBegin = vm.TimeFrameBegin;
+                cm.TimeFrameEnd = vm.TimeFrameEnd;
+                TempData["CriteriaModel"] = cm;
+            }
+            else
+            {
+                cm = TempData["CriteriaModel"] as TempDateCriteriaView;
+                if (cm != null) vm.TimeFrameBegin = cm.TimeFrameBegin;
+                if (cm != null) vm.TimeFrameEnd = cm.TimeFrameEnd;
+            }
+            vm.Result =
+                _ledgerRepository.GetLedger(vm.TimeFrameBegin, vm.TimeFrameEnd, User.Identity.GetUserName()).ToList();
+            return View(vm);
         }
 
         /// ---------------------------------------------------------------------
@@ -62,10 +81,10 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
         /// <returns>ActionResult</returns>
         /// ---------------------------------------------------------------------
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Index(LedgerCriteriaView vm)
         {
-            vm.Result = _ledgerRepository.GetLedger(vm.timeFrameBegin, vm.timeFrameEnd, User.Identity.GetUserName()).ToList();
+            vm.Result =
+                _ledgerRepository.GetLedger(vm.TimeFrameBegin, vm.TimeFrameEnd, User.Identity.GetUserName()).ToList();
             if (vm.DoExport && vm.Result.Count > 0)
             {
                 return LedgerExport(vm.Result);
@@ -75,7 +94,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        ///     Exports Data from "spCreateLedgerReadout" procedure in the 
+        ///     Exports Data from "spCreateLedgerReadout" procedure in the
         ///     Ledger Repository to Excel
         /// </summary>
         /// <param name="data">List(spCreateLedgerReadout_Result)</param>
@@ -100,20 +119,21 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
                 foreach (var item in data)
                 {
                     currRow += 1;
-                    ws.Cells[currRow, 1].Value = item.WDate;                // A:A  Date
-                    ws.Cells[currRow, 2].Value = item.CreditSummary;        // B:B  Currency
-                    ws.Cells[currRow, 3].Value = item.DebitSummary;         // C:C  Currency
-                    ws.Cells[currRow, 4].Value = item.Net;                  // D:D  Currency
-                    ws.Cells[currRow, 5].Value = item.RunningTotal;         // E:E  Currency
-                    var range = ws.Cells[currRow, 6];                       // F:F  Custom
+                    ws.Cells[currRow, 1].Value = item.WDate; // A:A  Date
+                    ws.Cells[currRow, 2].Value = item.CreditSummary; // B:B  Currency
+                    ws.Cells[currRow, 3].Value = item.DebitSummary; // C:C  Currency
+                    ws.Cells[currRow, 4].Value = item.Net; // D:D  Currency
+                    ws.Cells[currRow, 5].Value = item.RunningTotal; // E:E  Currency
+                    var range = ws.Cells[currRow, 6]; // F:F  Custom
                     GetItemType(ref range, item.ItemType);
-                    ws.Cells[currRow, 7].Value = item.PeriodName;           // G:G  Text
-                    ws.Cells[currRow, 8].Value = item.Name;                 // H:H  Text
-                    ws.Cells[currRow, 9].Value = item.Amount;               // I:I  Currency
+                    ws.Cells[currRow, 7].Value = item.PeriodName; // G:G  Text
+                    ws.Cells[currRow, 8].Value = item.Name; // H:H  Text
+                    ws.Cells[currRow, 9].Value = item.Amount; // I:I  Currency
                 }
 
                 ws.SelectedRange["A:A"].Style.Numberformat.Format = @"mm/dd/yy;@";
-                ws.SelectedRange["B:B,C:C,D:D,E:E,I:I"].Style.Numberformat.Format = @"[Blue]_($* #,##0.00_);[Magenta]_($* (#,##0.00);[Black]_(* ""-""??_);_(@_)";
+                ws.SelectedRange["B:B,C:C,D:D,E:E,I:I"].Style.Numberformat.Format =
+                    @"[Blue]_($* #,##0.00_);[Magenta]_($* (#,##0.00);[Black]_(* ""-""??_);_(@_)";
 
                 var selectedRange = ws.SelectedRange["A1:I1"];
                 selectedRange.Style.Border.Left.Style = ExcelBorderStyle.Thin;
@@ -139,7 +159,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
 
         /// ---------------------------------------------------------------------
         /// <summary>
-        /// Sets the value and format for the Item Type (Credit or Debit)
+        ///     Sets the value and format for the Item Type (Credit or Debit)
         /// </summary>
         /// <param name="range">ExcelRangeBase</param>
         /// <param name="value">int?</param>
