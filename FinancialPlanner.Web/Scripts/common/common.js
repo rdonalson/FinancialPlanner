@@ -4,13 +4,13 @@
 /* ---------------------------------------------------------------------------------------
  * This function produces the tooltip popup on the Timeline Charts
  * -------------------------------------------------------------------------------------*/
-function TooltipDialogPanel(event, pos, item, mainList) {
+function TooltipDialogPanel(event, pos, item, mainList, frm) {
     if (item) {
         $("#tooltip").remove();
 
         var xvalue = item.datapoint[0];
         var yvalue = item.datapoint[1];
-        var date = $.datepicker.formatDate("D mm/dd/yy", new Date(xvalue));
+        var date = $.plot.formatDate(new Date(xvalue), frm);
 
         var color = item.series.color;
         var itemFilter;

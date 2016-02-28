@@ -20,7 +20,7 @@ var MainList = new Array(),
     DebitList = new Array(),
     NetAmount = new Array(),
     dailyBarWidth = timeUnitSize.day,
-    choiceContainer;
+    choiceContainer, format;
 /* Datasets */
 var dsRunningTotal = [
     {
@@ -223,18 +223,23 @@ function AutoAdjustBarWidth(
     if (days <= dailyCutoff) {
         barFirst.bars.barWidth = timeUnitSize.day;
         barSecond.bars.barWidth = timeUnitSize.day;
+        format = "%a %m/%d/%y";
     } else if (days > dailyCutoff && days <= weeklyCutoff) {
         barFirst.bars.barWidth = timeUnitSize.week;
         barSecond.bars.barWidth = timeUnitSize.week;
+        format = "Week ending %a %m/%d/%y";
     } else if (days > weeklyCutoff && days <= monthlyCutoff) {
         barFirst.bars.barWidth = timeUnitSize.month;
         barSecond.bars.barWidth = timeUnitSize.month;
+        format = "%b %Y";
     } else if (days > monthlyCutoff && days <= quarterlyCutoff) {
         barFirst.bars.barWidth = timeUnitSize.quarter;
         barSecond.bars.barWidth = timeUnitSize.quarter;
+        format = "%q %Y";
     } else if (days > quarterlyCutoff) {
         barFirst.bars.barWidth = timeUnitSize.year;
         barSecond.bars.barWidth = timeUnitSize.year;
+        format = "%Y";
     }
 }
 
@@ -286,7 +291,7 @@ function InitCDNDDataset() {
  * -------------------------------------------------------------------------------------*/
 $.fn.UseTooltip = function() {
     $(this).bind("plothover", function(event, pos, item) {
-        TooltipDialogPanel(event, pos, item, MainList);
+        TooltipDialogPanel(event, pos, item, MainList, format);
     });
 };
 
