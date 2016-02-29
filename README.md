@@ -1,6 +1,10 @@
 # FinancialPlanner
 FinancialPlanner - Source Code 
 
+Demo on Azure: http://rickdonalson-financialplanner.azurewebsites.net
+Login:  Tom.Jones@me.com
+Pswrd:  Abc123*
+
 Setup:
   Connection strings are created dynamically using parameters setup in the Resources folders of the FinancialPlanner "*.Data" and "*.Web" projects.  Utils.cs in "*.Data" and ConnectionHelopers.cs in "*.Web" handle string construction.
   
