@@ -1,8 +1,8 @@
 # FinancialPlanner
 FinancialPlanner - Source Code 
 
-Demo on Azure: http://rickdonalson-financialplanner.azurewebsites.net
-Login:  Tom.Jones@me.com
+Demo on Azure: http://rickdonalson-financialplanner.azurewebsites.net<br/>
+Login:  Tom.Jones@me.com<br/>
 Pswrd:  Abc123*
 
 Setup:
