@@ -84,6 +84,7 @@ namespace FinancialPlanner.Web.Areas.Display.Controllers
 
         /// ---------------------------------------------------------------------
         /// <summary>
+        ///     *** Archived ***
         ///     Return List of Timeline Items from the TimelineRepository repository.
         ///     Scheduled Credits and Debits in a Ledger format
         ///     -------------------------------------
