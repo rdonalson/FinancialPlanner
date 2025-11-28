@@ -237,16 +237,17 @@ _Pvt_Extensions
 
 bin/
 obj/
-/FinancialPlanner.Data/bin/
-/FinancialPlanner.Data/obj/
+**/FinancialPlanner.Data/bin/
+**/FinancialPlanner.Data/obj/
 /FinancialPlanner.Services/bin/	
 /FinancialPlanner.Services/obj/
-/FinancialPlanner.Data/bin/
-/FinancialPlanner.Data/bin/Debug/FinancialPlanner.Data.pdb
-/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.csproj.FileListAbsolute.txt
-/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.csproj.GenerateResource.Cache
-/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.dll
-/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.pdb
+/FinancialPlanner.Infrastructure/bin/
+/FinancialPlanner.Infrastructure/obj/
+/FinancialPlanner.Web/bin/
+/FinancialPlanner.Web/obj/
+
+
+
 /FinancialPlanner.Infrastructure/bin/Debug/FinancialPlanner.Data.dll
 /FinancialPlanner.Infrastructure/bin/Debug/FinancialPlanner.Data.pdb
 /FinancialPlanner.Infrastructure/bin/Debug/FinancialPlanner.Infrastructure.dll
