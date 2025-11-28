@@ -234,3 +234,33 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+bin/
+obj/
+/FinancialPlanner.Data/bin/
+/FinancialPlanner.Data/obj/
+/FinancialPlanner.Services/bin/	
+/FinancialPlanner.Services/obj/
+/FinancialPlanner.Data/bin/
+/FinancialPlanner.Data/bin/Debug/FinancialPlanner.Data.pdb
+/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.csproj.FileListAbsolute.txt
+/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.csproj.GenerateResource.Cache
+/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.dll
+/FinancialPlanner.Data/obj/Debug/FinancialPlanner.Data.pdb
+/FinancialPlanner.Infrastructure/bin/Debug/FinancialPlanner.Data.dll
+/FinancialPlanner.Infrastructure/bin/Debug/FinancialPlanner.Data.pdb
+/FinancialPlanner.Infrastructure/bin/Debug/FinancialPlanner.Infrastructure.dll
+/FinancialPlanner.Infrastructure/bin/Debug/FinancialPlanner.Infrastructure.pdb
+/FinancialPlanner.Infrastructure/obj/Debug/FinancialPlanner.Infrastructure.csproj.FileListAbsolute.txt
+/FinancialPlanner.Infrastructure/obj/Debug/FinancialPlanner.Infrastructure.dll
+/FinancialPlanner.Infrastructure/obj/Debug/FinancialPlanner.Infrastructure.pdb
+/FinancialPlanner.Web/bin/FinancialPlanner.Data.dll
+/FinancialPlanner.Web/bin/FinancialPlanner.Data.pdb
+/FinancialPlanner.Web/bin/FinancialPlanner.Infrastructure.dll
+/FinancialPlanner.Web/bin/FinancialPlanner.Infrastructure.pdb
+/FinancialPlanner.Web/bin/FinancialPlanner.Web.dll
+/FinancialPlanner.Web/bin/FinancialPlanner.Web.pdb
+/FinancialPlanner.Web/obj/Debug/FinancialPlanner.Web.csproj.FileListAbsolute.txt
+/FinancialPlanner.Web/obj/Debug/FinancialPlanner.Web.csproj.GenerateResource.Cache
+/FinancialPlanner.Web/obj/Debug/FinancialPlanner.Web.dll
+/FinancialPlanner.Web/obj/Debug/FinancialPlanner.Web.pdb
