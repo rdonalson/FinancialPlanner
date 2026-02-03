@@ -31,9 +31,8 @@ This application enables users to project their checking or savings account bala
 - **GitHub:** [Source Code](https://github.com/rdonalson/FinancialPlanner)  
 
 ---
-
-## Project Structure
-
+---
+# Portfolio Samples
 ### **FinancialPlanner.Web**  
 **JavaScript Development**
 - [`common.js`](https://github.com/rdonalson/FinancialPlanner/blob/master/FinancialPlanner.Web/Scripts/common/common.js)  
@@ -73,5 +72,7 @@ Typical implementation for credit and debit editing:
 ### **FinancialPlanner.Data**  
 **Entities**
 - Legacy Entity Framework models  
-- [`Entities`](https://github.com/rdonalson/FinancialPlanner/tree/master/FinancialPlanner.Data/Entity)  
+- [`Entities`](https://github.com/rdonalson/FinancialPlanner/tree/master/FinancialPlanner.Data/Entity)
+---
+---
 
